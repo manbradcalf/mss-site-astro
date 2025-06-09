@@ -1,0 +1,57 @@
+---
+// src/components/Services.astro
+const services = [
+  {
+    icon: "fas fa-robot",
+    title: "Test Automation",
+    description: "Custom automated testing frameworks using industry-leading tools across web, mobile and backend applications."
+  },
+  {
+    icon: "fab fa-react",
+    title: "React Development",
+    description: "Modern, responsive web applications built with React, featuring clean code architecture and optimal performance."
+  },
+  {
+    icon: "fas fa-mobile-alt",
+    title: "React Native Development",
+    description: "Cross-platform mobile applications that deliver native performance with a single codebase for iOS and Android."
+  },
+  {
+    icon: "fas fa-shield-alt",
+    title: "QA Consulting",
+    description: "Strategic quality assurance consulting to optimize your testing processes and implement best practices."
+  },
+  {
+    icon: "fas fa-cogs",
+    title: "CI/CD Integration",
+    description: "Seamless integration of automated testing into your continuous integration and deployment pipelines."
+  },
+  {
+    icon: "fa-solid fa-cloud",
+    title: "Mobile Device Farm Integration",
+    description: "Integration of mobile device farms to ensure your applications are tested on a wide range of devices and operating systems."
+  }
+];
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>Comprehensive QA and development solutions tailored to your needs</p>
+    </div>
+    <div class="services-grid">
+      {
+        services.map((service) => (
+          <div class="service-card">
+            <div class="service-icon">
+              <i class={service.icon} />
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

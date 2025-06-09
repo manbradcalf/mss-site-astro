@@ -1,0 +1,105 @@
+---
+import TagList from "./TagList.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author: string;
+  tags: string[];
+  slug: string;
+  image?: string;
+}
+
+const { title, description, pubDate, author, tags, slug, image } = Astro.props;
+---
+
+<article class="blog-card">
+  {image && <img src={image} alt={title} class="blog-card-image" />}
+  <div class="blog-card-content">
+    <h2 class="blog-card-title">
+      <a href={`/blog/${slug}`}>{title}</a>
+    </h2>
+    <p class="blog-card-excerpt">{description}</p>
+    <div class="blog-card-meta">
+      <span class="author">{author}</span>
+      <span class="date">
+        {
+          pubDate.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </span>
+    </div>
+    <TagList tags={tags} />
+  </div>
+</article>
+
+<style>
+  .blog-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .blog-card-content {
+    padding: 1.5rem;
+  }
+
+  .blog-card-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .blog-card-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .blog-card-title a:hover {
+    color: var(--color-primary, #1dbf73);
+  }
+
+  .blog-card-excerpt {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .blog-card-meta {
+    display: flex;
+    gap: 1rem;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-title {
+      font-size: 1.3rem;
+    }
+
+    .blog-card-content {
+      padding: 1rem;
+    }
+  }
+</style>

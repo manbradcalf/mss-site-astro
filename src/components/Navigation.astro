@@ -1,0 +1,73 @@
+---
+// src/components/Navigation.astro
+---
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <a href="/" class="nav-logo-link">
+        <h2>Medcalf Software Solutions</h2>
+      </a>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="/#home" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="/#services" class="nav-link">Services</a>
+      </li>
+      <li class="nav-item">
+        <a href="/#packages" class="nav-link">Packages</a>
+      </li>
+      <li class="nav-item">
+        <a href="/blog/" class="nav-link">Blog</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a href="/#contact" class="nav-link">Contact</a>
+      </li> -->
+    </ul>
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-logo-link {
+    text-decoration: none;
+  }
+</style>
+
+<script>
+  // This script will only run on the client side
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+
+  function toggleMenu() {
+    hamburger?.classList.toggle("active");
+    navMenu?.classList.toggle("active");
+  }
+
+  function closeMenu() {
+    hamburger?.classList.remove("active");
+    navMenu?.classList.remove("active");
+  }
+
+  // Add click event to hamburger
+  hamburger?.addEventListener("click", toggleMenu);
+
+  // Add click events to all nav links
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest(".nav-menu") && !target.closest(".hamburger")) {
+      closeMenu();
+    }
+  });
+</script>

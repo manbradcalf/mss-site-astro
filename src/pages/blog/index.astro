@@ -1,0 +1,71 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/blog/BlogCard.astro";
+import BlogHeader from "../../components/blog/BlogHeader.astro";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Blog - Medcalf Software Solutions">
+  <Navigation />
+
+  <main class="blog-index">
+    <div class="container">
+      <BlogHeader
+        title="Latest Posts"
+        description="Insights on test automation, QA best practices, and software development"
+      />
+
+      <div class="blog-grid">
+        {
+          sortedPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              author={post.data.author}
+              tags={post.data.tags}
+              slug={post.slug}
+              image={post.data.image}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .blog-index {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-index {
+      padding-top: 100px;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+      padding: 0.5rem;
+    }
+  }
+</style>
