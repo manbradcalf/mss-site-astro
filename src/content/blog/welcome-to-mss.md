@@ -2,7 +2,7 @@
 title: "Welcome to Medcalf Software Solutions"
 description: "Introducing the MSS blog, where we'll share insights on
   software testing, development, and maybe even football"
-pubDate: 2025-06-05
+pubDate: 2025-06-17
 author: "Ben Medcalf"
 tags: ["introduction", "software", "mss"]
 image: "/images/M\ Logo.svg"
@@ -28,7 +28,7 @@ Over the last 10 years, I've built test automation frameworks and CI/CD pipeline
 Fortune 500 companies.
 
 To nab my first QA role, I taught myself bash so I could build Jenkins jobs
-that would deploy, run and test apps on iPhone 6s phones hanging off of a Mac Mini.
+that would deploy, run and test apps on iPhone 6s hanging off of a Mac Mini.
 
 Now, I need to remember to lint my yml files. Soon, I'll just be prompting
 Claude.
@@ -76,9 +76,9 @@ technologies.
 It's where I spin up Agentic AI so I can have my own "money guy", or where I build a graph database of the NFL so I can use PageRank to "Google for a
 Superbowl".
 
-It's _also_ where there is some exciting news, so...
+It's _also_ where there is some exciting news, so stay tuned!
 
-## Stay tuned!
+## See you around!
 
 Thank you for taking the time to learn about our (my?) humble studio.
 
