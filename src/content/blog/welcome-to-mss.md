@@ -82,7 +82,7 @@ It's _also_ where there is some exciting news, so stay tuned!
 
 Thank you for taking the time to learn about our (my?) humble studio.
 
-If any of this piques your interest, please don't hesitate to reach out. I'd love to connect and explore how we can collaborate or assist with your software needs. [Contact us here](https://www.medcalfsoftwaresolutions.com/contact), and be sure to keep your eye on this blog, where I will not only be sharing the spicy things MSS Labs is cooking up, but _also_ sharing something potentially even spicier...my opinions.
+If any of this piques your interest, please don't hesitate to reach out. I'd love to connect and explore how we can collaborate or assist with your software needs. [Contact us here](/#contact), and be sure to keep your eye on this blog, where I will not only be sharing the spicy things MSS Labs is cooking up, but _also_ sharing something potentially even spicier...my opinions.
 
 ---
 
