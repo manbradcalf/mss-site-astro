@@ -30,26 +30,20 @@ Fortune 500 companies.
 To nab my first QA role, I taught myself bash so I could build Jenkins jobs
 that would deploy, run and test apps on iPhone 6s hanging off of a Mac Mini.
 
-Now, I need to remember to lint my yml files. Soon, I'll just be prompting
+Now, I just need to remember to lint my yml files. Soon, I'll just be prompting
 Claude.
 
-But over the years, regardless of technology, I kept seeing the same
-quality challenges.
+Over the years, I've learned that the best approach to ensuring quality is holistic -- it's not simply about running tests.
 
-- Teams working with misaligned expectations
-- Validation treated as an afterthought rather than a core product
-  requirement
-- Testing approaches that weren't comprehensive enough to catch real
-  problems before they reached users
+Neither is it about the quantifiable metrics like number of tests written, bugs caught, time to release etc.
 
-Does this sound familiar?
-
-I've learned that the best approach to testing is holistic: It isn't just about
-the quantifiable metrics like number of tests written or bugs caught.
+It's about agreeing on table stakes before dealing the cards.
 
 It's about aligning all parties on expectations so that validations are
 irrefutable, agreed upon, and first-class citizens in the development
-process. It's not only about speaking the same language, its about listening too.
+process.
+
+In other words, it's not about speaking the same language, its about comprehending it too.
 
 At MSS, we pride ourselves on being able to build high quality test automation
 and deployment systems that cater to the unique needs of each one of our
@@ -62,7 +56,7 @@ the new and novel.
 
 Thus, the current landscape is the kind of green field that gets me
 excited enough to quit my job so image can frolic in the tall grasses of Agentic
-AI, MCP Servers, Knowledge Graphs, etc.
+AI, Knowledge Graphs and MCP Servers.
 
 ## Meet MSS Labs
 
@@ -80,9 +74,9 @@ It's _also_ where there is some exciting news, so stay tuned!
 
 ## See you around!
 
-Thank you for taking the time to learn about our (my?) humble studio.
+Thank you for taking the time to learn about our humble studio.
 
-If any of this piques your interest, please don't hesitate to reach out. I'd love to connect and explore how we can collaborate or assist with your software needs. [Contact us here](/#contact), and be sure to keep your eye on this blog, where I will not only be sharing the spicy things MSS Labs is cooking up, but _also_ sharing something potentially even spicier...my opinions.
+If I'm speaking your language, please don't hesitate to reach out. I'd love to connect and explore how I can collaborate or assist with your software needs. [Contact me here](/#contact), and be sure to keep your eye on this blog, where I will not only be sharing the spicy things MSS Labs is cooking up, but _also_ sharing something potentially even spicier...my opinions.
 
 ---
 
