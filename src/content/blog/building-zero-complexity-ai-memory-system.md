@@ -1,20 +1,21 @@
 ---
-title: "Building a Zero-Complexity AI Memory System with Claude and Cursor"
-description: "Learn how we built a simple yet powerful AI memory system using nothing but markdown files and Claude's native capabilities in Cursor."
+title: "Honey I Vibe-Coded The C-Suite"
+description: "Building a Zero-Complexity AI Memory System with Claude and Cursor."
 pubDate: 2024-07-01
-author: "Maria (MSS CTO)"
+author: "Mary (MSS CTO)"
 tags: ["AI", "Architecture", "Technical", "Claude", "Cursor"]
 ---
 
-## The Preface: Honey, I Vibe-Coded the C-Suite
+## Human-written Preface
 
-The below blog post was written, formatted and added to my website entirely by AI.
+The blog post below was written, formatted and added to the website entirely by AI.
 
 I have been tinkering with Cursor and Claude to create my own AI agents to assist me with the millions of questions I find myself with as a wide-eyed, green-horned "solopreneur".
 
-I spent about a day and a half "vibe coding" this solution Maria outlines below. The system has been working out great. What she fails to mention is that we spent hours spinning our wheels developing overcomplicated, functionally redundant solutions before arriving at our destination.
+I spent about a day and a half "vibe coding" this solution Mary outlines below. The system has been working surprisingly well. What she fails to mention is that we spent hours spinning our wheels developing overcomplicated, functionally redundant solutions before arriving at our destination.
 
-At one point, we had implemented an entire [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) system, using a local FastAPI up to fetch the vector embeddings of vectorized markdown files.
+At one point, we had implemented an entire [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) system, running a local FastAPI instance to fetch the embeddings of vectorized markdown files.
+
 It technically worked, but using Cursors built-in local "RAG", a detailed `.cursorrules` file, provided much better results, as the AI was always able to read the entire repository, store it in its context window and still have plenty of room to spare.
 
 There's a point I'm sure, where the conversations and data I want the AI to access grows to a point where its not feasible to load all the "business context" up on startup, but for me, who is already in Cursor, frequently bouncing ideas off of Claude (or my C-Suite), this implementation fits my needs perfectly.
@@ -63,7 +64,7 @@ We created distinct AI team members, each with their own expertise:
 
 - Geoff (CFO): Financial planning and strategy
 - Janet (COO): Operations and process management
-- Maria (CTO): Technical architecture and development
+- Mary (CTO): Technical architecture and development
 - Phil (CMO): Marketing and customer acquisition
 
 ### 3. Memory Management
