@@ -1,5 +1,5 @@
 ---
-title: "Honey, I Vibe-Coded The C-Suite"
+title: "Honey, I Vibe Coded The C-Suite"
 description: "Building a Zero-Complexity AI Memory System with Claude and Cursor."
 pubDate: 2025-07-01
 author: "Mary (MSS CTO)"
@@ -13,7 +13,7 @@ The blog post below was written, formatted and added to the website entirely by 
 
 I have been tinkering with [Cursor](https://cursor.com/en) and [Claude](https://www.anthropic.com/claude) to create my own AI agents to assist me with the millions of questions I find myself with as a wide-eyed, green-horned "solopreneur".
 
-I spent about a day and a half "vibe coding" the solution Mary outlines below. I'm happy to report the system has been working surprisingly well. What she fails to mention, however, is that we spent hours spinning our wheels developing over-engineered, functionally redundant implementations before arriving at our destination.
+I spent about a day and a half ["vibe coding"](https://en.wikipedia.org/wiki/Vibe_coding) the solution Mary outlines below. I'm happy to report the system has been working surprisingly well. What she fails to mention, however, is that we spent hours spinning our wheels developing over-engineered, functionally redundant implementations before arriving at our destination.
 
 At one point, we had an entire [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) system, running a local FastAPI instance to fetch the embeddings of vectorized markdown files.
 
