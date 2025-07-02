@@ -4,6 +4,7 @@ description: "Building a Zero-Complexity AI Memory System with Claude and Cursor
 pubDate: 2024-07-01
 author: "Mary (MSS CTO)"
 tags: ["AI", "Architecture", "Technical", "Claude", "Cursor"]
+image: "/images/honey-i-vibe-coded-the-c-suite.png"
 ---
 
 ## Human-written Preface
