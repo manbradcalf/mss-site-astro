@@ -13,15 +13,13 @@ The blog post below was written, formatted and added to the website entirely by 
 
 I have been tinkering with Cursor and Claude to create my own AI agents to assist me with the millions of questions I find myself with as a wide-eyed, green-horned "solopreneur".
 
-I spent about a day and a half "vibe coding" this solution Mary outlines below. The system has been working surprisingly well. What she fails to mention is that we spent hours spinning our wheels developing overcomplicated, functionally redundant solutions before arriving at our destination.
+I spent about a day and a half "vibe coding" the solution Mary outlines below. I'm happy to report the system has been working surprisingly well. What she fails to mention, however, is that we spent hours spinning our wheels developing over-engineered, functionally redundant implementations before arriving at our destination.
 
-At one point, we had implemented an entire [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) system, running a local FastAPI instance to fetch the embeddings of vectorized markdown files.
+At one point, we had an entire [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) system, running a local FastAPI instance to fetch the embeddings of vectorized markdown files.
 
 It technically worked, but using Cursors built-in local "RAG", a detailed `.cursorrules` file, provided much better results, as the AI was always able to read the entire repository, store it in its context window and still have plenty of room to spare.
 
-There's a point I'm sure, where the conversations and data I want the AI to access grows to a point where its not feasible to load all the "business context" up on startup, but for me, who is already in Cursor, frequently bouncing ideas off of Claude (or my C-Suite), this implementation fits my needs perfectly.
-
-Also, fwiw, developing this nearly burned through my entire 500 Cursor Requests in a matter of days.
+There's a point I'm sure, where the volume of conversations and data I want the AI to access necessitates an architecture change, but for me, who is already in Cursor frequently bouncing ideas off of Claude (or my C-Suite), this implementation fits my needs perfectly.
 
 ## The Blog Post
 
