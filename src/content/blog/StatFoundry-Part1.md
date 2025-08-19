@@ -3,7 +3,7 @@ title: "StatFoundry - Part 1"
 description: "The origins of the easiest way to search for NFL Stats on the internet"
 pubDate: 2025-08-19
 author: "Ben"
-tags: ["Football", "Graph Databases", "Technical","StatFoundry","Development"]
+tags: ["Football","NFL","Labs", "Graph Databases", "Technical","StatFoundry","Development"]
 image: "/images/blog/StatFoundryPartOne/sf-part-one.jpeg"
 ---
 <figure>
