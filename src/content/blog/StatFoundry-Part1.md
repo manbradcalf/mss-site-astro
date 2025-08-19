@@ -4,7 +4,7 @@ description: "The origins of the easiest way to search for NFL Stats on the inte
 pubDate: 2025-08-19
 author: "Ben"
 tags: ["Football", "Graph Databases", "Technical","StatFoundry","Development"]
-image: "/images/sf-part-one.jpeg"
+image: "/images/blog/StatFoundryPartOne/sf-part-one.jpeg"
 ---
 <figure>
   <img src="/images/blog/StatFoundryPartOne/sf-part-one.jpeg" alt="StatFoundry Data Flow" />
