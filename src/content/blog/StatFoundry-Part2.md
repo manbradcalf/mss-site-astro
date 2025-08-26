@@ -1,7 +1,7 @@
 ---
 title: "StatFoundry - Part 2"
 description: "Peyton Manning is the Meanest QB in the NFL"
-pubDate: 2025-08-25
+pubDate: 2025-08-26
 author: "Ben"
 tags:
   [
@@ -9,11 +9,12 @@ tags:
     "NFL",
     "Labs",
     "AI",
-    "LLMs",
+    "LLM",
     "ChatGPT",
     "RAG",
     "GraphRAG",
     "Technical",
+    "User Testing",
     "StatFoundry",
     "Development",
   ]
@@ -29,7 +30,7 @@ image: "/images/blog/StatFoundryPartTwo/mean.png"
 
   .carousel-wrapper {
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 8px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%; /* Ensure wrapper takes full width */
   }
@@ -112,19 +113,19 @@ image: "/images/blog/StatFoundryPartTwo/mean.png"
 
 ### The New Direction
 
-It is April, 2025. Everyone at work is now using ChatGPT, for better or for worse, including myself.
+It is the Spring of 2025. Everyone at work is now using ChatGPT, for better or for worse, including myself.
 
-Unwinding after a long day of work spent deciphering whether important pull requests or innocuous teams messages were authored by either ChatGPT or a human, I turned on the the NFL draft and quickly had an epiphany.
+Unwinding after a long day spent deciphering whether pull requests or Teams messages were authored by ChatGPT or real people, I turned on the the NFL draft and quickly had an epiphany.
 
-Probably the least unique or interesting epiphany one can have in 2025. Sorry, I know you've had it to.
+In hindsight, it was probably the least unique or interesting epiphany one could have given the particular moment in time.
 
-> "What if just had ChatGPT to do it for me?"
+> "What if I just had ChatGPT to do it for me?"
 
-"It", of course, being the hard work of bringing my beloved, decrepit [Fantasy Football Factory](statfoundry-part1) back to life, so it can finally meet it's fullest, graph native potential.
+"It", of course, being the heavy lifting of reviving my beloved yet decrepit [Fantasy Football Factory](statfoundry-part1), so it can finally meet it's full, graph native potential.
 
-What if I could just tell ChatGPT what I wanted from the NFL knowledge graph I had been building?
+What if I simply told ChatGPT what I wanted from this knowledge graph of the NFL I had been building?
 
-Would it then just... write the perfect Cypher query?
+Would it then just... write the perfect [Cypher](https://en.wikipedia.org/wiki/Cypher_(query_language)) query?
 
 ### Introducing: The Fantasy Football Oracle
 
@@ -160,7 +161,7 @@ Fueled by the possibilities that an LLM could bring to my abandoned passion proj
   </figcaption>
 </figure>
 
-The idea was simple: "Google for football stats", with one important tweak.
+The idea was simple: "Google for deep-dive football stats", with one important tweak.
 
 Instead of executing a search when you select a suggestion, you can optionally just add the suggestion to your query to get more relevant suggestions.
 
@@ -177,24 +178,21 @@ The UX emulated a pattern I thought would be very familiar to anyone who has use
 
 So...everybody?
 
-But I was getting way ahead of myself. I had to validate my idea before I built it.
+But I was getting way ahead of myself. I had to validate my idea before I built it. 
 
-### User Research: What Do People Actually Want?
+Let's just start with the search bar.  We'll tackle suggestions later...
+
+### User Research: Instagram Edition
 
 I've always enjoyed user research.
 
 I was lucky enough to spend most of my career on teams that took user research very seriously.
 
-After seeing real users challenge everything you thought you knew about your own app during a 10 minute Zoom call, it becomes an essential part of any development process."
+After seeing real users in your target demographic take all but 10 minutes of a Zoom call to unwittingly expose just how little you understand about _your own application_, it becomes an essential part of any development process.
 
-All that to say, I had a blast doing my own geurilla user testing on Instagram.
+All that to say, I had a blast doing some DIY user testing on Instagram.
 
-I asked the following 4 questions over the course of a couple days and got a not-insignificant amount of responses (30-50 per question). To increase feedback, the questions were about "Sports" statistics, not just "NFL".
-
-1. Why are you typically looking up stats?
-2. What kind of stats are you looking up, mostly?
-3. How do you get your sports stats?
-4. How easy is it to find the stats you are after?
+I asked the following 4 questions over the course of a couple days and got a not-insignificant amount of responses (30-50 per question). To increase feedback, the questions were asked about "Sports" statistics in general, not specifical the "NFL".
 
 <figure class="carousel-container" id="survey-carousel">
   <div class="carousel-wrapper">
@@ -220,60 +218,108 @@ I asked the following 4 questions over the course of a couple days and got a not
   </figcaption>
 </figure>
 
-### Takeaway: Curious Lads use Google for basic stats
+### Takeaway: Curious Lads just Google it, baby!
 
-In hindsight, I thought this was a lot more validating for my Single Search Bar theory than it actually was.
+In hindsight, I thought this was a lot more validating for my Football Oracle design than it actually was.
 
 - Yes, the single search bar was a familiar UX pattern
 - Yes, people look up stats simply out of curiosity.
 
-While this boded well for my design -- a simple Search Bar driven UX, I completely overlooked the slider that said _"You know, its not so bad actually"._
+While this boded well for my design -- a simple Search Bar driven UX, I completely overlooked the slider that said _"You know, finding stats is not so bad actually..."._
 
-And more crucially, these weren't really the users I should target.
+And crucially, these weren't _really_ the users I should target.
 
 My goal was never to build for the "Everyone Who Follows Me On Instagram" demographic.
 
-But I had made up my mind. I was going to do this thing, and knowing that most people are simply Curious Lads who use Google was enough validation for me to build the Oracle.
+But it didn't matter. I had made up my mind. I was going to do this thing, and knowing that most people are simply Curious Lads who just Google it, baby, was enough validation for me to build the Oracle.
 
-<i>Authors note: Eventually, I moved off the "Oracle" branding. This was partially due to domain availability as well as the fact that "Oracle" is actually a pretty bad metaphor for what the app does, which is, drudge up the past, not predict the future. </i>
+<i>Authors note: Eventually, I moved off the "Oracle" branding. This was partially due to domain availability as well as the fact that "Oracle" is actually a pretty bad confusing metaphor for what the app does, which is explicitly **not** to predict the future, but to drudge up the past instead. </i>
 
-### From RAGs to Riches
+### From RAGs to Riches?
 
-I got my OpenAI API key and I was off.
+So I got my OpenAI API key and I was off to the races.
 
-Before I even knew what [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) was, I had a dead simple, no frills RAG pipeline, injecting my Neo4j schema into my ChatGPT prompts.
+Before I even knew what [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) was, I had a dead simple, no frills RAG pipeline, injecting my entire (relatively small) Neo4j schema into my ChatGPT prompts.
 
 ```mermaid
 sequenceDiagram
-    participant Client
+    participant React UI
     participant FastAPI
     participant Neo4j
     participant OpenAI
 
-    Note over Client,FastAPI: App Startup
-    Client->>FastAPI: GET /schema
+    Note over React UI,FastAPI: App Startup
+    React UI->>FastAPI: GET /schema
     FastAPI->>Neo4j: Fetch schema
     Neo4j-->>FastAPI: Return schema
-    FastAPI-->>Client: Cache schema
+    FastAPI-->>React UI: Cache schema
 
-    Note over Client,FastAPI: Search Flow
-    Client->>FastAPI: POST /search (with search text)
+    Note over React UI,FastAPI: Search Flow
+    React UI->>FastAPI: POST /search (with search text)
     FastAPI->>OpenAI: Send prompt (schema + user text)
     OpenAI-->>FastAPI: Return generated Cypher query
     FastAPI->>Neo4j: Execute Cypher query
     Neo4j-->>FastAPI: Return query results
-    FastAPI-->>Client: Return results
+    FastAPI-->>React UI: Return results
 ```
 
-It was really cool, even amazing, when it worked 80% of the time during my testing.
+It was really cool, amazing even! I could ask it multi-hop queries in plan English, like 
 
-Even though I had provided it with the schema, noted in the prompt that the schema was _the only schema_ it had to work with, even though I knew the domain like the back of my hand, it still hallucinated nodes, relationships, and worst of all, my intent.
+> "Which Super Bowl was won by a QB who played for the Packers, Jets and Vikings but was drafted by Atlanta?"
+
+and it would _usually_ return several lines of valid Cypher, neatly traversing Player, Game, Team and Draft nodes to provide real answers backed by real data!
+
+<figure>
+<img src="/images/blog/StatFoundryPartTwo/SBGraph.png"/>
+<figcaption className="carousel-caption">Don't you just love a graph?</figcaption>
+</figure>
+
+
+_But_, if I asked a question more than once, it would return a slightly different query... _sometimes_. 
+
+I was starting to question the scalability of this. 
+
+If I had thousands of users how would I ensure they all have the same experience? Not to mention the token economics of using ChatGPT at scale like this...
+
+At the end of the day, even though I had provided ChatGPT with the schema along with a note explicitly stating that this was _THE ONLY SCHEMA_ it still hallucinated labels, relationships, and worst of all, my intent.
+
+#### Serendipitous Example of Intent Hallucination:
+
+_Just now_, I asked ChatGPT (well, Claude technically) to write Cypher for the prompt we just mentioned.
+
+The response looks great at first and it would run and return seemingly valid data. 
+
+However, it wouldn't return the correct answer, Super Bowl XXXI, because it wouldn't find the correct QB, Brett Favre. 
+
+Even those unfamiliar with Cypher syntax may be able to spot the flaw below.
+
+Again, here's the prompt:
+
+>“Which Super Bowl was won by a QB who played for the Packers, Jets and Vikings but was drafted by Atlanta?”
+
+```cypher
+// Find QBs drafted by Atlanta who played for specific teams and won a Super Bowl
+MATCH (qb:Player)-[d:DRAFTED_BY]->(falcons:Team {name: 'Atlanta Falcons'})
+WHERE qb.position = 'QB'
+MATCH (qb)-[p:PLAYED_FOR]->(team:Team)
+WHERE team.name IN ['GB', 'NYJ', 'MIN']
+WITH qb, count(DISTINCT team.name) as teamsPlayed
+WHERE teamsPlayed = 3
+MATCH (qb)-[:WON]->(game:Game)
+RETURN qb.name, game.name, game.date
+ORDER BY game.date
+```
+
+Tecnically, Brett Favre _also_ played for ATL. But that was implied, not explicity stated.
+
+ChatGPT, for whatever reason, decided to look for QBs who played for 3 teams and 3 teams only. MIN, NYJ and GB.
+
 
 ### User Testing
 
 Now that the prototype was up and running, I asked a friend of mine try it out.
 
-I'm glad I did, because the absurdity of the questions he'd ask revealed just how crazy it is to expect an LLM to be deterministic or even make sense.
+I'm glad I did, because the absurdity of the questions he'd ask revealed confirmed my new apprehensions.
 
 The question that tore the wool from my eyes:
 
@@ -291,33 +337,40 @@ I _think_ it interpreted "meanest" as "the most mean", AKA average.
 
 Naturally it decided to determine who the most average quarterback in the NFL was by determining which QB has the highest average ("meanest") passing touchdowns, presumably over a season, but we can't quite really be sure.
 
-It also did not once check for [unsportsmanlike conduct](https://www.youtube.com/watch?v=DttfyOeU3vw) penalties, arrests for violent behavior, or [press conference tirades](https://youtu.be/onLrDX83AyE?t=47).
+It also did not once check for [unsportsmanlike conduct](https://www.youtube.com/watch?v=DttfyOeU3vw) penalties or [sideline tirades](https://youtu.be/onLrDX83AyE?t=47).
 
 I know this because I hadn't indexed that data (yet)
 
-### Takeaways from User Testing
+### Takeaways
 
-- Writing valid Cypher is only half the battle
-- Users can't be expected to know how to formulate their questions for optimal results
-- Edge cases are potentially infinite
+- Writing valid and schema-correct Cypher is only half the battle
+- Extracting intent is _much_ harder.
+- Validating intent is even harder than that. 
+- - If there is a million ways to ask one question, then there is also a million ways to misinterpret it.
+
+### Lingering Questions
+- What if we implicitly meant "meanest, currently active QB"?
+- How explicit do we need the users to be?
+- How explicit do the users expect _they_ need to be?
+- Should we expect users to know how to optimize their prompts for us?
+  - No, probably
 - How do we guide users toward "askable" questions?
-- Is Input Validation a thing?
-- If there is a million ways to ask one question, then there is also a million ways to misinterpret it.
+- Can you sanitize input for...intent?
 - At what point does the prompt engineering effort outweight the benefits of using an LLM?
 - How do we balance flexibility with accuracy?
 - How do we catch less obvious hallucinations?
 - How do we validate the LLM's interpretation of the data?
-- When should we reject a seemingly valid query?
+  - Since then, I have heard good things about [BAML](https://boundaryml.com/)?
 
-### Next Stop: The Foundry
+### Answers: Back to the Foundry
 
-When they zig, I zag.
+When they zig, Medcalf Software Solutions zags.
 
-No more AI. Just chunks. And some other stuff.
+No more AI. Just chunks. Of Queries. And chains. And chains of chunks of queries chained together.
 
-Stick around for Part 3 where we build an Automated Schema Aware Deterministic Composable Query Builder DSL
+Stick around for Part 3 where I pivot to good old deterministics systems and design quite possibly the first **Dynamically Generated Schema Aware DSL For User Friendly Graph Native Query Composition**
 
-Or _ASADCQBDSL_ for short.
+Or _DGSASSLFUFGNQC_ for short.
 
 I never said I was good at branding.
 
