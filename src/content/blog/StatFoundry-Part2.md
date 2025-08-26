@@ -20,7 +20,6 @@ tags:
   ]
 image: "/images/blog/StatFoundryPartTwo/mean.png"
 ---
-
 <style>
   .carousel-container {
     position: relative;
@@ -110,6 +109,8 @@ image: "/images/blog/StatFoundryPartTwo/mean.png"
     margin-top: 0.5rem;
   }
 </style>
+
+<img src="/images/blog/StatFoundryPartTwo/mean.png"/>
 
 ### The New Direction
 
