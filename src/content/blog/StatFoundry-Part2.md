@@ -190,7 +190,7 @@ I was lucky enough to spend most of my career on teams that took user research v
 
 After seeing real users in your target demographic take all but 10 minutes of a Zoom call to unwittingly expose just how little you understand about _your own application_, it becomes an essential part of any development process.
 
-All that to say, I had a blast doing some DIY user testing on Instagram.
+All that to say, I had a blast doing some DIY user research on Instagram.
 
 I asked the following 4 questions over the course of a couple days and got a not-insignificant amount of responses (30-50 per question). To increase feedback, the questions were asked about "Sports" statistics in general, not specifical the "NFL".
 
