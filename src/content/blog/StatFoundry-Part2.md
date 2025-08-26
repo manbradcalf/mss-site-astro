@@ -330,7 +330,7 @@ The question that tore the wool from my eyes:
 
 <img src="/images/blog/StatFoundryPartTwo/mean.png"/>
 
-And sure enough, like the good little LLM it is, ChatGPT dutifully generated a cypher query despite all common sense.
+And sure enough, like the good little LLM it is, ChatGPT dutifully generated a Cypher query despite all common sense.
 
 I wish I could find the Cypher query that was generated, but I can tell you it was at least 40 lines long and had several aggregations.
 
@@ -347,10 +347,10 @@ I know this because I hadn't indexed that data (yet)
 - Writing valid and schema-correct Cypher is only half the battle
 - Extracting intent is _much_ harder.
 - Validating intent is even harder than that. 
-- - If there is a million ways to ask one question, then there is also a million ways to misinterpret it.
+- If there is a million ways to ask one question, then there is also a million ways to misinterpret it.
 
 ### Lingering Questions
-- What if we implicitly meant "meanest, currently active QB"?
+- What if we implicitly meant "meanest, _currently active_ QB"?
 - How explicit do we need the users to be?
 - How explicit do the users expect _they_ need to be?
 - Should we expect users to know how to optimize their prompts for us?
@@ -369,7 +369,7 @@ When they zig, Medcalf Software Solutions zags.
 
 No more AI. Just chunks. Of Queries. And chains. And chains of chunks of queries chained together.
 
-Stick around for Part 3 where I pivot to good old deterministics systems and design quite possibly the first **Dynamically Generated Schema Aware DSL For User Friendly Graph Native Query Composition**
+Stick around for Part 3 where I pivot to good old deterministic systems and design quite possibly the first **Dynamically Generated Schema Aware DSL For User Friendly Graph Native Query Composition**
 
 Or _DGSASSLFUFGNQC_ for short.
 
