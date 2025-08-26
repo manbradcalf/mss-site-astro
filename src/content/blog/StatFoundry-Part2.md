@@ -320,7 +320,7 @@ ChatGPT, for whatever reason, decided to look for QBs who played for 3 teams and
 
 Now that the prototype was up and running, I asked a friend of mine try it out.
 
-I'm glad I did, because the absurdity of the questions he'd ask revealed confirmed my new apprehensions.
+I'm glad I did, because the absurdity of the questions he'd ask confirmed my new apprehensions.
 
 The question that tore the wool from my eyes:
 
