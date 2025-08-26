@@ -1,15 +1,16 @@
 // Analytics Event Tracking
 function trackEvent(eventName, parameters = {}) {
-    // Google Analytics 4
-    if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, parameters);
+    if (import.meta.env.PROD) {
+        // Google Analytics 4
+        if (typeof gtag !== 'undefined') {
+            gtag('event', eventName, parameters);
+        }
+
+        // Microsoft Clarity
+        if (typeof clarity !== 'undefined') {
+            clarity('event', eventName);
+        }
     }
-    
-    // Microsoft Clarity
-    if (typeof clarity !== 'undefined') {
-        clarity('event', eventName);
-    }
-    
     // Console log for debugging
     console.log('Analytics Event:', eventName, parameters);
 }
@@ -51,7 +52,7 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-    
+
     // Track mobile menu usage
     trackEvent('mobile_menu_toggle', {
         action: navMenu.classList.contains('active') ? 'open' : 'close'
@@ -62,7 +63,7 @@ hamburger.addEventListener('click', () => {
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', (e) => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
-    
+
     // Track navigation clicks
     trackEvent('navigation_click', {
         link_text: e.target.textContent,
@@ -80,7 +81,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
-            
+
             // Track internal link clicks
             trackEvent('internal_link_click', {
                 target_section: this.getAttribute('href'),
@@ -134,7 +135,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.service-card, .package-card, .portfolio-item, .testimonial-card');
-    
+
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -146,19 +147,19 @@ document.addEventListener('DOMContentLoaded', () => {
 // Contact form handling with enhanced tracking
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Get form data
         const formData = new FormData(this);
         const data = Object.fromEntries(formData);
-        
+
         // Track form submission attempt
         trackEvent('form_submission_attempt', {
             service_selected: data.service || 'none',
             has_company: !!data.company
         });
-        
+
         // Simple validation
         if (!data.name || !data.email || !data.message) {
             showNotification('Please fill in all required fields.', 'error');
@@ -167,7 +168,7 @@ if (contactForm) {
             });
             return;
         }
-        
+
         if (!isValidEmail(data.email)) {
             showNotification('Please enter a valid email address.', 'error');
             trackEvent('form_validation_error', {
@@ -175,20 +176,20 @@ if (contactForm) {
             });
             return;
         }
-        
+
         // Simulate form submission
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
-        
+
         // Simulate API call
         setTimeout(() => {
             showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
             this.reset();
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-            
+
             // Track successful form submission
             trackEvent('form_submission_success', {
                 service_selected: data.service || 'none',
@@ -197,7 +198,7 @@ if (contactForm) {
             });
         }, 2000);
     });
-    
+
     // Track form field interactions
     const formFields = contactForm.querySelectorAll('input, select, textarea');
     formFields.forEach(field => {
@@ -223,7 +224,7 @@ function showNotification(message, type = 'info') {
     if (existingNotification) {
         existingNotification.remove();
     }
-    
+
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -233,7 +234,7 @@ function showNotification(message, type = 'info') {
             <button class="notification-close">&times;</button>
         </div>
     `;
-    
+
     // Add styles
     notification.style.cssText = `
         position: fixed;
@@ -249,14 +250,14 @@ function showNotification(message, type = 'info') {
         transform: translateX(100%);
         transition: transform 0.3s ease;
     `;
-    
+
     notification.querySelector('.notification-content').style.cssText = `
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
     `;
-    
+
     notification.querySelector('.notification-close').style.cssText = `
         background: none;
         border: none;
@@ -266,22 +267,22 @@ function showNotification(message, type = 'info') {
         padding: 0;
         line-height: 1;
     `;
-    
+
     // Add to page
     document.body.appendChild(notification);
-    
+
     // Animate in
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-    
+
     // Close functionality
     const closeBtn = notification.querySelector('.notification-close');
     closeBtn.addEventListener('click', () => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => notification.remove(), 300);
     });
-    
+
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentNode) {
@@ -304,11 +305,11 @@ window.addEventListener('scroll', () => {
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
-    
+
     const timer = setInterval(() => {
         start += increment;
         element.textContent = Math.floor(start);
-        
+
         if (start >= target) {
             element.textContent = target;
             clearInterval(timer);
@@ -370,12 +371,12 @@ document.head.appendChild(styleSheet);
 // Add hover effects for service cards
 document.addEventListener('DOMContentLoaded', () => {
     const serviceCards = document.querySelectorAll('.service-card');
-    
+
     serviceCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.style.transform = 'translateY(-10px) scale(1.02)';
         });
-        
+
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'translateY(0) scale(1)';
         });
@@ -386,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.textContent = '';
-    
+
     function type() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
@@ -394,7 +395,7 @@ function typeWriter(element, text, speed = 100) {
             setTimeout(type, speed);
         }
     }
-    
+
     type();
 }
 
