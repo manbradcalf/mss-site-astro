@@ -300,7 +300,7 @@ Again, here's the prompt:
 
 ```cypher
 // Find QBs drafted by Atlanta who played for specific teams and won a Super Bowl
-MATCH (qb:Player)-[d:DRAFTED_BY]->(falcons:Team {name: 'Atlanta Falcons'})
+MATCH (qb:Player)-[d:DRAFTED_BY]->(falcons:Team {name: 'ATL'})
 WHERE qb.position = 'QB'
 MATCH (qb)-[p:PLAYED_FOR]->(team:Team)
 WHERE team.name IN ['GB', 'NYJ', 'MIN']
