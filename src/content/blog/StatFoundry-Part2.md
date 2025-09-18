@@ -183,6 +183,7 @@ But I was getting way ahead of myself. I had to validate my idea before I built 
 
 Let's just start with the search bar.  We'll tackle suggestions later...
 
+<a id="instagram-user-research"></a>
 ### User Research: Instagram Edition
 
 I've always enjoyed user research.
@@ -284,6 +285,8 @@ If I had thousands of users how would I ensure they all have the same experience
 
 At the end of the day, even though I had provided ChatGPT with the schema along with a note explicitly stating that this was _THE ONLY SCHEMA_ it still hallucinated labels, relationships, and worst of all, my intent.
 
+<a id="serendipitous-example"></a>
+
 #### Serendipitous Example of Intent Hallucination:
 
 _Just now_, I asked ChatGPT (well, Claude technically) to write Cypher for the prompt we just mentioned.
@@ -308,12 +311,11 @@ WITH qb, count(DISTINCT team.name) as teamsPlayed
 WHERE teamsPlayed = 3
 MATCH (qb)-[:WON]->(game:Game)
 RETURN qb.name, game.name, game.date
-ORDER BY game.date
 ```
 
 Tecnically, Brett Favre _also_ played for ATL. But that was implied, not explicity stated.
 
-ChatGPT, for whatever reason, decided to look for QBs who played for 3 teams and 3 teams only. MIN, NYJ and GB.
+ChatGPT, for whatever reason, decided to look for QBs who played for 3 teams and 3 teams only. GB, NYJ and MIN.
 
 
 ### User Testing
