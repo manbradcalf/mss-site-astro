@@ -170,13 +170,13 @@ A chunk contains:
 export type Chunk = {
   /**
    *  Templated human readable representation
-   *  ex: Player's named "Derrick Henry" 
+   *  ex: Player's named {playerName}
   */ 
   English: string; 
 
   /**
    *  Templated machine readable representation
-   *  ex: MATCH (p:Player) where p.name = {name}
+   *  ex: MATCH (p:Player) where p.name = {playerName}
   */ 
   Cypher: string; 
 
@@ -199,14 +199,15 @@ export type Chunk = {
   Provides: Alias[]; 
 
   /**
-   *  Mechanism to fill in templates 
-   *  ex: MATCH_START indicates the start of a MATCH clause
+   *  Slots are the mechanism to fill in templates.
+   *  More on this later
   */ 
   Slots: Slot[]; 
 
   /**
-   *  Mechanism to enable suggestions
-   *  ex: MATCH_START indicates the start of a MATCH clause
+   *  Simple Mechanism to enable suggestions
+   *  Fuzzy match on strings
+   *  ex: ["RB","running","running back","rush"...] 
   */ 
   SuggestionKeywords?: string[]; 
 };
