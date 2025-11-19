@@ -259,6 +259,7 @@ enum QueryType {
 This enforces query structure. You can't return before you match. You can't filter before you have something to filter.
 
 #### Slots
+Slots are the variables in our query templates. They define what values are valid and where they can be used.
 
 ```typescript
 type Slot = {
@@ -266,7 +267,22 @@ type Slot = {
   Value: any;
   SlotValueTypes: SlotType[];
 };
+```
+#### Slots In Action
+<figure>
+<img src="/images/blog/StatFoundryPartThree/slot1.png">
+<figcaption style="font-size: 0.9em; color: #666; text-align: center">First, select a Filter chunk.</figcaption>
+</figure>
+<figure>
+<img src="/images/blog/StatFoundryPartThree/slot2.png">
+<figcaption style="font-size: 0.9em; color: #666; text-align: center">Then, fill in the slots.</figcaption>
+</figure>
+<figure>
+<img src="/images/blog/StatFoundryPartThree/slot3.png">
+<figcaption style="font-size: 0.9em; color: #666; text-align: center">Finally run your query</figcaption>
+</figure>
 
+```typescript
 // we use this enum to determine what we allow the user to fill slots with
 export enum SlotType {
   // entity properties
@@ -294,7 +310,6 @@ export enum SlotType {
 }
 ```
 
-Slots are the variables in our query templates. They define what values are valid and where they can be used.
 
 ### The Chunk Chain
 
@@ -369,6 +384,17 @@ export function isValidNextChunk(
   );
 }
 ```
+
+<figure>
+<img src="/images/blog/StatFoundryPartThree/chunkchain.png">
+<figcaption style="font-size: 0.9em; color: #666; text-align: center">In this chunk chain, we can see 3 types of Chunks. 
+
+Match (green circle), 
+Junction (orange graph) 
+Filter (blue funnel). 
+</figcaption>
+</figure>
+
 
 ### BIG: Buildtime Ingestion and Generation
 
