@@ -1,6 +1,6 @@
 ---
-title: "StatFoundry - Part 3 - Introducing Agentic Users"
-description: "Why I ditched LLMs and developed a deterministic Cypher Query Builder instead"
+title: "StatFoundry Part 3"
+description: "\"Agentic Users\" or \"Why I ditched LLMs and developed a deterministic Cypher Query Builder instead\""
 pubDate: 2025-11-19
 author: "Ben"
 tags:
