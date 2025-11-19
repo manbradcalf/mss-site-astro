@@ -13,18 +13,18 @@ tags:
     "StatFoundry",
     "Development",
   ]
-image: "/Users/benmedcalf/code/MSS/mss-site-astro/medcalfsoftwaresolutions.com/public/images/blog/StatFoundryPartThree/chunks as puzzle pieces.jpeg"
+image: "/images/blog/StatFoundryPartThree/chunks as puzzle pieces.jpeg"
 ---
 
-  <img src="/public/images/blog/StatFoundryPartThree/chunks as puzzle pieces.jpeg" />
+  <img src="/images/blog/StatFoundryPartThree/chunks as puzzle pieces.jpeg" />
 
-### Intro
+### Welcome back 
 
 In the final entry of our StatFoundry series we'll recap what we've learned and discuss how these learnings influenced the design behind the **BIGRFS** architecture, or **Buildtime Ingestion and Generation for Runtime Filters and Suggestions**, pronounced "Big Riffs".
 
 Believe it or not, the acronym came first.
 
-By treating queries as composable LEGO blocks instead of sentences an LLM has to translate, StatFoundry introduces a chunk-based query system that lets users build complex graph database queries without knowing Cypher. It's deterministic, testable, and enables real-time exploration of the dataset through smart suggestions.
+The idea: By treating queries as composable LEGO blocks instead of sentences an LLM has to translate, StatFoundry introduces a chunk-based query system that lets users build complex graph database queries without knowing Cypher. It's deterministic, testable, and enables real-time exploration of the dataset through smart suggestions.
 
 Before we get into the nitty-gritty, let's recap.
 
