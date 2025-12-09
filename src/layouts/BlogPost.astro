@@ -10,12 +10,48 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, author, tags } = post.data;
+const { title, description, pubDate, updatedDate, author, tags, image } = post.data;
 const shareUrl = encodeURIComponent(Astro.url.href);
 const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description: description,
+  image: image ? new URL(image, Astro.site).toString() : undefined,
+  datePublished: pubDate.toISOString(),
+  dateModified: updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
+  author: {
+    "@type": "Person",
+    name: author,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Medcalf Software Solutions",
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/images/M Logo.svg", Astro.site).toString(),
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": Astro.url.href,
+  },
+};
 ---
 
-<Layout title={`${title} - Medcalf Software Solutions Blog`}>
+<Layout
+  title={`${title} - Medcalf Software Solutions Blog`}
+  description={description}
+  image={image}
+  type="article"
+  publishedTime={pubDate.toISOString()}
+  modifiedTime={updatedDate?.toISOString()}
+  author={author}
+  tags={tags}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <Navigation />
 
   <main class="blog-post">

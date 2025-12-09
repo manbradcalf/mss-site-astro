@@ -9,7 +9,10 @@ const posts = await getCollection("blog");
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
 ---
 
-<Layout title="Blog Tags - Medcalf Software Solutions">
+<Layout
+  title="Blog Tags - Medcalf Software Solutions"
+  description="Browse blog posts by topic. Find articles on test automation, QA best practices, software development, and more."
+>
   <Navigation />
 
   <main class="tags-index">

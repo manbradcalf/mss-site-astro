@@ -6,11 +6,82 @@ import Services from "../components/Services.astro";
 import Packages from "../components/Packages.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Medcalf Software Solutions",
+  url: "https://medcalfsoftwaresolutions.com",
+  logo: "https://medcalfsoftwaresolutions.com/images/M Logo.svg",
+  description:
+    "Medcalf Software Solutions delivers custom test automation frameworks, React/React Native development, and QA consulting services.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-804-259-2533",
+    contactType: "sales",
+    email: "hello@medcalfsoftwaresolutions.com",
+  },
+  sameAs: [
+    "https://www.linkedin.com/company/medcalf-software-solutions-llc",
+  ],
+};
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Software Development and QA Services",
+  provider: {
+    "@type": "Organization",
+    name: "Medcalf Software Solutions",
+  },
+  areaServed: "Worldwide",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Software Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Test Automation",
+          description: "Custom automated testing frameworks using industry-leading tools across web, mobile and backend applications.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "React Development",
+          description: "Modern, responsive web applications built with React, featuring clean code architecture and optimal performance.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "React Native Development",
+          description: "Cross-platform mobile applications that deliver native performance with a single codebase for iOS and Android.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "QA Consulting",
+          description: "Strategic quality assurance consulting to optimize your testing processes and implement best practices.",
+        },
+      },
+    ],
+  },
+};
 ---
 
 <Layout
   title="Medcalf Software Solutions - Custom Test Automation & Integration Solutions"
+  description="Medcalf Software Solutions delivers custom test automation frameworks, React/React Native development, and QA consulting services to ensure your software exceeds quality standards."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
   <Navigation />
   <Hero />
   <Services />
