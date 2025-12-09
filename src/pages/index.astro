@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation.astro";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
 import Packages from "../components/Packages.astro";
+import BlogSection from "../components/BlogSection.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
 
@@ -14,7 +15,7 @@ const organizationSchema = {
   url: "https://medcalfsoftwaresolutions.com",
   logo: "https://medcalfsoftwaresolutions.com/images/M Logo.svg",
   description:
-    "Medcalf Software Solutions delivers custom test automation frameworks, React/React Native development, and QA consulting services.",
+    "Medcalf Software Solutions delivers Graph Database solutions, Knowledge Graphs, AI-powered document processing, and full-stack development services.",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+1-804-259-2533",
@@ -29,7 +30,7 @@ const organizationSchema = {
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "Software Development and QA Services",
+  serviceType: "Graph Database and AI Solutions",
   provider: {
     "@type": "Organization",
     name: "Medcalf Software Solutions",
@@ -43,32 +44,32 @@ const servicesSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Test Automation",
-          description: "Custom automated testing frameworks using industry-leading tools across web, mobile and backend applications.",
+          name: "Graph Database Solutions",
+          description: "Neo4j-certified implementation of graph databases and knowledge graphs for connected data applications.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "React Development",
-          description: "Modern, responsive web applications built with React, featuring clean code architecture and optimal performance.",
+          name: "AI Document Processing",
+          description: "Intelligent document extraction and processing systems using multi-stage prompting and structured outputs.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "React Native Development",
-          description: "Cross-platform mobile applications that deliver native performance with a single codebase for iOS and Android.",
+          name: "GraphRAG Implementation",
+          description: "Graph-based retrieval augmented generation systems that combine the power of knowledge graphs with LLMs.",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "QA Consulting",
-          description: "Strategic quality assurance consulting to optimize your testing processes and implement best practices.",
+          name: "Full-Stack Development",
+          description: "Modern web and mobile applications built with React, React Native, and proven engineering practices.",
         },
       },
     ],
@@ -77,8 +78,8 @@ const servicesSchema = {
 ---
 
 <Layout
-  title="Medcalf Software Solutions - Custom Test Automation & Integration Solutions"
-  description="Medcalf Software Solutions delivers custom test automation frameworks, React/React Native development, and QA consulting services to ensure your software exceeds quality standards."
+  title="Medcalf Software Solutions - Graph Database & AI Solutions Expert"
+  description="Medcalf Software Solutions delivers Graph Database solutions, Knowledge Graphs, AI-powered document processing, and full-stack development services to transform how you work with connected data."
 >
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
@@ -86,6 +87,7 @@ const servicesSchema = {
   <Hero />
   <Services />
   <Packages />
+  <BlogSection />
   <ContactForm />
   <Footer />
 </Layout>

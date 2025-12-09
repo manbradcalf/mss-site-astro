@@ -1,0 +1,86 @@
+---
+import { getCollection } from "astro:content";
+import BlogCard from "./blog/BlogCard.astro";
+
+const posts = await getCollection("blog");
+const latestPosts = posts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<section id="blog" class="blog-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Latest from the Blog</h2>
+      <p>Insights on software development, AI, and emerging technologies</p>
+    </div>
+    <div class="blog-grid">
+      {
+        latestPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            author={post.data.author}
+            tags={post.data.tags}
+            slug={post.slug}
+            image={post.data.image}
+          />
+        ))
+      }
+    </div>
+    <div class="blog-cta">
+      <a href="/blog" class="btn btn-secondary">Read More Posts</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .section-header p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .blog-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-section {
+      padding: 60px 0;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+      padding: 0.5rem;
+    }
+  }
+</style>

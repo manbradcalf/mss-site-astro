@@ -1,35 +1,35 @@
 ---
 // src/components/Services.astro
-const services = [
+export const services = [
   {
-    icon: "fas fa-robot",
-    title: "Test Automation",
-    description: "Custom automated testing frameworks using industry-leading tools across web, mobile and backend applications."
+    icon: "fas fa-project-diagram",
+    title: "Graph Database Implementation",
+    description: "Neo4j-certified expertise in building knowledge graphs and graph databases that reveal powerful insights from your connected data."
+  },
+  {
+    icon: "fas fa-brain",
+    title: "AI Document Processing",
+    description: "Intelligent extraction and categorization systems using multi-stage prompting, structured outputs, and human-in-the-loop design patterns."
+  },
+  {
+    icon: "fas fa-network-wired",
+    title: "GraphRAG Solutions",
+    description: "Combine the precision of graph databases with the power of LLMs to build context-aware, retrieval-augmented generation systems."
   },
   {
     icon: "fab fa-react",
-    title: "React Development",
-    description: "Modern, responsive web applications built with React, featuring clean code architecture and optimal performance."
+    title: "Full-Stack Development",
+    description: "Modern web and mobile applications built with React and React Native, backed by 10 years of engineering excellence."
   },
   {
-    icon: "fas fa-mobile-alt",
-    title: "React Native Development",
-    description: "Cross-platform mobile applications that deliver native performance with a single codebase for iOS and Android."
+    icon: "fas fa-check",
+    title: "Automated Testing and CI/CD",
+    description: "Let us automate any and all layers of your test pyramid or release process. Increase your velocity. Ship fewer bugs. Sleep a full 8 hours."
   },
   {
-    icon: "fas fa-shield-alt",
-    title: "QA Consulting",
-    description: "Strategic quality assurance consulting to optimize your testing processes and implement best practices."
-  },
-  {
-    icon: "fas fa-cogs",
-    title: "CI/CD Integration",
-    description: "Seamless integration of automated testing into your continuous integration and deployment pipelines."
-  },
-  {
-    icon: "fa-solid fa-cloud",
-    title: "Mobile Device Farm Integration",
-    description: "Integration of mobile device farms to ensure your applications are tested on a wide range of devices and operating systems."
+    icon: "fas fa-robot",
+    title: "Workflow Automation",
+    description: "Deterministic-first automation with strategic AI integration. Proven experience from test automation to document processing pipelines."
   }
 ];
 ---
@@ -38,7 +38,7 @@ const services = [
   <div class="container">
     <div class="section-header">
       <h2>Our Services</h2>
-      <p>Comprehensive QA and development solutions tailored to your needs</p>
+      <p>Graphs. Automated AI Workflows. Full-Stack Applications.</p><br/><p> What's not to love? </p>
     </div>
     <div class="services-grid">
       {

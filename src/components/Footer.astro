@@ -1,14 +1,7 @@
 ---
-const currentYear = new Date().getFullYear();
+import {services} from "../components/Services.astro"
 
-const services = [
-  { name: "Test Automation", href: "#services" },
-  { name: "React Development", href: "#services" },
-  { name: "React Native Development", href: "#services" },
-  { name: "QA Consulting", href: "#services" },
-  { name: "CI/CD Integration", href: "#services" },
-  { name: "Mobile Device Farm Integration", href: "#services" },
-];
+const currentYear = new Date().getFullYear();
 
 const quickLinks = [
   { name: "Blog", href: "/blog/" },
@@ -32,8 +25,7 @@ const socialLinks = [
       <div class="footer-section">
         <h3>About Us</h3>
         <p>
-          Medcalf Software Solutions specializes in delivering high-quality test
-          automation and QA solutions for businesses of all sizes.
+        We bring over 10 years of experience designing, developing and testing high quality software across multiple platforms and business verticles. 
         </p>
         <div class="social-links">
           {
@@ -50,9 +42,9 @@ const socialLinks = [
         <h3>Services</h3>
         <ul>
           {
-            services.map(({ name, href }) => (
+            services.map(({ title}) => (
               <li>
-                <a href={href}>{name}</a>
+                <a href="#services">{title}</a>
               </li>
             ))
           }

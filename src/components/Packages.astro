@@ -2,45 +2,42 @@
 // src/components/Packages.astro
 const packages = [
   {
-    name: "Starter",
-    price: "2,500",
+    name: "Discovery",
     period: "/project",
     features: [
-      "Basic test automation setup",
-      "Up to 20 automated test cases",
-      "Basic CI/CD integration",
-      "2 weeks delivery",
-      "Email support"
+      "Feasibility Assessment",
+      "POC Scope Definition",
+      "Technical Architecture Plan",
+      "Optional Workshop",
+      "1-2 weeks delivery",
+      "Documentation Included"
     ],
     featured: false
   },
   {
-    name: "Professional",
-    price: "7,500",
+    name: "Implementation",
     period: "/project",
     features: [
-      "Comprehensive test framework",
-      "Up to 100 automated test cases",
-      "Advanced CI/CD integration",
-      "Performance testing included",
-      "4 weeks delivery",
-      "Priority support",
-      "Documentation & training"
+    "E2E Solution Implementation",
+      "Dedicated Development Hours",
+      "Regular Check-Ins",
+      "Testing and validation Suite",
+      "Deployment and Monitoring",
+      "Training & Documentation",
+      "Priority Support"
     ],
     featured: true
   },
   {
-    name: "Enterprise",
-    price: "15,000",
-    period: "+",
+    name: "Retainer",
+    period: "/month",
     features: [
-      "Custom enterprise solution",
-      "Unlimited test cases",
-      "Full DevOps integration",
-      "Multi-platform testing",
-      "Dedicated project manager",
-      "24/7 support",
-      "Ongoing maintenance"
+      "Flexible Pricing & Hours",
+      "Architecture consulting",
+      "Feature development",
+      "Performance optimization",
+      "Dedicated availability",
+      "Flexible engagement"
     ],
     featured: false
   }
@@ -51,20 +48,14 @@ const packages = [
   <div class="container">
     <div class="section-header">
       <h2>Service Packages</h2>
-      <p>Choose the perfect package for your project needs</p>
+      <p>Choose the perfect package for your project needs. Applies to all our Service offerings.</p>
     </div>
     <div class="packages-grid">
       {
         packages.map((pkg) => (
-          <div class={`package-card ${pkg.featured ? 'featured' : ''}`}>
-            {pkg.featured && <div class="package-badge">Most Popular</div>}
+          <div class={"package-card"}>
             <div class="package-header">
               <h3>{pkg.name}</h3>
-              <div class="package-price">
-                <span class="currency">$</span>
-                <span class="amount">{pkg.price}</span>
-                <span class="period">{pkg.period}</span>
-              </div>
             </div>
             <ul class="package-features">
               {pkg.features.map((feature) => (
@@ -77,7 +68,7 @@ const packages = [
               href="#contact"
               class={`btn ${pkg.featured ? 'btn-primary' : 'btn-secondary'}`}
             >
-              {pkg.name === 'Enterprise' ? 'Contact Us' : 'Get Started'}
+              Get A Quote 
             </a>
           </div>
         ))
