@@ -22,7 +22,10 @@ const sortedPosts = posts.sort(
 );
 ---
 
-<Layout title={`${tag} - Blog Tags - Medcalf Software Solutions`}>
+<Layout
+  title={`${tag} - Blog Tags - Medcalf Software Solutions`}
+  description={`Browse ${posts.length} blog post${posts.length === 1 ? "" : "s"} about ${tag} from Medcalf Software Solutions.`}
+>
   <Navigation />
 
   <main class="tag-page">
