@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
 
 const quickLinks = [
   { name: "Blog", href: "/blog/" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const socialLinks = [
@@ -44,7 +44,7 @@ const socialLinks = [
           {
             services.map(({ title}) => (
               <li>
-                <a href="#services">{title}</a>
+                <a href="/#services">{title}</a>
               </li>
             ))
           }
@@ -67,7 +67,7 @@ const socialLinks = [
       <div class="footer-section">
         <h3>Contact Us</h3>
         <p>Get in touch with us today.</p>
-        <a href="#contact" class="btn btn-outline">Contact Now</a>
+        <a href="/#contact" class="btn btn-outline">Contact Now</a>
       </div>
     </div>
 
