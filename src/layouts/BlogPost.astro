@@ -52,6 +52,11 @@ const articleSchema = {
   tags={tags}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <!-- Carousel support for blog posts -->
+  <link rel="stylesheet" href="/styles/carousel.css" />
+  <script src="/js/carousel.js" defer></script>
+
   <Navigation />
 
   <main class="blog-post">

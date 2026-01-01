@@ -20,95 +20,6 @@ tags:
   ]
 image: "/images/blog/StatFoundryPartTwo/mean.png"
 ---
-<style>
-  .carousel-container {
-    position: relative;
-    max-width: 800px; /* Slightly wider to accommodate 4:3 images */
-    margin: 2rem auto;
-  }
-
-  .carousel-wrapper {
-    overflow: hidden;
-    border-radius: 8px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensure wrapper takes full width */
-  }
-
-  .carousel-slides {
-    display: flex;
-    transition: transform 0.3s ease;
-    width: 100%;
-  }
-
-  .carousel-slides img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    max-height: 600px; /* Adjusted for 4:3 ratio */
-    display: block; /* Prevents unwanted spacing */
-    flex-shrink: 0; /* Prevent image shrinking */
-    flex-grow: 0;   /* Prevent image growing */
-  }
-
-  .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    z-index: 10;
-    transition: background-color 0.2s ease;
-  }
-
-  .carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.9);
-  }
-
-  .carousel-prev {
-    left: 10px;
-  }
-
-  .carousel-next {
-    right: 10px;
-  }
-
-  .carousel-indicators {
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  .indicator {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #ccc;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.2s ease;
-  }
-
-  .indicator:hover {
-    background: #999;
-  }
-
-  .indicator.active {
-    background: #007acc;
-  }
-
-  .carousel-caption {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 0.5rem;
-  }
-</style>
 
 <img src="/images/blog/StatFoundryPartTwo/mean.png"/>
 
@@ -132,7 +43,7 @@ Would it then just... write the perfect [Cypher](https://en.wikipedia.org/wiki/C
 
 Fueled by the possibilities that an LLM could bring to my abandoned passion project, I sketched up a UI one night. The world was my oyster.
 
-<figure class="carousel-container" id="fforacle-carousel">
+<figure class="carousel-container" data-carousel-id="fforacle">
   <div class="carousel-wrapper">
     <div class="carousel-slides">
       <img src="/images/blog/StatFoundryPartTwo/fforacle1.png" alt="FF Oracle Screenshot 1" />
@@ -144,22 +55,7 @@ Fueled by the possibilities that an LLM could bring to my abandoned passion proj
       <img src="/images/blog/StatFoundryPartTwo/fforacle7.png" alt="FF Oracle Screenshot 7" />
     </div>
   </div>
-
-<button class="carousel-btn carousel-prev" onclick="moveCarousel('fforacle', -1)" aria-label="Previous image">‹</button>
-<button class="carousel-btn carousel-next" onclick="moveCarousel('fforacle', 1)" aria-label="Next image">›</button>
-
-  <div class="carousel-indicators">
-    <button class="indicator active" onclick="goToSlide('fforacle', 0)" aria-label="Go to slide 1"></button>
-    <button class="indicator" onclick="goToSlide('fforacle', 1)" aria-label="Go to slide 2"></button>
-    <button class="indicator" onclick="goToSlide('fforacle', 2)" aria-label="Go to slide 3"></button>
-    <button class="indicator" onclick="goToSlide('fforacle', 3)" aria-label="Go to slide 4"></button>
-    <button class="indicator" onclick="goToSlide('fforacle', 4)" aria-label="Go to slide 5"></button>
-    <button class="indicator" onclick="goToSlide('fforacle', 5)" aria-label="Go to slide 6"></button>
-    <button class="indicator" onclick="goToSlide('fforacle', 6)" aria-label="Go to slide 7"></button>
-  </div>
-  <figcaption class="carousel-caption">
-    The original Fantasy Football Oracle design. Type, Get Suggestions, Select, Repeat
-  </figcaption>
+  <figcaption class="carousel-caption">The original Fantasy Football Oracle design. Type, Get Suggestions, Select, Repeat</figcaption>
 </figure>
 
 The idea was simple: "Google for deep-dive football stats", with one important tweak.
@@ -196,7 +92,7 @@ All that to say, I had a blast doing some DIY user research on Instagram.
 
 I asked the following 4 questions over the course of a couple days and got a not-insignificant amount of responses (30-50 per question). To increase feedback, the questions were asked about "Sports" statistics in general, not specifical the "NFL".
 
-<figure class="carousel-container" id="survey-carousel">
+<figure class="carousel-container" data-carousel-id="survey">
   <div class="carousel-wrapper">
     <div class="carousel-slides">
       <img src="/images/blog/StatFoundryPartTwo/why are you looking up stats.PNG" alt="Why are you looking up stats survey question" />
@@ -205,19 +101,7 @@ I asked the following 4 questions over the course of a couple days and got a not
       <img src="/images/blog/StatFoundryPartTwo/how easy is it avg.jpeg" alt="Average difficulty score for finding stats" />
     </div>
   </div>
-
-<button class="carousel-btn carousel-prev" onclick="moveCarousel('survey', -1)" aria-label="Previous image">‹</button>
-<button class="carousel-btn carousel-next" onclick="moveCarousel('survey', 1)" aria-label="Next image">›</button>
-
-  <div class="carousel-indicators">
-    <button class="indicator active" onclick="goToSlide('survey', 0)" aria-label="Go to slide 1"></button>
-    <button class="indicator" onclick="goToSlide('survey', 1)" aria-label="Go to slide 2"></button>
-    <button class="indicator" onclick="goToSlide('survey', 2)" aria-label="Go to slide 3"></button>
-    <button class="indicator" onclick="goToSlide('survey', 3)" aria-label="Go to slide 4"></button>
-  </div>
-  <figcaption class="carousel-caption">
-    Quick and dirty user research using Instagram Stories
-  </figcaption>
+  <figcaption class="carousel-caption">Quick and dirty user research using Instagram Stories</figcaption>
 </figure>
 
 ### Takeaway: Curious Lads just Google it, baby!
@@ -377,73 +261,4 @@ Stick around for Part 3 where I pivot to good old deterministic systems and desi
 Or _DGSASSLFUFGNQC_ for short.
 
 I never said I was good at branding.
-
-<script>
-// Carousel state management
-const carousels = {
-  fforacle: { currentSlide: 0, totalSlides: 7 },
-  survey: { currentSlide: 0, totalSlides: 4 }  // Changed from 7 to 4
-};
-
-function moveCarousel(carouselId, direction) {
-  const carousel = carousels[carouselId];
-  carousel.currentSlide += direction;
-  
-  if (carousel.currentSlide < 0) {
-    carousel.currentSlide = carousel.totalSlides - 1;
-  }
-  if (carousel.currentSlide >= carousel.totalSlides) {
-    carousel.currentSlide = 0;
-  }
-  
-  updateCarousel(carouselId);
-}
-
-function goToSlide(carouselId, index) {
-  carousels[carouselId].currentSlide = index;
-  updateCarousel(carouselId);
-}
-
-function updateCarousel(carouselId) {
-  const container = document.getElementById(carouselId + '-carousel');
-  const slides = container.querySelector('.carousel-slides');
-  const indicators = container.querySelectorAll('.indicator');
-  const currentSlide = carousels[carouselId].currentSlide;
-  
-  slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-  
-  indicators.forEach((indicator, index) => {
-    indicator.classList.toggle('active', index === currentSlide);
-  });
-}
-
-// Touch/swipe support
-document.addEventListener('DOMContentLoaded', function() {
-  const carouselContainers = document.querySelectorAll('.carousel-container');
-  
-  carouselContainers.forEach(container => {
-    let startX = 0;
-    let endX = 0;
-    const carouselId = container.id.replace('-carousel', '');
-
-    container.addEventListener('touchstart', (e) => {
-      startX = e.changedTouches[0].screenX;
-    });
-
-    container.addEventListener('touchend', (e) => {
-      endX = e.changedTouches[0].screenX;
-      const threshold = 50;
-
-      if (startX - endX > threshold) moveCarousel(carouselId, 1);  // Swipe left
-      if (endX - startX > threshold) moveCarousel(carouselId, -1); // Swipe right
-    });
-
-    // Keyboard navigation
-    container.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') moveCarousel(carouselId, -1);
-      if (e.key === 'ArrowRight') moveCarousel(carouselId, 1);
-    });
-  });
-});
-</script>
 

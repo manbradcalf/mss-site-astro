@@ -4,9 +4,20 @@ description: "From POC to Production, how we helped  Segtax extract Settlement S
 pubDate: 2025-12-31
 author: "Ben Medcalf"
 tags: ["ChatGPT", "AI", "OCR","PDFs","Data Extraction","Automation","Case Study"]
-image: "/images/M\ Logo.svg"
+image: "/images/M Logo.svg"
 ---
-### The Big Picture: Segtax Saves Money Via Real Estate Itemization
+
+## Table of Contents
+
+- [The Domain: Saving Money on Taxes by Real Estate Itemization](#the-big-picture-segtax-saves-money-via-real-estate-itemization)
+- [The Problem: Not Everything is Automated (yet)](#the-problem-not-everything-is-automated-yet)
+- ["There's Data In Them There PDFs"](#theres-data-in-them-there-pdfs)
+- [The Extraction](#the-extraction)
+- [The Feedback Loop](#the-feedback-loop)
+- [The Final Product](#the-final-product)
+- [The Takeaways](#the-takeaways)
+
+### The Domain: Saving Money On Taxes By Real Estate Itemization
 
 I had the pleasure of working with [Segtax](https://www.seg.tax/), a very cool startup that is modernizing the way cost segregation studies are done. 
 
@@ -28,15 +39,28 @@ One of the documents that needs to be processed, the Settlement Statement.
 
 What's a Settlement Statement? Good question: It's a Statement representing a Settlement. Got it?
 
-But really, its essentially one big receipt representing real estate transaction. 
+But really, its essentially one big receipt representing a real estate purchase. 
 
-These settlement statements are made up of line items which represent things like taxes owed, credits due or fees paid. Different categories of line items impact the cost segregation study in different ways. 
+These settlement statements are made up of line items which represent things like taxes owed, credits due or fees paid. Different categories of line items impact the cost segregation study in different ways.
+
+<figure class="carousel-container" data-carousel-id="settlement">
+  <div class="carousel-wrapper">
+    <div class="carousel-slides">
+      <img src="/images/blog/Segtax-PDF-Extraction/example1.jpg" alt="Settlement Statement Example 1" />
+      <img src="/images/blog/Segtax-PDF-Extraction/example2.png" alt="Settlement Statement Example 2" />
+    </div>
+  </div>
+  <figcaption class="carousel-caption">Example Settlement Statements</figcaption>
+</figure>
 
 The problem is that these documents are still being read with slow human eyes and interpreted by distractable human brains. 
 
-Instead, we're going to get the info we need from these Settlement Statements via [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) (optical character recognition) and AI (artificial intelligence) so we can keep those beautiful human eyes and brains focused on what they're best at, innovating.
+Our mission:
 
-### "There's Data In Them There PDFs"
+>*Whenever a Settlement Statement is uploaded to the system, extract, categorize and persist the line items within it*
+
+
+### The Opportunity: "There's Data In Them There PDFs"
 
 If we can dig the line items out of the Settlement Statement PDFs and process them into something the Segtax system can use automatically, then we're golden.
 
@@ -44,17 +68,23 @@ Now that we know what a cost segregation study is and how the line items within 
 
 For this automation, we'll need a few things.
 
-1. Something to read the settlement statement (OCR)
-2. Something to identify the line items (AI)
-3. Something to categorize the line items (AI)
-4. Something to make these line items usable (good ole fashioned programming)
+#### What We Need
 
+1. Something to extract the text of the settlement statement PDF
+2. Something to identify the line items from the extracted text
+3. Something to categorize the extracted line items
 
-### The Extraction
+> **Note:** Because modern AI providers like ChatGPT also [include OCR capabilities](https://platform.openai.com/docs/guides/pdf-files), in some cases, all 3 steps above could be combined into 1. However, if the PDF we are extracting data from was scanned in manually from a physical document and / or the quality was lacking, these tools would often be unable to process it.
+>
+> By extracting the text first via our own OCR instance, and then passing the extracted text to our LLM of choice, we were able to get consistent results while gaining more control and insight into the extraction process. 
 
+### Extracting Text from the PDF 
 
+I chose tesseract for the OCR extraction, due to its ease of use and open source nature.
 
-### The Feedback Loop
+### Identifying Line Items from Extracted Text
+
+### Categorizing Line Items using Structured Outputs
 
 When designing a system like this, it's crucial to get the domain expert's feedback early and often. To do this, I used Anthropic's Claude to generate static html pages that displayed the PDF on one side and the line item extractions on the other.
 
@@ -65,6 +95,6 @@ I couldn't expect, nor would I want to expect, our domain expert Greg to spin up
 Instead, 
 
 
-### The Final Product 
+### The Final Product
 
 ### The Takeaways
