@@ -4,7 +4,7 @@ description: "From POC to Production, how we helped Segtax extract Settlement St
 pubDate: 2025-12-31
 author: "Ben Medcalf"
 tags: ["ChatGPT", "AI", "OCR","PDFs","Data Extraction","Automation","Case Study","Kotlin","Spring","Segtax","PoC"]
-image: "/images/M Logo.svg"
+image: "/images/blog/Segtax-PDF-Extraction/pdf extraction.png"
 ---
 
 ## At a Glance
