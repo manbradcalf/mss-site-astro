@@ -191,7 +191,7 @@ enum class ClosingCostCategory {
 }
 ```
 
-This enum is where our AI pipeline crosses from the probabilistic world of LLM reasoning into the deterministic world of application logic. Each category triggers different tax basis calculations downstream. Getting ChatGPT to reliably categorize into the correct enum value means the difference between automated processing and manual correction. This is where the business value lives.
+Each category triggers different tax basis calculations downstream. Getting ChatGPT to reliably categorize into the correct enum value means the difference between automated processing and manual correction. This is where the business value lives.
 
 #### Let's recap:
 
