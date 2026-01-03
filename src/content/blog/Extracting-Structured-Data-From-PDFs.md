@@ -247,7 +247,7 @@ Now, when an internal Segtax user uploads a Settlement Statement as part of cond
 
 But what to do with this newly extracted and categorized data?
 
-Now we can use it in production.
+Well...now we can use it!
 
 Inside our Spring application, with `Controller`, `Service`, `Repository` classes and async Task handling logic for our newly extracted data, we can now fully integrate the output of our automatic, AI-powered Settlement Statement processing into our backend.
 
