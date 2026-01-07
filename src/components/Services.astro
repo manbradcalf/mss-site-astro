@@ -4,32 +4,38 @@ export const services = [
   {
     icon: "fas fa-project-diagram",
     title: "Graph Database Implementation",
-    description: "Neo4j-certified expertise in building knowledge graphs and graph databases that reveal powerful insights from your connected data."
+    description: "Neo4j-certified expertise in building knowledge graphs and graph databases that reveal powerful insights from your connected data.",
+    link: null
   },
   {
     icon: "fas fa-brain",
     title: "AI Document Processing",
-    description: "Intelligent extraction and categorization systems using multi-stage prompting, structured outputs, and human-in-the-loop design patterns."
+    description: "Intelligent extraction and categorization systems using multi-stage prompting, structured outputs, and human-in-the-loop design patterns.",
+    link: "/services/document-processing-pipeline"
   },
   {
     icon: "fas fa-network-wired",
     title: "GraphRAG Solutions",
-    description: "Combine the precision of graph databases with the power of LLMs to build context-aware, retrieval-augmented generation systems."
+    description: "Combine the precision of graph databases with the power of LLMs to build context-aware, retrieval-augmented generation systems.",
+    link: null
   },
   {
     icon: "fab fa-react",
     title: "Full-Stack Development",
-    description: "Modern web and mobile applications built with React and React Native, backed by 10 years of engineering excellence."
+    description: "Modern web and mobile applications built with React and React Native, backed by 10 years of engineering excellence.",
+    link: null
   },
   {
     icon: "fas fa-check",
     title: "Automated Testing and CI/CD",
-    description: "Let us automate any and all layers of your test pyramid or release process. Increase your velocity. Ship fewer bugs. Sleep a full 8 hours."
+    description: "Let us automate any and all layers of your test pyramid or release process. Increase your velocity. Ship fewer bugs. Sleep a full 8 hours.",
+    link: null
   },
   {
     icon: "fas fa-robot",
     title: "Workflow Automation",
-    description: "Deterministic-first automation with strategic AI integration. Proven experience from test automation to document processing pipelines."
+    description: "Deterministic-first automation with strategic AI integration. Proven experience from test automation to document processing pipelines.",
+    link: null
   }
 ];
 ---
@@ -43,13 +49,24 @@ export const services = [
     <div class="services-grid">
       {
         services.map((service) => (
-          <div class="service-card">
-            <div class="service-icon">
-              <i class={service.icon} />
+          service.link ? (
+            <a href={service.link} class="service-card service-card-link">
+              <div class="service-icon">
+                <i class={service.icon} />
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <span class="learn-more">Learn more →</span>
+            </a>
+          ) : (
+            <div class="service-card">
+              <div class="service-icon">
+                <i class={service.icon} />
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
             </div>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-          </div>
+          )
         ))
       }
     </div>

@@ -290,6 +290,44 @@ p {
   line-height: 1.6;
 }
 
+/* Clickable service cards */
+.service-card-link {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.service-card-link .learn-more {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #23aa57;
+  font-weight: 600;
+  font-size: 0.95rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.service-card-link:hover .learn-more {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card-link:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(35, 170, 87, 0.2);
+}
+
+.service-card-link:hover .service-icon {
+  background: linear-gradient(135deg, #1dbf73 0%, #23aa57 100%);
+  transform: scale(1.05);
+}
+
+.service-card-link .service-icon {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
 /* Packages Section */
 .packages {
   padding: 100px 0;
