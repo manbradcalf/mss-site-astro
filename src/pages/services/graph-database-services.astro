@@ -1,0 +1,273 @@
+---
+import ServicePage from "../../layouts/ServicePage.astro";
+---
+
+<ServicePage
+  title="Graph Database Design & Implementation"
+  description="Neo4j-certified expertise in designing and building knowledge graphs that unlock insights from your connected data. From schema design to production deployment."
+>
+  <section>
+    <h2>What We Build</h2>
+    <p>
+      We design and build graph database solutions that reveal the hidden connections in your data. Our systems combine:
+    </p>
+    <ul>
+      <li><strong>Schema-first design</strong> - Purpose-built data models that make complex queries natural and performant</li>
+      <li><strong>Multi-hop query support</strong> - Traverse relationships that would require expensive JOINs in traditional databases</li>
+      <li><strong>Deterministic query interfaces</strong> - User-friendly search experiences without LLM hallucination risks</li>
+      <li><strong>Buildtime generation patterns</strong> - Schema-driven code generation for maintainable, type-safe systems</li>
+    </ul>
+    <p>
+      Unlike generic database migrations or one-size-fits-all solutions, we design graph schemas tailored to your specific query patterns and business questions.
+    </p>
+  </section>
+
+  <section>
+    <h2>How It Works</h2>
+    <p>Our graph database implementation follows a proven methodology:</p>
+
+    <h3>Stage 1: Data Modeling & Schema Design</h3>
+    <p>
+      We analyze your domain, identify entities and relationships, and design a graph schema optimized for your query patterns. This stage focuses on getting the data model right, because graph databases are only as powerful as the graphs you model.
+    </p>
+
+    <h3>Stage 2: Data Ingestion Pipeline</h3>
+    <p>
+      We build automated pipelines to extract data from your existing sources, transform it to match the graph schema, and load it into Neo4j. Whether scraping, API integration, or database migration, we handle the data engineering.
+    </p>
+
+    <h3>Stage 3: Query Layer Development</h3>
+    <p>
+      We implement the query interfaces your application needs, from raw Cypher APIs to user-friendly search builders. Our chunk-based architecture enables deterministic, testable queries without relying on LLM translation.
+    </p>
+
+    <h3>Stage 4: Integration & Deployment</h3>
+    <p>
+      We deploy your graph database to production infrastructure and integrate it with your existing applications. Full documentation, monitoring, and knowledge transfer ensure your team can maintain and extend the system.
+    </p>
+  </section>
+
+  <section>
+    <h2>Our Approach</h2>
+
+    <div class="service-tier">
+      <h4>Discovery & Schema Design</h4>
+      <p>We analyze your data domain and query requirements to determine if a graph database is the right solution and design an optimal schema.</p>
+      <ul>
+        <li>Domain analysis and entity identification</li>
+        <li>Relationship mapping and cardinality assessment</li>
+        <li>Query pattern documentation</li>
+        <li>Schema design with Neo4j best practices</li>
+        <li>Feasibility assessment and recommendation</li>
+      </ul>
+    </div>
+
+    <div class="service-tier">
+      <h4>Proof of Concept</h4>
+      <p>We build a working graph database with sample data, demonstrating query capabilities on your actual domain.</p>
+      <ul>
+        <li>Neo4j instance setup and configuration</li>
+        <li>Sample data ingestion pipeline</li>
+        <li>Core Cypher query implementation</li>
+        <li>Query performance benchmarking</li>
+        <li>Working demo with your real data</li>
+      </ul>
+    </div>
+
+    <div class="service-tier">
+      <h4>Production Implementation</h4>
+      <p>We scale your POC to production-ready infrastructure with full data ingestion and application integration.</p>
+      <ul>
+        <li>Production Neo4j deployment (cloud or self-hosted)</li>
+        <li>Full data migration and ingestion pipelines</li>
+        <li>API layer and application integration</li>
+        <li>Query interface development (if applicable)</li>
+        <li>Monitoring, backup, and disaster recovery</li>
+      </ul>
+    </div>
+
+    <div class="service-tier">
+      <h4>Ongoing Support & Enhancement</h4>
+      <p>Continuous optimization, schema evolution, and feature development as your data and needs grow.</p>
+      <ul>
+        <li>Performance monitoring and query optimization</li>
+        <li>Schema evolution and data model refinement</li>
+        <li>New query pattern development</li>
+        <li>Data quality monitoring</li>
+        <li>Team training and knowledge transfer</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Case Study: StatFoundry NFL Statistics Search</h2>
+    <div class="case-study">
+      <h3>The Challenge</h3>
+      <p>
+        NFL statistics are scattered across websites, locked behind paywalls, or presented in rigid, pre-curated formats. Finding answers to specific, multi-dimensional questions like "Show me all WRs with 70-100 receptions over the last 3 seasons" required either expensive tools or manual data compilation.
+      </p>
+      <p>
+        We wanted to build a search engine for sports statistics that could handle complex, multi-hop queries while remaining accessible to users who don't know query languages.
+      </p>
+
+      <h3>The Solution</h3>
+      <p>
+        We designed and built StatFoundry, a graph database-powered NFL statistics search platform:
+      </p>
+      <ul>
+        <li><strong>Neo4j graph database</strong> - Schema designed around Players, Teams, Games, Seasons, and statistical relationships</li>
+        <li><strong>Automated data ingestion</strong> - Scraping pipelines that populate and update the graph from public sources</li>
+        <li><strong>BIGRFS architecture</strong> - A deterministic query-building system using composable "chunks" instead of LLM translation</li>
+        <li><strong>Schema-driven generation</strong> - Query chunks auto-generated from the database schema at build time</li>
+      </ul>
+
+      <h3>The Results</h3>
+      <ul>
+        <li><strong>Complex queries made simple</strong> - Multi-hop traversals like "QBs who beat a team they were drafted by" without writing Cypher</li>
+        <li><strong>Zero hallucinations</strong> - Deterministic chunk composition eliminates LLM interpretation errors</li>
+        <li><strong>Explorable dataset</strong> - Users discover available queries through contextual suggestions</li>
+        <li><strong>Maintainable architecture</strong> - Schema changes automatically propagate to query options</li>
+      </ul>
+
+      <h3>Read the Full Technical Deep-Dive</h3>
+      <p>We documented the entire journey from initial prototype to production architecture:</p>
+      <ul>
+        <li><a href="/blog/statfoundry-part1">Part 1: The Origins</a> - Building the initial Neo4j graph and the problem we set out to solve</li>
+        <li><a href="/blog/statfoundry-part2">Part 2: The LLM Experiment</a> - Why RAG-based query translation failed for statistics</li>
+        <li><a href="/blog/statfoundry-part3">Part 3: BIGRFS Architecture</a> - The deterministic chunk-based query builder solution</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Industries & Use Cases</h2>
+    <p>
+      Graph databases excel when relationships between data are as important as the data itself:
+    </p>
+
+    <div class="industries-grid">
+      <div class="industry-card">
+        <h4>Sports & Media</h4>
+        <ul>
+          <li>Player-team-game relationship networks</li>
+          <li>Historical statistics search</li>
+          <li>Fantasy sports analytics</li>
+          <li>Content recommendation engines</li>
+          <li>Audience connection mapping</li>
+        </ul>
+      </div>
+
+      <div class="industry-card">
+        <h4>E-Commerce & Retail</h4>
+        <ul>
+          <li>Product recommendation engines</li>
+          <li>Customer journey mapping</li>
+          <li>Supply chain visibility</li>
+          <li>Fraud detection networks</li>
+          <li>Inventory relationship tracking</li>
+        </ul>
+      </div>
+
+      <div class="industry-card">
+        <h4>Healthcare & Life Sciences</h4>
+        <ul>
+          <li>Drug interaction networks</li>
+          <li>Patient-provider relationship mapping</li>
+          <li>Clinical trial matching</li>
+          <li>Disease pathway analysis</li>
+          <li>Research knowledge graphs</li>
+        </ul>
+      </div>
+
+      <div class="industry-card">
+        <h4>Financial Services</h4>
+        <ul>
+          <li>Fraud ring detection</li>
+          <li>Anti-money laundering networks</li>
+          <li>Customer 360 views</li>
+          <li>Risk relationship mapping</li>
+          <li>Regulatory compliance graphs</li>
+        </ul>
+      </div>
+
+      <div class="industry-card">
+        <h4>Technology & SaaS</h4>
+        <ul>
+          <li>Identity and access management</li>
+          <li>Dependency mapping (microservices, packages)</li>
+          <li>Network topology visualization</li>
+          <li>Impact analysis for changes</li>
+          <li>Knowledge management systems</li>
+        </ul>
+      </div>
+
+      <div class="industry-card">
+        <h4>Research & Academia</h4>
+        <ul>
+          <li>Citation network analysis</li>
+          <li>Research collaboration mapping</li>
+          <li>Ontology and taxonomy management</li>
+          <li>Semantic search systems</li>
+          <li>Literature discovery tools</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why Choose Our Approach</h2>
+    <ul>
+      <li><strong>Neo4j certified expertise</strong> - Deep experience with the leading graph database platform</li>
+      <li><strong>Schema-first methodology</strong> - We design the data model before writing code, ensuring queries are natural and performant</li>
+      <li><strong>Deterministic over probabilistic</strong> - Our BIGRFS architecture proves complex queries can be user-friendly without LLM risks</li>
+      <li><strong>Full-stack implementation</strong> - From data ingestion to user-facing query interfaces, we build the complete solution</li>
+      <li><strong>Buildtime generation patterns</strong> - Schema-driven code generation means your system stays maintainable as it evolves</li>
+      <li><strong>Honest assessment</strong> - We'll tell you if a graph database isn't the right fit for your use case</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Ready to Unlock Your Connected Data?</h2>
+    <p>
+      Start with a free 30-minute Graph Database Assessment to determine if a graph solution is right for your data and query needs.
+    </p>
+    <p>
+      We'll discuss your domain, relationships, query patterns, and provide honest feedback on whether graph databases would deliver value.
+    </p>
+    <p>
+      <a href="/#contact" class="cta-link">Schedule Your Free Assessment</a>
+    </p>
+  </section>
+</ServicePage>
+
+<style>
+  section {
+    margin-bottom: 4rem;
+  }
+
+  section:last-child {
+    text-align: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 3rem;
+    border-radius: 12px;
+  }
+
+  .cta-link {
+    display: inline-block;
+    background: var(--color-primary, #1dbf73);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .cta-link:hover {
+    background: #17a862;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(29, 191, 115, 0.3);
+  }
+</style>

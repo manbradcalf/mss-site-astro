@@ -304,15 +304,9 @@ p {
   color: #23aa57;
   font-weight: 600;
   font-size: 0.95rem;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
 }
 
-.service-card-link:hover .learn-more {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .service-card-link:hover {
   transform: translateY(-10px);
