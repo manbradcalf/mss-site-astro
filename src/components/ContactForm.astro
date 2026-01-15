@@ -95,3 +95,11 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelector('.contact-form')?.addEventListener('submit', function() {
+    if (typeof gtagSendEvent === 'function') {
+      gtagSendEvent();
+    }
+  });
+</script>

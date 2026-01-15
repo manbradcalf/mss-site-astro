@@ -87,6 +87,22 @@ const imageURL = new URL(image, Astro.site);
       }
     </script>
 
+    <!-- Google Ads conversion helper -->
+    <script>
+      function gtagSendEvent(url) {
+        var callback = function () {
+          if (typeof url === 'string') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'ads_conversion_Contact_1', {
+          'event_callback': callback,
+          'event_timeout': 2000,
+        });
+        return false;
+      }
+    </script>
+
     <!-- Microsoft Clarity (only in PROD) -->
     <script type="text/javascript">
       if (import.meta.env.PROD === true) {
