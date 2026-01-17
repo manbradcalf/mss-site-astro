@@ -1,5 +1,7 @@
 ---
 // src/layouts/Layout.astro
+import FloatingContactCTA from "../components/FloatingContactCTA.astro";
+
 interface Props {
   title: string;
   description?: string;
@@ -127,5 +129,6 @@ const imageURL = new URL(image, Astro.site);
   </head>
   <body>
     <slot />
+    <FloatingContactCTA />
   </body>
 </html>
