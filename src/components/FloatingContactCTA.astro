@@ -1,0 +1,317 @@
+---
+// Floating Contact CTA with Modal
+// A sticky button that opens a contact form modal on service pages
+---
+
+<!-- Floating Button -->
+<button id="floating-cta-btn" class="floating-cta-btn" aria-label="Get in Touch">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </svg>
+  <span>Get in Touch</span>
+</button>
+
+<!-- Modal Overlay -->
+<div id="contact-modal" class="contact-modal" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" aria-label="Close modal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <h2 id="modal-title">Get in Touch</h2>
+    <p class="modal-subtitle">Ready to get started? Let's talk.</p>
+
+    <form
+      class="modal-contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+    >
+      <input
+        type="hidden"
+        name="access_key"
+        value="50107743-f5e4-4efe-b27c-19b825e5cb82"
+      />
+      <div class="form-group">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          name="company"
+          placeholder="Company Name"
+        />
+      </div>
+      <div class="form-group">
+        <select name="service" required>
+          <option value="">Select Service</option>
+          <option value="graph-database">Graph Database Implementation</option>
+          <option value="ai-document-processing">AI Document Processing</option>
+          <option value="graphrag">GraphRAG Solutions</option>
+          <option value="full-stack-development">Full-Stack Development</option>
+          <option value="testing-cicd">Automated Testing and CI/CD</option>
+          <option value="workflow-automation">Workflow Automation</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea
+          name="message"
+          placeholder="Tell us about your project"
+          rows="3"
+          required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const floatingBtn = document.getElementById('floating-cta-btn');
+  const modal = document.getElementById('contact-modal');
+  const modalBackdrop = modal?.querySelector('.modal-backdrop');
+  const modalClose = modal?.querySelector('.modal-close');
+  const modalForm = modal?.querySelector('.modal-contact-form');
+
+  function openModal() {
+    if (modal) {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  floatingBtn?.addEventListener('click', openModal);
+  modalClose?.addEventListener('click', closeModal);
+  modalBackdrop?.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+  // Track form submission with gtag
+  modalForm?.addEventListener('submit', function() {
+    if (typeof gtagSendEvent === 'function') {
+      gtagSendEvent();
+    }
+  });
+</script>
+
+<style>
+  /* Floating Button */
+  .floating-cta-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background-color: #1dbf73;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(29, 191, 115, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .floating-cta-btn:hover {
+    background-color: #19a463;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 191, 115, 0.4);
+  }
+
+  .floating-cta-btn svg {
+    flex-shrink: 0;
+  }
+
+  /* Modal */
+  .contact-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .contact-modal.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+
+  .contact-modal.open .modal-content {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+  }
+
+  .modal-close:hover {
+    color: #333;
+  }
+
+  .modal-content h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    color: #333;
+  }
+
+  .modal-subtitle {
+    margin: 0 0 1.5rem 0;
+    color: #666;
+    font-size: 1rem;
+  }
+
+  /* Form Styles */
+  .modal-contact-form .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .modal-contact-form input,
+  .modal-contact-form select,
+  .modal-contact-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .modal-contact-form input:focus,
+  .modal-contact-form select:focus,
+  .modal-contact-form textarea:focus {
+    outline: none;
+    border-color: #1dbf73;
+    box-shadow: 0 0 0 3px rgba(29, 191, 115, 0.1);
+  }
+
+  .modal-contact-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  .modal-contact-form textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .modal-contact-form .btn {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .modal-contact-form .btn-primary {
+    background-color: #1dbf73;
+    color: white;
+  }
+
+  .modal-contact-form .btn-primary:hover {
+    background-color: #19a463;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .floating-cta-btn {
+      bottom: 16px;
+      right: 16px;
+      padding: 12px 20px;
+      font-size: 0.9rem;
+    }
+
+    .floating-cta-btn span {
+      display: none;
+    }
+
+    .floating-cta-btn {
+      padding: 14px;
+      border-radius: 50%;
+    }
+
+    .modal-content {
+      padding: 1.5rem;
+      width: 95%;
+      margin: 16px;
+    }
+
+    .modal-content h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

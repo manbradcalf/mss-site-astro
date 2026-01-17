@@ -2,6 +2,8 @@
 import Layout from "./Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import ContactForm from "../components/ContactForm.astro";
+import FloatingContactCTA from "../components/FloatingContactCTA.astro";
 
 interface Props {
   title: string;
@@ -74,7 +76,11 @@ const serviceSchema = {
     </article>
   </main>
 
+  <ContactForm />
+
   <Footer />
+
+  <FloatingContactCTA />
 </Layout>
 
 <style>
