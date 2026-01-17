@@ -119,7 +119,11 @@ const imageURL = new URL(image, Astro.site);
           y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "sagw5cftqi");
       }
-    </script>
+    <head>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- or for PNG/ICO -->
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+</head></script>
   </head>
   <body>
     <slot />
