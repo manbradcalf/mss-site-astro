@@ -240,7 +240,7 @@ function showNotification(message, type = 'info') {
         position: fixed;
         top: 100px;
         right: 20px;
-        background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#007bff'};
+        background: ${type === 'success' ? '#8E8E55' : type === 'error' ? '#dc3545' : '#007bff'};
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 8px;

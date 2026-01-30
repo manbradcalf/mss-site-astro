@@ -66,23 +66,23 @@ p {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #1dbf73 0%, #16a05a 100%);
+  background: linear-gradient(135deg, #DBA649 0%, #c99539 100%);
   color: white;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(29, 191, 115, 0.3);
+  box-shadow: 0 10px 25px rgba(219, 166, 73, 0.3);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #1dbf73;
-  border: 2px solid #1dbf73;
+  color: #DBA649;
+  border: 2px solid #DBA649;
 }
 
 .btn-secondary:hover {
-  background: #1dbf73;
+  background: #DBA649;
   color: white;
   transform: translateY(-2px);
 }
@@ -121,7 +121,7 @@ p {
 }
 
 .nav-logo h2 {
-  color: #1dbf73;
+  color: #DBA649;
   margin: 0;
   font-size: 1.8rem;
 }
@@ -140,7 +140,7 @@ p {
 }
 
 .nav-link:hover {
-  color: #1dbf73;
+  color: #DBA649;
 }
 
 .hamburger {
@@ -264,7 +264,7 @@ p {
 .service-icon {
   width: 60px;
   height: 60px;
-  background: #1dbf73;
+  background: #DBA649;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -315,14 +315,14 @@ p {
 }
 
 .package-card.featured {
-  border: 2px solid #1dbf73;
+  border: 2px solid #DBA649;
 }
 
 .package-badge {
   position: absolute;
   top: 1rem;
   right: -2rem;
-  background: #1dbf73;
+  background: #DBA649;
   color: white;
   padding: 0.5rem 3rem;
   transform: rotate(45deg);
@@ -349,7 +349,7 @@ p {
 .package-price .amount {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #1dbf73;
+  color: #DBA649;
   line-height: 1;
 }
 
@@ -371,7 +371,7 @@ p {
 }
 
 .package-features i {
-  color: #1dbf73;
+  color: #DBA649;
   margin-right: 0.5rem;
 }
 
@@ -411,7 +411,7 @@ p {
 .portfolio-placeholder {
   width: 80px;
   height: 80px;
-  background: #1dbf73;
+  background: #DBA649;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -495,7 +495,7 @@ p {
 .author-avatar {
   width: 50px;
   height: 50px;
-  background: #1dbf73;
+  background: #DBA649;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -544,7 +544,7 @@ p {
 .contact-icon {
   width: 40px;
   height: 40px;
-  background: #1dbf73;
+  background: #DBA649;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -591,7 +591,7 @@ p {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #1dbf73;
+  border-color: #DBA649;
 }
 
 .form-group textarea {
@@ -606,7 +606,7 @@ p {
 }
 
 .footer-button {
-  color: #1dbf73;
+  color: #DBA649;
 
 }
 
@@ -643,7 +643,7 @@ p {
 }
 
 .footer-section ul li a:hover {
-  color: #1dbf73;
+  color: #DBA649;
 }
 
 .social-links {
@@ -665,7 +665,7 @@ p {
 }
 
 .social-links a:hover {
-  background: #1dbf73;
+  background: #DBA649;
 }
 
 .footer-bottom {
