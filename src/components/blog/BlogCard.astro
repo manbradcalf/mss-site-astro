@@ -39,10 +39,10 @@ const { title, description, pubDate, author, tags, slug, image } = Astro.props;
 
 <style>
   .blog-card {
-    background: white;
+    background: #1a2831;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
@@ -50,7 +50,7 @@ const { title, description, pubDate, author, tags, slug, image } = Astro.props;
 
   .blog-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 12px rgba(219, 166, 73, 0.2);
   }
 
   .blog-card-image {
@@ -71,7 +71,7 @@ const { title, description, pubDate, author, tags, slug, image } = Astro.props;
   }
 
   .blog-card-title a {
-    color: #333;
+    color: #f6f2e7;
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -81,7 +81,7 @@ const { title, description, pubDate, author, tags, slug, image } = Astro.props;
   }
 
   .blog-card-excerpt {
-    color: #666;
+    color: #b0b0b0;
     margin-bottom: 1.5rem;
     line-height: 1.6;
   }
@@ -89,7 +89,7 @@ const { title, description, pubDate, author, tags, slug, image } = Astro.props;
   .blog-card-meta {
     display: flex;
     gap: 1rem;
-    color: #888;
+    color: #909090;
     font-size: 0.9rem;
     margin-bottom: 1rem;
   }
