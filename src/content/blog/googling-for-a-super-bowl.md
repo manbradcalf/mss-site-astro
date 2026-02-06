@@ -141,6 +141,8 @@ Win-loss records lie. Point differential lies less, but still can't see _who_ yo
 
 So now, when someone tells me "Yeah, but the Vikings haven't beat anyone this year!", I have the data to back them up...
 
+All game data sourced from [nflverse](https://github.com/nflverse) — an incredible open-source project that makes NFL data accessible to everyone. Thank you to the maintainers and contributors.
+
 <div style="background: #fdf8ec; border: 1px solid #e0c868; border-radius: 12px; padding: 20px 24px; margin-top: 2rem;">
 <strong style="font-size: 1.1rem;">A Vikings fan's prediction of the Sam Darnold vs Drake Maye Super Bowl</strong>
 <br/><br/>
