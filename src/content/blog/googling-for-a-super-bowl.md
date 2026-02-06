@@ -7,8 +7,9 @@ tags: ["Football", "NFL", "Graph Databases", "PageRank", "Technical", "Labs"]
 image: "/images/blog/googling-for-a-super-bowl/hero.png"
 ---
 
-<figure>
+<figure style="text-align:center">
 <img src="/images/blog/googling-for-a-super-bowl/hero.png" alt="NFL PageRank Graph" />
+<figcaption style="font-size: 0.9em; color: #666; text-align: center; margin-bottom: 1.5rem">The 2025 NFL Season, Presented By PageRank</figcaption>
 </figure>
 
 Every football fan has heard it: _"They haven't beat anyone."_
@@ -29,7 +30,7 @@ Rather than relying on humans to index the entire internet with subjective judge
 
 <figure>
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Page_rank_animation.gif" alt="PageRank in action" />
-<figcaption style="font-size: 0.9em; color: #666; text-align: center">PageRank in action</figcaption>
+<figcaption style="font-size: 0.9em; color: #666; text-align: center; margin-bottom: 1.5rem">PageRank in action</figcaption>
 </figure>
 
 In the original Brin & Page paper, PageRank achieves this by modeling the internet as an interconnected graph of nodes (webpages) and edges (links) that share a fixed amount of "votes" or "influence". It then iteratively "walks the graph" and redistributes the love. Its path is influenced by the number of links pointing to a node and the importance of where those links come from.
@@ -38,7 +39,7 @@ You can do this in any domain if you are able to model it as a graph in a way th
 
 By treating football teams like Google treats webpages, we can rank them the same way — by quantity (wins) _and_ quality (who).
 
-For example, in Google Search, a few links from the New York Times is worth more than many from MedcalfSoftwareSolutions.com. Likewise, in the 2025 NFL season, two blowout wins over the New York Jets is worth less than one comeback win over the Seattle Seahawks.
+For example, in Google Search, a few links from the New York Times are worth more than many from MedcalfSoftwareSolutions.com. Likewise, in the 2025 NFL season, two blowout wins over the New York Jets are worth less than one comeback win over the Seattle Seahawks.
 
 ## The NFL PageRank Graph(s)
 
@@ -111,7 +112,7 @@ The asymmetry is elegant: sinks break PageRank, sources don't.
 
 <figure style="margin:8px; text-align:center">
 <img src="https://upload.wikimedia.org/wikipedia/en/b/bc/Madden_12_official_cover.jpg" alt="Peyton Hillis on the cover of Madden NFL 12" />
-<figcaption style="font-size: 0.9em; color: #666; text-align: center">Peyton Hillis on the cover of Madden NFL 12. The 2010 Browns went 5-11 but ranked #2 in PageRank.</figcaption>
+<figcaption style="font-size: 0.9em; color: #666; text-align: center; margin-bottom: 1.5rem">Peyton Hillis on the cover of Madden NFL 12. The 2010 Browns went 5-11 but ranked #2 in PageRank.</figcaption>
 </figure>
 
 **The 2015 Falcons were 8-8 and ranked #2.** They beat the 14-0 Panthers by 7, spoiling Carolina's undefeated season. One upset over the best team in the league transferred a massive chunk of PageRank. The transitive property at work — beat the team that beat everyone, and you inherit a share of everyone they beat too.
@@ -141,7 +142,7 @@ Win-loss records lie. Point differential lies less, but still can't see _who_ yo
 So now, when someone tells me "Yeah, but the Vikings haven't beat anyone this year!", I have the data to back them up...
 
 <div style="background: #fdf8ec; border: 1px solid #e0c868; border-radius: 12px; padding: 20px 24px; margin-top: 2rem;">
-<strong style="font-size: 1.1rem;">A Viking fan's prediction of the Sam Darnold vs Drake Maye Super Bowl</strong>
+<strong style="font-size: 1.1rem;">A Vikings fan's prediction of the Sam Darnold vs Drake Maye Super Bowl</strong>
 <br/><br/>
 <strong>SEA 27</strong> - NE 24<br/>
 <strong>Moneyline:</strong> Seattle (SEA -238 / NE +195)<br/>
