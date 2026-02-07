@@ -71,6 +71,22 @@
         outline: 2px solid #3b5bdb;
         outline-offset: 1px;
       }
+      .nav-btn {
+        padding: 8px 16px;
+        font-size: 1rem;
+        border: 1px solid #c4c7d0;
+        border-radius: 8px;
+        background: #fff;
+        color: #1a1a2e;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-weight: 600;
+        user-select: none;
+      }
+      .nav-btn:hover {
+        background: #e8eaf0;
+        border-color: #8b90a0;
+      }
       .main-content {
         display: grid;
         grid-template-columns: 1fr 350px;
@@ -86,7 +102,7 @@
         border-radius: 16px;
         padding: 20px;
         position: relative;
-        min-height: 600px;
+        min-height: 800px;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
       }
       .graph-title {
@@ -97,7 +113,7 @@
       }
       #graph {
         width: 100%;
-        height: 550px;
+        height: 750px;
         border-radius: 12px;
         background: #252a3a;
       }
@@ -225,27 +241,6 @@
         gap: 15px;
         margin-bottom: 30px;
       }
-      @media (max-width: 500px) {
-        .stats-grid {
-          grid-template-columns: 1fr;
-          gap: 10px;
-        }
-        .stat-value {
-          font-size: 1.5rem;
-        }
-        .container {
-          padding: 10px;
-        }
-        .history-table th,
-        .history-table td {
-          padding: 8px 4px;
-          font-size: 0.75rem;
-        }
-        .team-badge {
-          padding: 1px 5px !important;
-          font-size: 0.7rem !important;
-        }
-      }
       .stat-card {
         background: #fff;
         border-radius: 12px;
@@ -355,8 +350,9 @@
     <div class="container">
       <header>
         <h1>NFL PageRank Analysis</h1>
-        <p class="subtitle">Ranking NFL teams using Google's PageRank algorithm — 25 seasons of data</p>
+        <p class="subtitle">Predicting Super Bowl Winners Using Graph Theory</p>
       </header>
+
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-value" id="accuracy">--%</div>
@@ -377,12 +373,13 @@
           <label for="mode-select">Games:</label>
           <select id="mode-select">
             <option value="reg">Regular Season Only</option>
-            <option value="playoffs" selected>Reg + Playoffs (thru Conf)</option>
+            <option value="playoffs">Reg + Playoffs (thru Conf)</option>
           </select>
         </div>
         <div class="control-group">
-          <label for="season-select">Season:</label>
+          <button class="nav-btn" id="prev-season">&larr;</button>
           <select id="season-select"></select>
+          <button class="nav-btn" id="next-season">&rarr;</button>
         </div>
       </div>
 
@@ -394,7 +391,7 @@
             <div class="legend-item">
               <div
                 class="legend-line"
-                style="background: rgba(255, 255, 255, 0.4)"
+                style="background: rgba(255, 255, 255, 0.8)"
               ></div>
               <span>Game Result (arrow points to winner)</span>
             </div>
@@ -404,12 +401,21 @@
               </svg>
               <span>Node size = PageRank score</span>
             </div>
+            <div class="legend-item">
+              <svg width="30" height="20">
+                <path d="M2,14 Q15,0 28,14" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+                <path d="M2,14 Q15,28 28,14" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+              </svg>
+              <span>Split series curve apart; sweeps aggregate into one edge</span>
+            </div>
           </div>
         </div>
 
         <div class="sidebar">
           <div class="panel">
-            <h3 class="panel-title" id="sb-panel-title">PageRank's Super Bowl Prediction</h3>
+            <h3 class="panel-title" id="sb-panel-title">
+              PageRank's Super Bowl Prediction
+            </h3>
             <div class="sb-info" id="sb-info">
               <div class="sb-matchup" id="sb-matchup">-</div>
               <div class="sb-details" id="sb-details"></div>
@@ -426,19 +432,32 @@
       <div class="panel" style="margin-top: 30px">
         <h3 class="panel-title">Prediction History</h3>
         <div style="overflow-x: auto">
-        <table class="history-table" id="history-table">
-          <thead>
-            <tr>
-              <th>Season</th>
-              <th>Matchup</th>
-              <th>PageRank Pick</th>
-              <th>Actual Winner</th>
-              <th>Result</th>
-            </tr>
-          </thead>
-          <tbody id="history-body"></tbody>
-        </table>
+          <table class="history-table" id="history-table">
+            <thead>
+              <tr>
+                <th>Season</th>
+                <th>Matchup</th>
+                <th>PageRank Pick</th>
+                <th>Actual Winner</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+          </table>
         </div>
+      </div>
+
+      <div class="panel" style="margin-top: 30px">
+        <h3 class="panel-title">PageRank Parameters</h3>
+        <table class="history-table">
+          <tbody>
+            <tr><td style="font-weight:600;color:#374151">Damping factor</td><td>0.95</td></tr>
+            <tr><td style="font-weight:600;color:#374151">Max iterations</td><td>100</td></tr>
+            <tr><td style="font-weight:600;color:#374151">Convergence tolerance</td><td>1e-9</td></tr>
+            <tr><td style="font-weight:600;color:#374151">Edge weight</td><td>Margin of victory</td></tr>
+            <tr><td style="font-weight:600;color:#374151">Implementation</td><td>Neo4j Graph Data Science</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -524,35 +543,6 @@
         SD: "Chargers",
       };
 
-      // Super Bowl scores: [winner_score, loser_score]
-      // team1 in superBowls data is always the winner
-      const SUPER_BOWL_SCORES = {
-        "2001": [20, 17],
-        "2002": [48, 21],
-        "2003": [32, 29],
-        "2004": [24, 21],
-        "2005": [21, 10],
-        "2006": [29, 17],
-        "2007": [17, 14],
-        "2008": [27, 23],
-        "2009": [31, 17],
-        "2010": [31, 25],
-        "2011": [21, 17],
-        "2012": [34, 31],
-        "2013": [43, 8],
-        "2014": [28, 24],
-        "2015": [24, 10],
-        "2016": [34, 28],
-        "2017": [41, 33],
-        "2018": [13, 3],
-        "2019": [31, 20],
-        "2020": [31, 9],
-        "2021": [23, 20],
-        "2022": [38, 35],
-        "2023": [25, 22],
-        "2024": [40, 22],
-      };
-
       // Darken light team colors so they're readable as text on light backgrounds
       function lightTeamColor(team) {
         const hex = TEAM_COLORS[team] || "#666";
@@ -598,9 +588,38 @@
         return `<span class="team-badge" style="display:inline-block;padding:2px 8px;border-radius:4px;background:${bg};color:${labelColor(team)};font-weight:600;font-size:0.85rem;white-space:nowrap">${team}</span>`;
       }
 
+      const SUPER_BOWL_SCORES = {
+        2001: [20, 17],
+        2002: [48, 21],
+        2003: [32, 29],
+        2004: [24, 21],
+        2005: [21, 10],
+        2006: [29, 17],
+        2007: [17, 14],
+        2008: [27, 23],
+        2009: [31, 17],
+        2010: [31, 25],
+        2011: [21, 17],
+        2012: [34, 31],
+        2013: [43, 8],
+        2014: [28, 24],
+        2015: [24, 10],
+        2016: [34, 28],
+        2017: [41, 33],
+        2018: [13, 3],
+        2019: [31, 20],
+        2020: [31, 9],
+        2021: [23, 20],
+        2022: [38, 35],
+        2023: [25, 22],
+        2024: [40, 22],
+      };
+
       let data = null;
       let simulation = null;
-      let currentMode = "playoffs";
+      let currentMode = "reg";
+      let seasonList = [];
+      let seasonIndex = 0;
 
       function getSeasons() {
         return data[currentMode].seasons;
@@ -628,44 +647,66 @@
         }
       }
 
+      function currentSeason() {
+        return seasonList[seasonIndex];
+      }
+
       function initApp() {
         const modeSelect = document.getElementById("mode-select");
         const seasonSelect = document.getElementById("season-select");
 
-        populateSeasons();
+        buildSeasonList();
 
         modeSelect.addEventListener("change", () => {
           currentMode = modeSelect.value;
-          const prevSeason = seasonSelect.value;
-          populateSeasons();
-          if (getSeasons()[prevSeason]) {
-            seasonSelect.value = prevSeason;
-          }
-          updateStats();
-          updateHistory();
-          updateSeason(seasonSelect.value);
+          const prev = currentSeason();
+          buildSeasonList();
+          const idx = seasonList.indexOf(prev);
+          if (idx >= 0) seasonIndex = idx;
+          refreshAll();
         });
 
-        seasonSelect.addEventListener("change", () =>
-          updateSeason(seasonSelect.value),
-        );
+        seasonSelect.addEventListener("change", () => {
+          const idx = seasonList.indexOf(seasonSelect.value);
+          if (idx >= 0) seasonIndex = idx;
+          refreshAll();
+        });
 
-        updateStats();
-        updateHistory();
-        updateSeason(seasonSelect.value);
+        document.getElementById("prev-season").addEventListener("click", () => {
+          if (seasonIndex < seasonList.length - 1) {
+            seasonIndex++;
+            refreshAll();
+          }
+        });
+
+        document.getElementById("next-season").addEventListener("click", () => {
+          if (seasonIndex > 0) {
+            seasonIndex--;
+            refreshAll();
+          }
+        });
+
+        refreshAll();
       }
 
-      function populateSeasons() {
+      function buildSeasonList() {
+        seasonList = Object.keys(getSeasons()).sort((a, b) => b - a);
+        seasonIndex = 0;
         const select = document.getElementById("season-select");
-        const seasons = Object.keys(getSeasons()).sort((a, b) => b - a);
         select.innerHTML = "";
-
-        seasons.forEach((season) => {
+        seasonList.forEach((season) => {
           const opt = document.createElement("option");
           opt.value = season;
           opt.textContent = `${season} Season`;
           select.appendChild(opt);
         });
+      }
+
+      function refreshAll() {
+        document.getElementById("season-select").value = currentSeason();
+        updateStats();
+        updateHistory();
+        updateSeason(currentSeason());
       }
 
       function updateStats() {
@@ -736,8 +777,11 @@
                     `;
             tr.style.cursor = "pointer";
             tr.addEventListener("click", () => {
-              document.getElementById("season-select").value = season;
-              updateSeason(season);
+              const idx = seasonList.indexOf(season);
+              if (idx >= 0) {
+                seasonIndex = idx;
+                refreshAll();
+              }
               window.scrollTo({ top: 0, behavior: "smooth" });
             });
             tbody.appendChild(tr);
@@ -815,7 +859,8 @@
         if (winner && scores) {
           resultHTML = `${teamBadge(winner)} <span style="font-weight:600">${scores[0]}</span> - <span style="font-weight:600">${scores[1]}</span> ${teamBadge(loser)}`;
         } else {
-          resultHTML = '<span style="color:#9ca3af;font-style:italic">TBD</span>';
+          resultHTML =
+            '<span style="color:#9ca3af;font-style:italic">TBD</span>';
         }
 
         let badgeClass = "pending";
@@ -856,25 +901,33 @@
           .attr("width", width)
           .attr("height", height);
 
-        // Create arrow marker
-        svg
-          .append("defs")
-          .append("marker")
-          .attr("id", "arrow")
-          .attr("viewBox", "0 -5 10 10")
-          .attr("refX", 20)
-          .attr("refY", 0)
-          .attr("markerWidth", 6)
-          .attr("markerHeight", 6)
-          .attr("orient", "auto")
-          .append("path")
-          .attr("d", "M0,-5L10,0L0,5")
-          .attr("fill", "rgba(255,255,255,0.25)");
+        // Create arrow markers
+        const defs = svg.append("defs");
+        [
+          ["arrow", "rgba(255,255,255,0.25)"],
+          ["arrow-win", "#2e7d32"],
+          ["arrow-loss", "#c62828"],
+          ["arrow-dim", "rgba(255,255,255,0.08)"],
+        ].forEach(([id, color]) => {
+          defs
+            .append("marker")
+            .attr("id", id)
+            .attr("viewBox", "0 -3 8 6")
+            .attr("refX", 8)
+            .attr("refY", 0)
+            .attr("markerWidth", 4)
+            .attr("markerHeight", 4)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-3L8,0L0,3")
+            .attr("fill", color);
+        });
 
+        const maxScore = Math.max(...seasonData.nodes.map((n) => n.score));
         const nodes = seasonData.nodes.map((n) => ({
           ...n,
           id: n.team,
-          radius: 8 + n.score * 8,
+          radius: 16 + (n.score / maxScore) * 30,
         }));
 
         const nodeMap = new Map(nodes.map((n) => [n.team, n]));
@@ -890,13 +943,61 @@
           }
         });
 
+        // Compute each loser's total loss margin across all their losses.
+        // In PageRank, a node distributes its score to all outgoing edges
+        // proportionally by weight. So a team that lost 10 games distributes
+        // its score across all 10, while a team that lost once gives it all
+        // to that one winner. This denominator captures that distribution.
+        const totalLossMargin = new Map();
+        edgeMap.forEach((e) => {
+          totalLossMargin.set(
+            e.source,
+            (totalLossMargin.get(e.source) || 0) + e.margin,
+          );
+        });
+
         const links = Array.from(edgeMap.values())
           .filter((e) => nodeMap.has(e.source) && nodeMap.has(e.target))
-          .map((e) => ({
-            source: e.source,
-            target: e.target,
-            margin: e.margin,
-          }));
+          .map((e) => {
+            const loserScore = nodeMap.get(e.source)?.score || 1;
+            const loserTotalMargin = totalLossMargin.get(e.source) || 1;
+
+            // PageRank flow through this edge:
+            //   loserScore × (thisMargin / loserTotalMargin)
+            //
+            // This is the actual fraction of the loser's PageRank that flows
+            // to the winner through this specific edge. It accounts for:
+            //   1. How strong the loser is (loserScore) — beating a good team matters more
+            //   2. The margin of this game (thisMargin) — bigger wins carry more weight
+            //   3. How the loser's score is split (loserTotalMargin) — if a team rarely
+            //      loses, each loss transfers a bigger share of their PageRank
+            //
+            // Example: 2015 CAR (15-1) loses to ATL by 7. CAR's total loss margin ~20.
+            //   Flow = CAR_score × (7/20) ≈ 2.5 × 0.35 ≈ 0.88
+            // vs ATL (8-8) loses to CAR by 38. ATL's total loss margin ~150.
+            //   Flow = ATL_score × (38/150) ≈ 2.7 × 0.25 ≈ 0.68
+            // The upset win is now slightly thicker — matching its actual PageRank impact.
+            const value = loserScore * (e.margin / loserTotalMargin);
+
+            return {
+              source: e.source,
+              target: e.target,
+              margin: e.margin,
+              value,
+            };
+          });
+
+        // Scale edge value to 0-1 for visual mapping
+        const maxEdgeValue = Math.max(...links.map((l) => l.value), 1);
+        links.forEach((l) => (l.norm = l.value / maxEdgeValue));
+
+        // Mark bidirectional edges so they curve apart
+        const edgeSet = new Set(links.map((l) => `${l.source}-${l.target}`));
+        links.forEach((l) => {
+          const src = typeof l.source === "object" ? l.source.id : l.source;
+          const tgt = typeof l.target === "object" ? l.target.id : l.target;
+          l.bidir = edgeSet.has(`${tgt}-${src}`);
+        });
 
         if (simulation) simulation.stop();
 
@@ -907,22 +1008,23 @@
             d3
               .forceLink(links)
               .id((d) => d.id)
-              .distance(80),
+              .distance(140),
           )
-          .force("charge", d3.forceManyBody().strength(-200))
+          .force("charge", d3.forceManyBody().strength(-600))
           .force("center", d3.forceCenter(width / 2, height / 2))
           .force(
             "collision",
-            d3.forceCollide().radius((d) => d.radius + 5),
+            d3.forceCollide().radius((d) => d.radius + 15),
           );
 
         const link = svg
           .append("g")
-          .selectAll("line")
+          .selectAll("path")
           .data(links)
-          .join("line")
-          .attr("stroke", "rgba(255,255,255,0.12)")
-          .attr("stroke-width", (d) => Math.min(d.margin / 20, 3))
+          .join("path")
+          .attr("fill", "none")
+          .attr("stroke", (d) => `rgba(255,255,255,${0.04 + d.norm * 0.35})`)
+          .attr("stroke-width", (d) => 0.5 + d.norm * 4)
           .attr("marker-end", "url(#arrow)");
 
         const node = svg
@@ -966,13 +1068,10 @@
         node
           .on("mouseenter", (event, d) => {
             // Always use regular season edges for record display
-            const regEdges = data.reg.seasons[season]?.edges || seasonData.edges;
-            const wins = regEdges.filter(
-              (e) => e.target === d.team,
-            ).length;
-            const losses = regEdges.filter(
-              (e) => e.source === d.team,
-            ).length;
+            const regEdges =
+              data.reg.seasons[season]?.edges || seasonData.edges;
+            const wins = regEdges.filter((e) => e.target === d.team).length;
+            const losses = regEdges.filter((e) => e.source === d.team).length;
 
             tooltip.innerHTML = `
                     <div class="tooltip-title" style="color:${brightTeamColor(d.team)}">${d.team} ${TEAM_NAMES[d.team] || ""}</div>
@@ -995,12 +1094,40 @@
             highlightTeam(d.team, false);
           });
 
+        const arrowPad = 12;
+
         simulation.on("tick", () => {
-          link
-            .attr("x1", (d) => d.source.x)
-            .attr("y1", (d) => d.source.y)
-            .attr("x2", (d) => d.target.x)
-            .attr("y2", (d) => d.target.y);
+          link.each(function (d) {
+            const dx = d.target.x - d.source.x;
+            const dy = d.target.y - d.source.y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            const minDist = d.source.radius + d.target.radius + arrowPad;
+
+            if (dist < minDist) {
+              d3.select(this).attr("visibility", "hidden");
+            } else {
+              const ux = dx / dist;
+              const uy = dy / dist;
+              const pad = 4;
+              const x1 = d.source.x + ux * (d.source.radius + pad);
+              const y1 = d.source.y + uy * (d.source.radius + pad);
+              const x2 = d.target.x - ux * (d.target.radius + pad);
+              const y2 = d.target.y - uy * (d.target.radius + pad);
+
+              if (d.bidir) {
+                // Curve to the right (perpendicular offset)
+                const cx = (x1 + x2) / 2 + (-uy) * 30;
+                const cy = (y1 + y2) / 2 + ux * 30;
+                d3.select(this)
+                  .attr("visibility", "visible")
+                  .attr("d", `M${x1},${y1} Q${cx},${cy} ${x2},${y2}`);
+              } else {
+                d3.select(this)
+                  .attr("visibility", "visible")
+                  .attr("d", `M${x1},${y1} L${x2},${y2}`);
+              }
+            }
+          });
 
           node.attr("transform", (d) => `translate(${d.x},${d.y})`);
         });
@@ -1028,16 +1155,20 @@
           highlight ? (d.team === team ? 1 : 0.3) : 1,
         );
 
-        d3.selectAll("line")
-          .style("opacity", (d) => {
-            if (!highlight) return 1;
-            return d.source.id === team || d.target.id === team ? 1 : 0.1;
-          })
+        d3.selectAll("path")
           .style("stroke", (d) => {
-            if (!highlight) return "rgba(255,255,255,0.12)";
+            if (!d || !d.norm) return null;
+            if (!highlight) return `rgba(255,255,255,${0.04 + d.norm * 0.35})`;
             if (d.target.id === team) return "#2e7d32";
             if (d.source.id === team) return "#c62828";
-            return "rgba(255,255,255,0.12)";
+            return `rgba(255,255,255,${0.02 + d.norm * 0.08})`;
+          })
+          .attr("marker-end", (d) => {
+            if (!d || !d.norm) return null;
+            if (!highlight) return "url(#arrow)";
+            if (d.target.id === team) return "url(#arrow-win)";
+            if (d.source.id === team) return "url(#arrow-loss)";
+            return "url(#arrow-dim)";
           });
       }
 
