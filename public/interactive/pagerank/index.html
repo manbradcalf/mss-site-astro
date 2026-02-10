@@ -384,7 +384,7 @@
           <label for="mode-select">Games:</label>
           <select id="mode-select">
             <option value="reg">Regular Season Only</option>
-            <option value="playoffs">Reg + Playoffs (thru Conf)</option>
+            <option value="playoffs" selected>Reg + Playoffs (thru Conf)</option>
           </select>
         </div>
         <div class="control-group">
@@ -628,7 +628,7 @@
 
       let data = null;
       let simulation = null;
-      let currentMode = "reg";
+      let currentMode = "playoffs";
       let seasonList = [];
       let seasonIndex = 0;
 
