@@ -7,6 +7,8 @@ import Packages from "../components/Packages.astro";
 import BlogSection from "../components/BlogSection.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
+import About from "../components/About.astro"
+import { services } from "../components/Services.astro";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -39,40 +41,14 @@ const servicesSchema = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Software Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Graph Database Solutions",
-          description: "Neo4j-certified implementation of graph databases and knowledge graphs for connected data applications.",
-        },
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "AI Document Processing",
-          description: "Intelligent document extraction and processing systems using multi-stage prompting and structured outputs.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "GraphRAG Implementation",
-          description: "Graph-based retrieval augmented generation systems that combine the power of knowledge graphs with LLMs.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Full-Stack Development",
-          description: "Modern web and mobile applications built with React, React Native, and proven engineering practices.",
-        },
-      },
-    ],
+    })),
   },
 };
 ---
@@ -87,6 +63,7 @@ const servicesSchema = {
   <Hero />
   <Services />
   <Packages />
+  <About />
   <BlogSection />
   <ContactForm />
   <Footer />
