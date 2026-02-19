@@ -7,7 +7,8 @@ import Packages from "../components/Packages.astro";
 import BlogSection from "../components/BlogSection.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
-import About from "../components/About.astro"
+import About from "../components/About.astro";
+import Testimonials from "../components/Testimonials.astro";
 import { services } from "../components/Services.astro";
 
 const organizationSchema = {
@@ -24,9 +25,7 @@ const organizationSchema = {
     contactType: "sales",
     email: "hello@medcalfsoftwaresolutions.com",
   },
-  sameAs: [
-    "https://www.linkedin.com/company/medcalf-software-solutions-llc",
-  ],
+  sameAs: ["https://www.linkedin.com/company/medcalf-software-solutions-llc"],
 };
 
 const servicesSchema = {
@@ -57,13 +56,20 @@ const servicesSchema = {
   title="Medcalf Software Solutions - Graph Database & AI Solutions Expert"
   description="Medcalf Software Solutions delivers Graph Database solutions, Knowledge Graphs, AI-powered document processing, and full-stack development services to transform how you work with connected data."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(organizationSchema)}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(servicesSchema)}
+  />
   <Navigation />
   <Hero />
   <Services />
   <Packages />
   <About />
+  <Testimonials />
   <BlogSection />
   <ContactForm />
   <Footer />

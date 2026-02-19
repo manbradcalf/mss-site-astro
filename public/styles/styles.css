@@ -322,6 +322,28 @@ p {
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
+.about {
+  padding: 100px 0;
+}
+.about .content {
+  padding-inline: 100px;
+}
+.about-image {
+  height: 200px;
+  border-radius: 10rem;
+}
+
+.about-linkedin {
+  color: #0a66c2;
+  display: inline-flex;
+  margin-top: 0.5rem;
+  transition: color 0.2s;
+}
+
+.about-linkedin:hover {
+  color: #004182;
+}
+
 /* Packages Section */
 .packages {
   padding: 100px 0;
@@ -497,7 +519,7 @@ p {
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
@@ -506,11 +528,6 @@ p {
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
 }
 
 .testimonial-content {
@@ -518,9 +535,8 @@ p {
 }
 
 .testimonial-content p {
-  font-style: italic;
   color: #555;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.6;
 }
 
@@ -528,21 +544,6 @@ p {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.author-avatar {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #23aa57 0%, #16a05a 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.author-avatar i {
-  color: white;
-  font-size: 1.2rem;
 }
 
 .author-info h4 {
@@ -554,6 +555,17 @@ p {
 .author-info span {
   color: #666;
   font-size: 0.9rem;
+}
+
+.testimonial-linkedin {
+  color: #0a66c2;
+  display: inline-flex;
+  margin-top: 0.25rem;
+  transition: color 0.2s;
+}
+
+.testimonial-linkedin:hover {
+  color: #004182;
 }
 
 /* Contact Section */
