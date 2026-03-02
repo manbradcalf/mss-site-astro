@@ -31,6 +31,7 @@
           </div>
           <div class="contact-details">
             <h3>Location</h3>
+            <p>Richmond, VA</p>
             <p>Remote & On-site Services Available</p>
           </div>
         </div>
@@ -75,10 +76,15 @@
         <div class="form-group">
           <select id="service" name="service" required>
             <option value="">Select Service</option>
-            <option value="graph-database">Graph Database Implementation</option>
-            <option value="ai-document-processing">AI Document Processing</option>
+            <option value="graph-database">Graph Database Implementation</option
+            >
+            <option value="ai-document-processing"
+              >AI Document Processing</option
+            >
             <option value="graphrag">GraphRAG Solutions</option>
-            <option value="full-stack-development">Full-Stack Development</option>
+            <option value="full-stack-development"
+              >Full-Stack Development</option
+            >
             <option value="testing-cicd">Automated Testing and CI/CD</option>
             <option value="workflow-automation">Workflow Automation</option>
             <option value="other">Other</option>
@@ -99,9 +105,11 @@
 </section>
 
 <script>
-  document.querySelector('.contact-form')?.addEventListener('submit', function() {
-    if (typeof gtagSendEvent === 'function') {
-      gtagSendEvent();
-    }
-  });
+  document
+    .querySelector(".contact-form")
+    ?.addEventListener("submit", function () {
+      if (typeof gtagSendEvent === "function") {
+        gtagSendEvent();
+      }
+    });
 </script>

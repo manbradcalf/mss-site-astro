@@ -3,8 +3,8 @@
 const packages = [
   {
     name: "Discovery Sprint",
-    price: "$3,500",
-    term: "fixed · 1 week",
+    price: "$3k",
+    term: "fixed · 1-2 week",
     bestFor: "Validating an idea before committing budget",
     features: [
       "Technical feasibility assessment",
@@ -16,11 +16,11 @@ const packages = [
   },
   {
     name: "Build Sprint",
-    price: "$6,000–$15,000",
+    price: "$6k–$15k",
     term: "fixed · 2–6 weeks",
     bestFor: "Shipping a scoped feature or integration",
     features: [
-      "Optional Discovery Sprint",
+      "Optional Discovery Sprint Included",
       "End-to-end implementation",
       "Testing & validation suite",
       "Deployment & monitoring",
@@ -30,8 +30,8 @@ const packages = [
   },
   {
     name: "Retainer",
-    price: "$2,000+",
-    term: "/month · ongoing",
+    price: "$2k+",
+    term: "monthly · ongoing",
     bestFor: "Teams who want to keep building with MSS",
     features: [
       "Support for what we shipped",
@@ -44,17 +44,18 @@ const packages = [
 ];
 
 const steps = [
-  { number: "1", title: "We talk", description: "No commitment, no pitch" },
+  { number: "1", title: "Free Consultation", description: "You book a free call with us to see if we're a fit." },
   {
     number: "2",
-    title: "I scope it",
-    description: "Clear deliverables & price",
+    title: "Discovery Sprint",
+    description: "We define roadmaps unique to your goals and budget" 
   },
-  { number: "3", title: "I build it", description: "You stay in the loop" },
+  { number: "3", title: "Build Sprint", 
+  description: "We execute and build something great together" },
   {
     number: "4",
-    title: "You decide",
-    description: "Continue, pause, or wrap up",
+    title: "Retainer",
+    description: "You keep us around for any ongoing support or maintenance",
   },
 ];
 ---
@@ -62,14 +63,13 @@ const steps = [
 <section id="packages" class="packages">
   <div class="container">
     <div class="section-header">
-      <h2>How We Work Together</h2>
+      <h2>Our Service Packages</h2>
       <p>Scoped engagements with clear deliverables</p>
     </div>
     <div class="packages-grid">
       {
         packages.map((pkg) => (
-          <div class={`package-card${pkg.featured ? " featured" : ""}`}>
-            {pkg.featured && <span class="package-badge">Most Popular</span>}
+          <div class={`package-card`}>
             <div class="package-header">
               <h3>{pkg.name}</h3>
             </div>
@@ -87,10 +87,7 @@ const steps = [
             <p class="package-best-for">
               <strong>Best for:</strong> {pkg.bestFor}
             </p>
-            <a
-              href="#contact"
-              class={`btn ${pkg.featured ? "btn-primary" : "btn-secondary"}`}
-            >
+            <a href="#contact" class="btn btn-secondary"}>
               Get Started
             </a>
           </div>
@@ -114,9 +111,6 @@ const steps = [
           ))
         }
       </div>
-      <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;"
-        >Let's Talk</a
-      >
     </div>
   </div>
 </section>

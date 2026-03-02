@@ -325,23 +325,85 @@ p {
 .about {
   padding: 100px 0;
 }
-.about .content {
-  padding-inline: 100px;
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 3rem;
 }
+
+.about-hero h2 {
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
 .about-image {
-  height: 200px;
-  border-radius: 10rem;
+  height: 180px;
+  width: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 560px;
+  margin: 0 auto 1rem;
+}
+
+.about-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.about-title-row h4 {
+  color: #555;
+  font-weight: 500;
+  margin: 0;
 }
 
 .about-linkedin {
   color: #0a66c2;
   display: inline-flex;
-  margin-top: 0.5rem;
+  align-items: center;
   transition: color 0.2s;
 }
 
 .about-linkedin:hover {
   color: #004182;
+}
+
+.about-body {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.25rem;
+}
+
+.about-body h3 {
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.about-body a {
+  color: #23aa57;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.about-body a:hover {
+  color: #1a8a45;
 }
 
 /* Packages Section */
@@ -417,6 +479,7 @@ p {
   margin-bottom: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid #eee;
+  
 }
 
 /* How It Works */
@@ -431,6 +494,10 @@ p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: #333;
+}
+
+.how-it-works p {
+  margin-bottom:2rem;
 }
 
 .steps-flow {
