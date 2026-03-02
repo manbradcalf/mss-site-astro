@@ -1,0 +1,316 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout
+  title="Work With Us - Medcalf Software Solutions"
+  description="Scoped engagements with clear deliverables. Discovery Sprints, Build Sprints, and Advisory retainers for AI, graph database, and automation projects."
+>
+  <Navigation />
+
+  <main class="services-landing">
+    <article class="container">
+      <header class="page-header">
+        <h1>How We Work Together</h1>
+        <p class="subtitle">
+          <em>Scoped engagements with clear deliverables</em>
+        </p>
+      </header>
+
+      <div class="page-content">
+        <p>
+          Every engagement starts with a conversation about what you're trying
+          to accomplish. From there, we scope a focused sprint with a defined
+          deliverable, timeline, and investment. No ambiguity. No open-ended
+          retainers. You know exactly what you're getting.
+        </p>
+
+        <section>
+          <div class="service-tier">
+            <h2>Discovery Sprint</h2>
+            <p class="pricing"><strong>$3,500 fixed &bull; 1 week</strong></p>
+            <p>
+              Not sure if AI, graph databases, or automation is right for your
+              problem? Start here. In one week, I'll assess your situation and
+              deliver a written recommendation.
+            </p>
+            <p><strong>You get:</strong></p>
+            <ul>
+              <li>Technical feasibility assessment</li>
+              <li>Architecture recommendation with options</li>
+              <li>Implementation roadmap with effort estimates</li>
+              <li>Go/no-go recommendation with honest reasoning</li>
+            </ul>
+            <p>
+              <strong>Best for:</strong> Companies exploring whether AI document processing,
+              knowledge graphs, or workflow automation could solve their problem.
+            </p>
+            <a href="/#contact" class="tier-cta">Book a Discovery Sprint</a>
+          </div>
+        </section>
+
+        <section>
+          <div class="service-tier">
+            <h2>Build Sprint</h2>
+            <p class="pricing">
+              <strong>$6,000&ndash;15,000 fixed &bull; 2&ndash;6 weeks</strong>
+            </p>
+            <p>
+              You have a specific problem and you're ready to build. We define
+              the scope together upfront, I build it, and you get a working
+              system at the end.
+            </p>
+            <p><strong>You get:</strong></p>
+            <ul>
+              <li>Working prototype, integration, or pipeline</li>
+              <li>Documentation and handoff materials</li>
+              <li>Weekly progress updates</li>
+              <li>2 weeks of bug-fix support after delivery</li>
+            </ul>
+            <p>
+              <strong>Best for:</strong> Companies with a defined problem ready for
+              a working solution. Often follows a Discovery Sprint.
+            </p>
+            <a href="/#contact" class="tier-cta">Start a Build Sprint</a>
+          </div>
+        </section>
+
+        <section>
+          <div class="service-tier">
+            <h2>Advisory</h2>
+            <p class="pricing"><strong>$2,000/month ongoing</strong></p>
+            <p>
+              You need ongoing access to expertise without a specific project.
+              I'm available for architecture reviews, technical decisions, and
+              strategic guidance.
+            </p>
+            <p><strong>You get:</strong></p>
+            <ul>
+              <li>One 60-minute strategy call per month</li>
+              <li>Async access via messaging or email (24-48hr response)</li>
+              <li>Architecture and code reviews</li>
+              <li>Technical decision-making support</li>
+            </ul>
+            <p>
+              <strong>Best for:</strong> Teams who've completed a sprint and want
+              ongoing guidance, or companies with internal developers who need expert
+              oversight on AI/graph implementations.
+            </p>
+            <a href="/#contact" class="tier-cta">Schedule a Call</a>
+          </div>
+        </section>
+
+        <section class="how-it-works">
+          <h2>How It Works</h2>
+          <ol>
+            <li>
+              <strong>We talk.</strong> Tell me what you're trying to accomplish.
+              No commitment, no pitch.
+            </li>
+            <li>
+              <strong>I scope it.</strong> If there's a fit, I'll propose a specific
+              sprint with deliverables and fixed price.
+            </li>
+            <li>
+              <strong>I build it.</strong> You get weekly updates and a working result
+              at the end.
+            </li>
+            <li>
+              <strong>You decide what's next.</strong> Another sprint? Advisory retainer?
+              Nothing? Your call.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Recent Work</h2>
+          <ul class="recent-work">
+            <li>
+              <a href="/blog/honey-i-vibe-coded-the-c-suite"
+                >Domain-Specific PDF Extraction with ChatGPT</a
+              >
+            </li>
+            <li>
+              <a href="/blog/StatFoundry-Part1"
+                >Modeling the NFL as a Knowledge Graph in Neo4j</a
+              >
+            </li>
+            <li>
+              <a href="/blog/StatFoundry-Part3"
+                >Query Expansion Architecture for Neo4j and React</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <ContactForm />
+  <Footer />
+</Layout>
+
+<style>
+  .services-landing {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    background-color: #fff;
+  }
+
+  .services-landing .container {
+    max-width: 1000px;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    color: #333;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    margin: 0;
+  }
+
+  .page-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+
+  .page-content p {
+    margin-bottom: 1.5rem;
+    color: #444;
+  }
+
+  .service-tier {
+    background: #f8f9fa;
+    border-left: 4px solid #23aa57;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+
+  .service-tier h2 {
+    font-size: 2rem;
+    color: #23aa57;
+    margin: 0 0 0.5rem 0;
+    border: none;
+    padding: 0;
+  }
+
+  .pricing {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .service-tier ul {
+    margin: 1rem 0 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .service-tier li {
+    margin-bottom: 0.5rem;
+  }
+
+  .how-it-works h2 {
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem;
+    color: #333;
+    border-bottom: 2px solid #23aa57;
+    padding-bottom: 0.5rem;
+  }
+
+  .how-it-works ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .how-it-works li {
+    margin-bottom: 1rem;
+  }
+
+  .tier-cta {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #23aa57;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+
+  .tier-cta:hover {
+    background-color: #1d8f49;
+  }
+
+  .page-content > section:last-child h2 {
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem;
+    color: #333;
+    border-bottom: 2px solid #23aa57;
+    padding-bottom: 0.5rem;
+  }
+
+  .recent-work {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .recent-work li {
+    margin-bottom: 0.75rem;
+  }
+
+  .recent-work a {
+    color: #23aa57;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+
+  .recent-work a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .services-landing {
+      padding-top: 100px;
+    }
+
+    .page-header h1 {
+      font-size: 2.2rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .page-content {
+      font-size: 1rem;
+    }
+
+    .service-tier h2,
+    .how-it-works h2,
+    .page-content > section:last-child h2 {
+      font-size: 1.6rem;
+    }
+
+    .service-tier {
+      padding: 1.5rem;
+    }
+  }
+</style>

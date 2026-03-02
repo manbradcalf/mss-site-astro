@@ -2,60 +2,80 @@
 // src/components/Packages.astro
 const packages = [
   {
-    name: "Discovery",
-    period: "/project",
+    name: "Discovery Sprint",
+    price: "$3k",
+    term: "fixed · 1-2 week",
+    bestFor: "Validating an idea before committing budget",
     features: [
-      "Feasibility Assessment",
-      "POC Scope Definition",
-      "Technical Architecture Plan",
-      "Optional Workshop",
-      "1-2 weeks delivery",
-      "Documentation Included"
+      "Technical feasibility assessment",
+      "Architecture recommendation",
+      "Scope & estimate for build phase",
+      "Written deliverable you own",
     ],
-    featured: false
+    featured: true,
   },
   {
-    name: "Implementation",
-    period: "/project",
+    name: "Build Sprint",
+    price: "$6k–$15k",
+    term: "fixed · 2–6 weeks",
+    bestFor: "Shipping a scoped feature or integration",
     features: [
-    "E2E Solution Implementation",
-      "Dedicated Development Hours",
-      "Regular Check-Ins",
-      "Testing and validation Suite",
-      "Deployment and Monitoring",
-      "Training & Documentation",
-      "Priority Support"
+      "Optional Discovery Sprint Included",
+      "End-to-end implementation",
+      "Testing & validation suite",
+      "Deployment & monitoring",
+      "Training & documentation",
     ],
-    featured: true
+    featured: false,
   },
   {
     name: "Retainer",
-    period: "/month",
+    price: "$2k+",
+    term: "monthly · ongoing",
+    bestFor: "Teams who want to keep building with MSS",
     features: [
-      "Flexible Pricing & Hours",
-      "Architecture consulting",
-      "Feature development",
-      "Performance optimization",
-      "Dedicated availability",
-      "Flexible engagement"
+      "Support for what we shipped",
+      "Code reviews from who wrote it",
+      "Priority when you're ready for the next sprint",
+      "Same-day async responses",
     ],
-    featured: false
-  }
+    featured: false,
+  },
+];
+
+const steps = [
+  { number: "1", title: "Free Consultation", description: "You book a free call with us to see if we're a fit." },
+  {
+    number: "2",
+    title: "Discovery Sprint",
+    description: "We define roadmaps unique to your goals and budget" 
+  },
+  { number: "3", title: "Build Sprint", 
+  description: "We execute and build something great together" },
+  {
+    number: "4",
+    title: "Retainer",
+    description: "You keep us around for any ongoing support or maintenance",
+  },
 ];
 ---
 
 <section id="packages" class="packages">
   <div class="container">
     <div class="section-header">
-      <h2>Service Packages</h2>
-      <p>Choose the perfect package for your project needs. Applies to all our Service offerings.</p>
+      <h2>Our Service Packages</h2>
+      <p>Scoped engagements with clear deliverables</p>
     </div>
     <div class="packages-grid">
       {
         packages.map((pkg) => (
-          <div class={"package-card"}>
+          <div class={`package-card`}>
             <div class="package-header">
               <h3>{pkg.name}</h3>
+            </div>
+            <div class="package-price">
+              <span class="amount">{pkg.price}</span>
+              <span class="period">{pkg.term}</span>
             </div>
             <ul class="package-features">
               {pkg.features.map((feature) => (
@@ -64,15 +84,33 @@ const packages = [
                 </li>
               ))}
             </ul>
-            <a
-              href="#contact"
-              class={`btn ${pkg.featured ? 'btn-primary' : 'btn-secondary'}`}
-            >
-              Get A Quote 
+            <p class="package-best-for">
+              <strong>Best for:</strong> {pkg.bestFor}
+            </p>
+            <a href="#contact" class="btn btn-secondary"}>
+              Get Started
             </a>
           </div>
         ))
       }
+    </div>
+
+    <div class="how-it-works">
+      <h3>How It Works</h3>
+      <div class="steps-flow">
+        {
+          steps.map((step, i) => (
+            <>
+              <div class="step">
+                <span class="step-number">{step.number}</span>
+                <strong>{step.title}</strong>
+                <span class="step-desc">{step.description}</span>
+              </div>
+              {i < steps.length - 1 && <span class="step-arrow">→</span>}
+            </>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>

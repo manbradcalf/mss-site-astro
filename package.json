@@ -12,5 +12,8 @@
     "@astrojs/sitemap": "^3.4.1",
     "astro": "^5.9.0",
     "astro-mermaid": "^1.0.4"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

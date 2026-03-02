@@ -1,0 +1,86 @@
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2>Testimonials</h2>
+    </div>
+    <div class="testimonials-carousel">
+      <button class="carousel-arrow carousel-arrow-left" aria-label="Previous testimonials">&#8249;</button>
+      <div class="testimonials-track">
+        <div class="testimonials-slide active">
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p><em>"Ben integrated the ChatGPT API into our platform to extract data from unstructured settlement statement PDFs. I was impressed with Ben's ability to build a PoC quickly, iterate on feedback, and then integrate a usable solution into our production software stack."</em></p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4><a href="https://www.linkedin.com/in/joe-acanfora-5a4a3164/" target="_blank" rel="noopener noreferrer">Joe Acanfora</a></h4>
+                  <span>Technical Co-Founder</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p><em>"If I had to choose one word to describe Ben, it would be innovate. Not the buzzword version that gets tossed around in startup marketing decks, but innovation in its truest sense: deep, practical, and lived every day."</em></p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4><a href="https://www.linkedin.com/in/jamiepinkham/" target="_blank" rel="noopener noreferrer">Jamie Pinkham</a></h4>
+                  <span>Senior Lead Software Engineer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonials-slide">
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p><em>"Ben was an excellent engineer for us and was always actively learning and improving his craft...If I had an opportunity to work again with Ben the answer would be an unequivocal 'yes'!"</em></p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4><a href="https://www.linkedin.com/in/keith-kienzle-6291556/" target="_blank" rel="noopener noreferrer">Keith Kienzle</a></h4>
+                  <span>Senior Android Engineer</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p><em>"Ben was collaborative, proactive and genuinely cared about doing things the right way."</em></p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4><a href="https://www.linkedin.com/in/brandi-levine-19b671103/" target="_blank" rel="noopener noreferrer">Brandi Levine</a></h4>
+                  <span>Software Test Analyst</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-arrow carousel-arrow-right" aria-label="Next testimonials">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.testimonials-slide');
+  const leftArrow = document.querySelector('.carousel-arrow-left');
+  const rightArrow = document.querySelector('.carousel-arrow-right');
+  let currentSlide = 0;
+
+  function goToSlide(index: number) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+  }
+
+  leftArrow?.addEventListener('click', () => {
+    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+  });
+
+  rightArrow?.addEventListener('click', () => {
+    goToSlide((currentSlide + 1) % slides.length);
+  });
+</script>
