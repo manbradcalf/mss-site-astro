@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import About from "../components/About.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="About | Medcalf Software Solutions"
+  description="Learn about Ben Medcalf, founder of Medcalf Software Solutions — a boutique software development studio specializing in Graph Databases and AI."
+>
+  <Navigation />
+  <About />
+  <Footer />
+</Layout>
+
+<style>
+  :global(.about) {
+    padding-top: 120px;
+  }
+</style>
