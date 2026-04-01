@@ -1,5 +1,5 @@
 ---
-title: "Meet Drew: My AI Sales Rep (And Why He's Not Hiding It)"
+title: "Meet Drew: Our Very Own Sales Bot"
 description: "I built an AI sales development rep that emails prospects on my behalf. Here's what he is, how he works, and why I'm telling you about it."
 pubDate: 2026-04-01
 author: "Ben Medcalf"
