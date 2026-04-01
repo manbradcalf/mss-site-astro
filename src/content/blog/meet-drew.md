@@ -28,7 +28,7 @@ I'm telling you this upfront because I think that's the right thing to do — an
 
 Here's the math of being a solo operator:
 
-I have roughly 40 billable hours in a week. Those hours need to cover client delivery, architecture, writing code, running my GraphRVA meetup, writing this blog, and — somewhere in there — finding the next client before the current engagement ends.
+I have roughly 40 billable hours in a week. Those hours need to cover client delivery, architecture, writing code, running my [GraphRVA meetup](https://meetup.com/graphrva), writing this blog, publishing my [newsletter](https://www.linkedin.com/newsletters/practical-graph-and-ai-roundup-7401995578622255104/), and — somewhere in there — finding the next client before the current engagement ends.
 
 Sales development is critical work, but it's also repetitive, time-sensitive, and the first thing that falls off when I'm deep in a build sprint. I'd go weeks without sending a single outreach email. The pipeline would go cold. Then I'd panic and batch-send a dozen rushed messages that all sounded the same.
 
