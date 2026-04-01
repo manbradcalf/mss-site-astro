@@ -12,7 +12,7 @@ image: "/images/meet-drew.png"
   <figcaption>Drew drew Drew</figcaption>
 </figure>
 
-I run a one-person software studio. I build graph databases, AI document processing pipelines, and automation systems for small businesses. I love the work. What I don't love is the part where I have to stop building things so I can send emails asking people if they'd like me to build things.
+I run a one-person software studio. I build graph databases, AI document processing pipelines, and automation systems, among other things. I love the work. What I don't love is the part where I have to stop building things so I can send emails asking people if they'd like me to build things.
 
 So I built Drew.
 
