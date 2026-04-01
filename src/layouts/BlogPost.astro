@@ -257,7 +257,20 @@ const articleSchema = {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    margin: 1.5rem auto;
+    display: block;
+  }
+
+  .post-content :global(figure) {
     margin: 1.5rem 0;
+    text-align: center;
+  }
+
+  .post-content :global(figcaption) {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 0.5rem;
   }
 
   .share-section {
