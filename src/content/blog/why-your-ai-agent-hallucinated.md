@@ -1,10 +1,26 @@
 ---
-title: "Why Your AI Agent Hallucinated — And How We Fixed It"
+title: "Why Your AI Agent Hallucinated — And How To Fix It"
 description: "AI hallucinations in document workflows are almost always a retrieval problem, not a model problem. Here's what we changed."
 pubDate: 2026-04-06
 author: "Ben Medcalf"
-tags: ["AI", "GraphRAG", "Graph Databases", "Document Automation", "Hallucination", "Retrieval"]
+tags:
+  [
+    "AI",
+    "RAG",
+    "GraphRAG",
+    "Graph Databases",
+    "Document Automation",
+    "Hallucination",
+    "Retrieval",
+    "AI Agents",
+  ]
+image: "images/blog/why-your-ai-agent-hallucinated/why-your-ai-agent-hallucinated.png"
 ---
+
+<figure>
+  <img src="/images/blog/why-your-ai-agent-hallucinated/ai-agents-hallucinating.png" alt="Your AI support agents on the way to resolve a customer complaint" />
+  <figcaption>Your AI support agents on the way to resolve a customer complaint</figcaption>
+</figure>
 
 Here's a failure mode that comes up constantly in document automation work — and one we've dug into firsthand.
 
@@ -40,7 +56,14 @@ Instead of treating the document as a bag of text, we modeled it as a graph: sec
 
 **2. Switched from full-text retrieval to graph traversal.**
 
-Instead of asking "what text is most similar to this query?", we asked "give me the clause this section references, and *only* that clause." The graph traversal returned a precise, bounded context window. The model had exactly what it needed — nothing more, nothing less.
+Instead of asking "what text is most similar to this query?", we asked "give me clauses this section references".
+
+This kind of question maps neatly to a graph traversal; one where we start at a node representing our section's text and then "traverse the graph", fanning out into an interconnected web of references to other clauses or even sections.
+As we walk the graph, we can either trust the LLM to accumulate the context or tell it what to look for explicitly.
+
+Now, the model had exactly what it needs — nothing more, nothing less.
+
+If you're looking for a house, text search gets you in the neighborhood. Traversing the graph gets you to the front door.
 
 **3. Added a confidence-gated human-in-the-loop checkpoint.**
 
@@ -66,4 +89,4 @@ If you're building document AI and getting inconsistent results, the fix is prob
 
 ---
 
-**We work with engineering teams at 50–500 person companies who are hitting accuracy ceilings with their AI pipelines.** If this pattern sounds familiar, [get in touch](/#contact) — happy to dig into what's happening in your retrieval layer.
+**We work with engineering teams of all sizes at companies who are hitting accuracy ceilings with their AI pipelines.** If this pattern sounds familiar, [get in touch](/#contact) — happy to dig into what's happening in your retrieval layer.
