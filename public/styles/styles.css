@@ -322,6 +322,11 @@ p {
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
+.services-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
 .about {
   padding: 100px 0;
 }
@@ -413,10 +418,10 @@ p {
 }
 
 .packages-grid {
-  display: grid;
+  display: inline-flex;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 

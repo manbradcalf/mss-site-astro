@@ -21,108 +21,95 @@ import Footer from "../../components/Footer.astro";
       </header>
 
       <div class="page-content">
-        <p>
-          Every engagement starts with a conversation about what you're trying
-          to accomplish. From there, we scope a focused sprint with a defined
-          deliverable, timeline, and investment. No ambiguity. No open-ended
-          retainers. You know exactly what you're getting.
+        <p class="page-intro">
+          Start with a free hour. If there's a fit, we scope a focused sprint
+          with a defined deliverable, timeline, and fixed price. No ambiguity.
+          No open-ended retainers. You know exactly what you're getting.
         </p>
 
-        <section>
+        <div class="tiers-grid">
+          <div class="service-tier service-tier--free">
+            <div class="tier-top">
+              <h2>Free Consult</h2>
+              <p class="pricing">Free</p>
+              <p class="timing">1 hour</p>
+            </div>
+            <div class="tier-body">
+              <ul>
+                <li>1-on-1 conversation with Ben Medcalf</li>
+                <li>Assess fit for AI, graph databases, or automation</li>
+                <li>Actionable recommendation: build, wait, or look elsewhere</li>
+                <li>Rough scope and effort estimate if there's a fit</li>
+              </ul>
+              <p class="best-for"><strong>Best for:</strong> Figuring out if we're the right partner — zero risk.</p>
+            </div>
+            <a href="https://calendar.app.google/jzac8cPcXKKtnVQ39" target="_blank" rel="noopener noreferrer" class="tier-cta">Book a Free Hour</a>
+          </div>
+
           <div class="service-tier">
-            <h2>Discovery Sprint</h2>
-            <p class="pricing"><strong>$3,500 fixed &bull; 1 week</strong></p>
-            <p>
-              Not sure if AI, graph databases, or automation is right for your
-              problem? Start here. In one week, I'll assess your situation and
-              deliver a written recommendation.
-            </p>
-            <p><strong>You get:</strong></p>
-            <ul>
-              <li>Technical feasibility assessment</li>
-              <li>Architecture recommendation with options</li>
-              <li>Implementation roadmap with effort estimates</li>
-              <li>Go/no-go recommendation with honest reasoning</li>
-            </ul>
-            <p>
-              <strong>Best for:</strong> Companies exploring whether AI document processing,
-              knowledge graphs, or workflow automation could solve their problem.
-            </p>
+            <div class="tier-top">
+              <h2>Discovery Sprint</h2>
+              <p class="pricing">$3,500</p>
+              <p class="timing">fixed · 1 week</p>
+            </div>
+            <div class="tier-body">
+              <ul>
+                <li>Technical feasibility assessment</li>
+                <li>Architecture recommendation with trade-offs</li>
+                <li>Implementation roadmap with effort estimates</li>
+                <li>Go/no-go recommendation with honest reasoning</li>
+                <li>Written deliverable you own and keep</li>
+              </ul>
+              <p class="best-for"><strong>Best for:</strong> De-risking an idea before committing real budget.</p>
+            </div>
             <a href="/#contact" class="tier-cta">Book a Discovery Sprint</a>
           </div>
-        </section>
 
-        <section>
           <div class="service-tier">
-            <h2>Build Sprint</h2>
-            <p class="pricing">
-              <strong>$6,000&ndash;15,000 fixed &bull; 2&ndash;6 weeks</strong>
-            </p>
-            <p>
-              You have a specific problem and you're ready to build. We define
-              the scope together upfront, I build it, and you get a working
-              system at the end.
-            </p>
-            <p><strong>You get:</strong></p>
-            <ul>
-              <li>Working prototype, integration, or pipeline</li>
-              <li>Documentation and handoff materials</li>
-              <li>Weekly progress updates</li>
-              <li>2 weeks of bug-fix support after delivery</li>
-            </ul>
-            <p>
-              <strong>Best for:</strong> Companies with a defined problem ready for
-              a working solution. Often follows a Discovery Sprint.
-            </p>
+            <div class="tier-top">
+              <h2>Build Sprint</h2>
+              <p class="pricing">$6k&ndash;$15k</p>
+              <p class="timing">fixed · 2&ndash;6 weeks</p>
+            </div>
+            <div class="tier-body">
+              <ul>
+                <li>End-to-end implementation of a scoped deliverable</li>
+                <li>Testing and validation suite</li>
+                <li>Documentation and handoff materials</li>
+                <li>Weekly progress updates</li>
+                <li>2 weeks of bug-fix support after delivery</li>
+              </ul>
+              <p class="best-for"><strong>Best for:</strong> Shipping a working feature, integration, or pipeline.</p>
+            </div>
             <a href="/#contact" class="tier-cta">Start a Build Sprint</a>
           </div>
-        </section>
 
-        <section>
           <div class="service-tier">
-            <h2>Advisory</h2>
-            <p class="pricing"><strong>$2,000/month ongoing</strong></p>
-            <p>
-              You need ongoing access to expertise without a specific project.
-              I'm available for architecture reviews, technical decisions, and
-              strategic guidance.
-            </p>
-            <p><strong>You get:</strong></p>
-            <ul>
-              <li>One 60-minute strategy call per month</li>
-              <li>Async access via messaging or email (24-48hr response)</li>
-              <li>Architecture and code reviews</li>
-              <li>Technical decision-making support</li>
-            </ul>
-            <p>
-              <strong>Best for:</strong> Teams who've completed a sprint and want
-              ongoing guidance, or companies with internal developers who need expert
-              oversight on AI/graph implementations.
-            </p>
+            <div class="tier-top">
+              <h2>Advisory</h2>
+              <p class="pricing">$2,000</p>
+              <p class="timing">monthly · ongoing</p>
+            </div>
+            <div class="tier-body">
+              <ul>
+                <li>60-minute strategy call each month</li>
+                <li>Same-day async responses via message or email</li>
+                <li>Architecture and code reviews</li>
+                <li>Technical decision-making support</li>
+                <li>Priority scheduling when you're ready for a new sprint</li>
+              </ul>
+              <p class="best-for"><strong>Best for:</strong> Teams that want ongoing expert guidance between sprints.</p>
+            </div>
             <a href="/#contact" class="tier-cta">Schedule a Call</a>
           </div>
-        </section>
+        </div>
 
         <section class="how-it-works">
           <h2>How It Works</h2>
-          <ol>
-            <li>
-              <strong>We talk.</strong> Tell me what you're trying to accomplish.
-              No commitment, no pitch.
-            </li>
-            <li>
-              <strong>I scope it.</strong> If there's a fit, I'll propose a specific
-              sprint with deliverables and fixed price.
-            </li>
-            <li>
-              <strong>I build it.</strong> You get weekly updates and a working result
-              at the end.
-            </li>
-            <li>
-              <strong>You decide what's next.</strong> Another sprint? Advisory retainer?
-              Nothing? Your call.
-            </li>
-          </ol>
+          <p><strong>We talk.</strong> Tell me what you're trying to accomplish. No commitment, no pitch.</p>
+          <p><strong>I scope it.</strong> If there's a fit, I'll propose a specific sprint with deliverables and fixed price.</p>
+          <p><strong>I build it.</strong> You get weekly updates and a working result at the end.</p>
+          <p><strong>You decide what's next.</strong> Another sprint? Advisory retainer? Nothing? Your call.</p>
         </section>
 
         <section>
@@ -161,7 +148,7 @@ import Footer from "../../components/Footer.astro";
   }
 
   .services-landing .container {
-    max-width: 1000px;
+    max-width: 1100px;
   }
 
   .page-header {
@@ -185,44 +172,115 @@ import Footer from "../../components/Footer.astro";
   }
 
   .page-content {
-    line-height: 1.8;
-    font-size: 1.1rem;
+    line-height: 1.7;
+    font-size: 1.05rem;
   }
 
-  .page-content p {
-    margin-bottom: 1.5rem;
+  .page-intro {
+    margin-bottom: 2.5rem;
     color: #444;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
   }
 
   .service-tier {
     background: #f8f9fa;
-    border-left: 4px solid #23aa57;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 8px;
+    border-top: 4px solid #23aa57;
+    border-radius: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .service-tier:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .service-tier--free {
+    border-top-color: #2563eb;
+  }
+
+  .tier-top {
+    padding: 1.5rem 1.5rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e8e8e8;
   }
 
   .service-tier h2 {
-    font-size: 2rem;
+    font-size: 1.35rem;
     color: #23aa57;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.25rem 0;
     border: none;
     padding: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .service-tier--free h2 {
+    color: #2563eb;
   }
 
   .pricing {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #333;
-    margin-bottom: 1rem;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .timing {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tier-body {
+    padding: 1.25rem 1.5rem;
+    flex: 1;
   }
 
   .service-tier ul {
-    margin: 1rem 0 1.5rem;
-    padding-left: 2rem;
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+    list-style: none;
   }
 
   .service-tier li {
     margin-bottom: 0.5rem;
+    font-size: 0.92rem;
+    color: #555;
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .service-tier li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #23aa57;
+    font-weight: 700;
+  }
+
+  .service-tier--free li::before {
+    color: #2563eb;
+  }
+
+  .best-for {
+    font-size: 0.88rem;
+    color: #666;
+    margin: 0;
   }
 
   .how-it-works h2 {
@@ -233,29 +291,36 @@ import Footer from "../../components/Footer.astro";
     padding-bottom: 0.5rem;
   }
 
-  .how-it-works ol {
-    margin: 1.5rem 0;
-    padding-left: 2rem;
-  }
-
-  .how-it-works li {
-    margin-bottom: 1rem;
+  .how-it-works p {
+    margin-bottom: 0.75rem;
+    color: #444;
   }
 
   .tier-cta {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
+    display: block;
+    margin: auto 1.5rem 1.5rem;
+    padding: 0.7rem 1rem;
     background-color: #23aa57;
     color: white;
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
-    transition: background-color 0.2s ease;
+    font-size: 0.92rem;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
   }
 
   .tier-cta:hover {
     background-color: #1d8f49;
+    transform: translateY(-1px);
+  }
+
+  .service-tier--free .tier-cta {
+    background-color: #2563eb;
+  }
+
+  .service-tier--free .tier-cta:hover {
+    background-color: #1d4ed8;
   }
 
   .page-content > section:last-child h2 {
@@ -303,14 +368,22 @@ import Footer from "../../components/Footer.astro";
       font-size: 1rem;
     }
 
-    .service-tier h2,
+    .tiers-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .service-tier h2 {
+      font-size: 1.2rem;
+    }
+
+    .pricing {
+      font-size: 1.5rem;
+    }
+
     .how-it-works h2,
     .page-content > section:last-child h2 {
       font-size: 1.6rem;
-    }
-
-    .service-tier {
-      padding: 1.5rem;
     }
   }
 </style>
