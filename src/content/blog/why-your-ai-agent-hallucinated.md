@@ -6,11 +6,11 @@ author: "Ben Medcalf"
 tags: ["AI", "GraphRAG", "Graph Databases", "Document Automation", "Hallucination", "Retrieval"]
 ---
 
-We got called in on a document automation project that was "mostly working."
+Here's a failure mode that comes up constantly in document automation work — and one we've dug into firsthand.
 
-The AI was extracting structured data from legal documents. Accuracy looked fine in demos. In production, it was inventing clause references that didn't exist.
+The AI is extracting structured data from legal documents. Accuracy looks fine in demos. In production, it's inventing clause references that don't exist.
 
-Not because the model was bad. Because the retrieval was naive.
+Not because the model is bad. Because the retrieval is naive.
 
 ## What Was Actually Happening
 
