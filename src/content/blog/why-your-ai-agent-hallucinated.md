@@ -14,7 +14,7 @@ tags:
     "Retrieval",
     "AI Agents",
   ]
-image: "images/blog/why-your-ai-agent-hallucinated/why-your-ai-agent-hallucinated.png"
+image: "/images/blog/why-your-ai-agent-hallucinated/why-your-ai-agent-hallucinated.png"
 ---
 
 <figure>
