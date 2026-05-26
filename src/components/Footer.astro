@@ -1,12 +1,16 @@
 ---
-import {services} from "../components/Services.astro"
+import { services } from "../components/Services.astro";
 
 const currentYear = new Date().getFullYear();
 
 const quickLinks = [
-  { name: "Blog", href: "/blog/" },
+  { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/#contact" },
-  { name: "Newsletter", href: "https://www.linkedin.com/newsletters/practical-graph-and-ai-roundup-7401995578622255104/"},
+  {
+    name: "Newsletter",
+    href: "https://www.linkedin.com/newsletters/practical-graph-and-ai-roundup-7401995578622255104/",
+  },
 ];
 
 const socialLinks = [
@@ -26,7 +30,9 @@ const socialLinks = [
       <div class="footer-section">
         <h3>About Us</h3>
         <p>
-        We bring over 10 years of experience designing, developing and testing high quality software across multiple platforms and business verticles. 
+          We bring over 10 years of experience designing, developing and testing
+          high quality software across multiple platforms and business
+          verticles.
         </p>
         <div class="social-links">
           {
@@ -43,7 +49,7 @@ const socialLinks = [
         <h3>Services</h3>
         <ul>
           {
-            services.map(({ title}) => (
+            services.map(({ title }) => (
               <li>
                 <a href="/#services">{title}</a>
               </li>

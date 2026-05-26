@@ -1,6 +1,6 @@
 ---
 title: "StatFoundry Part 3"
-description: "\"Agentic Users\" or \"Why I ditched LLMs and developed a deterministic Cypher Query Builder instead\""
+description: '"Agentic Users" or "Why I ditched LLMs and developed a deterministic Cypher Query Builder instead"'
 pubDate: 2025-11-19
 author: "Ben"
 tags:
@@ -12,13 +12,14 @@ tags:
     "Technical",
     "StatFoundry",
     "Development",
+    "BIGRFS",
   ]
 image: "/images/blog/StatFoundryPartThree/chunks as puzzle pieces.jpeg"
 ---
 
   <img src="/images/blog/StatFoundryPartThree/chunks as puzzle pieces.jpeg" />
 
-### Welcome back 
+### Welcome back
 
 In the final entry of our StatFoundry series we'll recap what we've learned and discuss how these learnings influenced the design behind the **BIGRFS** architecture, or **Buildtime Ingestion and Generation for Runtime Filters and Suggestions**, pronounced "Big Riffs".
 
@@ -106,7 +107,7 @@ The more I tried to wrangle an LLM into my stats search application, the more I 
 
 I decided to explore some "old-school", LLM-free solutions...
 
-### Epiphany #2: Agentic Users...
+### Epiphany #2: Agentic Users
 
 > What if, instead of AI guessing the user's intent, the users built the queries themselves, like some kind of autonomous being?
 
@@ -171,48 +172,47 @@ export type Chunk = {
   /**
    *  Templated human readable representation
    *  ex: Player's named {playerName}
-  */ 
-  English: string; 
+   */
+  English: string;
 
   /**
    *  Templated machine readable representation
    *  ex: MATCH (p:Player) where p.name = {playerName}
-  */ 
-  Cypher: string; 
+   */
+  Cypher: string;
 
   /**
    *  Determines what can or cannot be linked
    *  ex: MATCH_START indicates the start of a MATCH clause
-  */ 
-  QueryType: QueryType; 
+   */
+  QueryType: QueryType;
 
   /**
    *  What data the chunk requires
-   *  ex: `p`, a variable representing "player" 
-  */ 
-  Requires: Alias[]; 
-  
-  /**
-   *  What data the chunk provides 
    *  ex: `p`, a variable representing "player"
-  */ 
-  Provides: Alias[]; 
+   */
+  Requires: Alias[];
+
+  /**
+   *  What data the chunk provides
+   *  ex: `p`, a variable representing "player"
+   */
+  Provides: Alias[];
 
   /**
    *  Slots are the mechanism to fill in templates.
    *  More on this later
-  */ 
-  Slots: Slot[]; 
+   */
+  Slots: Slot[];
 
   /**
    *  Simple Mechanism to enable suggestions
    *  Fuzzy match on strings
-   *  ex: ["RB","running","running back","rush"...] 
-  */ 
-  SuggestionKeywords?: string[]; 
+   *  ex: ["RB","running","running back","rush"...]
+   */
+  SuggestionKeywords?: string[];
 };
 ```
-
 
 ### The Type System
 
@@ -259,6 +259,7 @@ enum QueryType {
 This enforces query structure. You can't return before you match. You can't filter before you have something to filter.
 
 #### Slots
+
 Slots are the variables in our query templates. They define what values are valid and where they can be used.
 
 ```typescript
@@ -268,7 +269,9 @@ type Slot = {
   SlotValueTypes: SlotType[];
 };
 ```
+
 #### Slots In Action
+
 <figure>
 <img src="/images/blog/StatFoundryPartThree/slot1.png">
 <figcaption style="font-size: 0.9em; color: #666; text-align: center">First, select a Filter chunk.</figcaption>
@@ -309,7 +312,6 @@ export enum SlotType {
   SelectPlayStats = "SelectPlayStats",
 }
 ```
-
 
 ### The Chunk Chain
 
@@ -387,14 +389,14 @@ export function isValidNextChunk(
 
 <figure>
 <img src="/images/blog/StatFoundryPartThree/chunkchain.png">
-<figcaption style="font-size: 0.9em; color: #666; text-align: center">In this chunk chain, we can see 3 types of Chunks. 
+<figcaption style="font-size: 0.9em; color: #666; text-align: center">In this chunk chain, we can see 3 types of Chunks.
 
-Match (green circle), 
-Junction (orange graph) 
-Filter (blue funnel). 
+Match (green circle),
+Junction (orange graph)
+Filter (blue funnel).
+
 </figcaption>
 </figure>
-
 
 ### BIG: Buildtime Ingestion and Generation
 
@@ -615,7 +617,7 @@ The suggestions need to feel conversational, not like you're programming. We ach
 3. **Context awareness**: Suggestions change based on what you've already selected
 4. **Progressive disclosure**: Don't show 100 options, show the 5 most likely
 
-### What this really is: User fiendly path traversal 
+### What this really is: User fiendly path traversal
 
 When you use Neo4j (or any graph database), you're essentially walking paths through nodes and relationships. That's what Cypher does, it describes paths to traverse.
 
@@ -686,7 +688,6 @@ Let's be honest about what doesn't work perfectly yet:
 While suggestions help, users still need some mental model of what data exists. If you don't know that "rushing yards per game" is a thing we track, you won't know to look for it.
 
 **Potential solution**: Add a "popular queries" section or guided templates for common questions.
-
 
 #### 2. Edge cases are tedious
 

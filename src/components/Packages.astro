@@ -1,78 +1,293 @@
 ---
 // src/components/Packages.astro
-const packages = [
-  {
-    name: "Discovery",
-    period: "/project",
-    features: [
-      "Feasibility Assessment",
-      "POC Scope Definition",
-      "Technical Architecture Plan",
-      "Optional Workshop",
-      "1-2 weeks delivery",
-      "Documentation Included"
-    ],
-    featured: false
-  },
-  {
-    name: "Implementation",
-    period: "/project",
-    features: [
-    "E2E Solution Implementation",
-      "Dedicated Development Hours",
-      "Regular Check-Ins",
-      "Testing and validation Suite",
-      "Deployment and Monitoring",
-      "Training & Documentation",
-      "Priority Support"
-    ],
-    featured: true
-  },
-  {
-    name: "Retainer",
-    period: "/month",
-    features: [
-      "Flexible Pricing & Hours",
-      "Architecture consulting",
-      "Feature development",
-      "Performance optimization",
-      "Dedicated availability",
-      "Flexible engagement"
-    ],
-    featured: false
-  }
-];
 ---
 
 <section id="packages" class="packages">
   <div class="container">
     <div class="section-header">
-      <h2>Service Packages</h2>
-      <p>Choose the perfect package for your project needs. Applies to all our Service offerings.</p>
+      <h2>Work With Us</h2>
+      <p>Scoped engagements with clear deliverables</p>
     </div>
-    <div class="packages-grid">
-      {
-        packages.map((pkg) => (
-          <div class={"package-card"}>
-            <div class="package-header">
-              <h3>{pkg.name}</h3>
-            </div>
-            <ul class="package-features">
-              {pkg.features.map((feature) => (
-                <li>
-                  <i class="fas fa-check" /> {feature}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#contact"
-              class={`btn ${pkg.featured ? 'btn-primary' : 'btn-secondary'}`}
-            >
-              Get A Quote 
-            </a>
-          </div>
-        ))
-      }
+
+    <div class="tiers-grid">
+      <div class="service-tier service-tier--free">
+        <div class="tier-top">
+          <h3>Free Consult</h3>
+          <p class="pricing">Free</p>
+          <p class="timing">1 hour</p>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>1-on-1 conversation with Ben Medcalf</li>
+            <li>Assess fit for AI, graph databases, or automation</li>
+            <li>Actionable recommendation: build, wait, or look elsewhere</li>
+            <li>Rough scope and effort estimate if there's a fit</li>
+          </ul>
+          <p class="best-for">
+            <strong>Best for:</strong> Figuring out if we're the right partner — zero
+            risk.
+          </p>
+        </div>
+        <a
+          href="https://calendar.app.google/jzac8cPcXKKtnVQ39"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tier-cta">Book a Free Hour</a
+        >
+      </div>
+
+      <div class="service-tier">
+        <div class="tier-top">
+          <h3>Discovery Sprint</h3>
+          <p class="pricing">$3k</p>
+          <p class="timing">fixed · 1&ndash;2 weeks</p>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>Technical feasibility assessment</li>
+            <li>Architecture recommendation</li>
+            <li>Scope & estimate for build phase</li>
+            <li>Written deliverable you own</li>
+          </ul>
+          <p class="best-for">
+            <strong>Best for:</strong> Validating an idea before committing budget.
+          </p>
+        </div>
+        <a
+          href="https://calendar.app.google/jzac8cPcXKKtnVQ39"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tier-cta">Book a Discovery Sprint</a
+        >
+      </div>
+
+      <div class="service-tier">
+        <div class="tier-top">
+          <h3>Build Sprint</h3>
+          <p class="pricing">$6k&ndash;$15k</p>
+          <p class="timing">fixed · 2&ndash;6 weeks</p>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>End-to-end implementation</li>
+            <li>Testing & validation suite</li>
+            <li>Deployment & monitoring</li>
+            <li>Training & documentation</li>
+          </ul>
+          <p class="best-for">
+            <strong>Best for:</strong> Shipping a scoped feature or integration.
+          </p>
+        </div>
+        <a
+          href="https://calendar.app.google/jzac8cPcXKKtnVQ39"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tier-cta">Start a Build Sprint</a
+        >
+      </div>
+
+      <div class="service-tier">
+        <div class="tier-top">
+          <h3>Retainer</h3>
+          <p class="pricing">$2k+</p>
+          <p class="timing">monthly · ongoing</p>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>Support for what we shipped</li>
+            <li>Code reviews from who wrote it</li>
+            <li>Priority when you're ready for the next sprint</li>
+            <li>Same-day async responses</li>
+          </ul>
+          <p class="best-for">
+            <strong>Best for:</strong> Teams who want to keep building with MSS.
+          </p>
+        </div>
+        <a
+          href="https://calendar.app.google/jzac8cPcXKKtnVQ39"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tier-cta">Get Started</a
+        >
+      </div>
+    </div>
+
+    <div class="how-it-works">
+      <h3>How It Works</h3>
+      <p>Go in order, mix and match, or pick just one. Up to you.</p>
+      <div class="steps-flow">
+        <div class="step">
+          <span class="step-number">1</span>
+          <strong>Free Consultation</strong>
+          <span class="step-desc"
+            >You book a free call with us to see if we're a fit.</span
+          >
+        </div>
+        <span class="step-arrow">→</span>
+        <div class="step">
+          <span class="step-number">2</span>
+          <strong>Discovery Sprint</strong>
+          <span class="step-desc"
+            >We define roadmaps unique to your goals and budget</span
+          >
+        </div>
+        <span class="step-arrow">→</span>
+        <div class="step">
+          <span class="step-number">3</span>
+          <strong>Build Sprint</strong>
+          <span class="step-desc"
+            >We execute and build something great together</span
+          >
+        </div>
+        <span class="step-arrow">→</span>
+        <div class="step">
+          <span class="step-number">4</span>
+          <strong>Retainer</strong>
+          <span class="step-desc"
+            >You keep us around for any ongoing support or maintenance</span
+          >
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .packages {
+    padding: 100px 0;
+    background: #f8f9fa;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .service-tier {
+    background: white;
+    border-radius: 15px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .service-tier:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(35, 170, 87, 0.2);
+    outline: 2px solid #23aa57;
+  }
+
+  .service-tier--free {
+  }
+
+  .tier-top {
+    padding: 2rem 2rem 1.25rem;
+  }
+
+  .service-tier h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .pricing {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #23aa57;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .service-tier--free .pricing {
+    color: #23aa57;
+  }
+
+  .timing {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+  }
+
+  .tier-body {
+    padding: 0 2rem 1rem;
+    flex: 1;
+    text-align: left;
+  }
+
+  .service-tier ul {
+    margin: 0 0 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .service-tier li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .service-tier li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #23aa57;
+    font-weight: 700;
+  }
+
+  .service-tier--free li::before {
+    color: #23aa57;
+  }
+
+  .best-for {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .tier-cta {
+    display: block;
+    margin: auto 2rem 2rem;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #23aa57 0%, #16a05a 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .tier-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(29, 191, 115, 0.3);
+  }
+
+  .service-tier--free .tier-cta {
+    background: linear-gradient(135deg, #23aa57 0%, #16a05a 100%);
+  }
+
+  .service-tier--free .tier-cta:hover {
+    box-shadow: 0 10px 25px rgba(29, 191, 115, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .tiers-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
