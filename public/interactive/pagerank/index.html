@@ -355,6 +355,89 @@
         text-anchor: middle;
         pointer-events: none;
       }
+      .h2h-badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .h2h-badge.both-right {
+        background: #16a34a;
+        color: #fff;
+      }
+      .h2h-badge.pagerank-wins {
+        background: #2563eb;
+        color: #fff;
+      }
+      .h2h-badge.vegas-wins {
+        background: #d97706;
+        color: #fff;
+      }
+      .h2h-badge.both-wrong {
+        background: #dc2626;
+        color: #fff;
+      }
+      .vs-tally {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 900px) {
+        .vs-tally {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .vs-tally {
+          grid-template-columns: 1fr;
+        }
+      }
+      .tally-cat {
+        background: #f5f6fa;
+        border: 1px solid #e0e1e6;
+        border-radius: 12px;
+        padding: 14px;
+      }
+      .tally-cat-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .tally-count {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #111827;
+      }
+      .h2h-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .h2h-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+        color: #374151;
+      }
+      .h2h-row .yr {
+        color: #6b7280;
+        font-weight: 600;
+        min-width: 34px;
+      }
+      .h2h-row .def {
+        color: #9ca3af;
+        font-size: 0.78rem;
+      }
+      .h2h-empty {
+        font-size: 0.85rem;
+        color: #9ca3af;
+        font-style: italic;
+      }
     </style>
   </head>
   <body>
@@ -449,13 +532,19 @@
                 <th>Season</th>
                 <th>Matchup</th>
                 <th>PageRank Pick</th>
+                <th>Vegas Pick</th>
                 <th>Actual Winner</th>
-                <th>Result</th>
+                <th>PageRank vs Vegas</th>
               </tr>
             </thead>
             <tbody id="history-body"></tbody>
           </table>
         </div>
+      </div>
+
+      <div class="panel" style="margin-top: 30px">
+        <h3 class="panel-title">PageRank vs Vegas &mdash; Head to Head</h3>
+        <div class="vs-tally" id="vs-tally"></div>
       </div>
 
       <div class="panel" style="margin-top: 30px">
@@ -626,6 +715,35 @@
         2024: [40, 22],
       };
 
+      // Vegas pick = the closing point-spread favorite going into each
+      // Super Bowl (the team Vegas expected to win that week).
+      const VEGAS_PICKS = {
+        2001: "STL", // Rams -14 (NE won)
+        2002: "OAK", // Raiders -4 (TB won)
+        2003: "NE", // Patriots -7
+        2004: "NE", // Patriots -7
+        2005: "PIT", // Steelers -4
+        2006: "IND", // Colts -7
+        2007: "NE", // Patriots -12 (NYG won)
+        2008: "PIT", // Steelers -7
+        2009: "IND", // Colts -5 (NO won)
+        2010: "GB", // Packers -2.5
+        2011: "NE", // Patriots -3 (NYG won)
+        2012: "SF", // 49ers -4 (BAL won)
+        2013: "DEN", // Broncos -2.5 (SEA won)
+        2014: "NE", // Patriots -1
+        2015: "CAR", // Panthers -5.5 (DEN won)
+        2016: "NE", // Patriots -3
+        2017: "NE", // Patriots -4.5 (PHI won)
+        2018: "NE", // Patriots -2.5
+        2019: "KC", // Chiefs -1.5
+        2020: "KC", // Chiefs -3 (TB won)
+        2021: "LA", // Rams -4.5
+        2022: "PHI", // Eagles -1.5 (KC won)
+        2023: "SF", // 49ers -2 (KC won)
+        2024: "KC", // Chiefs -1.5 (PHI won)
+      };
+
       let data = null;
       let simulation = null;
       let currentMode = "playoffs";
@@ -749,10 +867,36 @@
           Object.keys(seasons).length;
       }
 
+      // Head-to-head outcome between PageRank's pick and Vegas's pick.
+      // Returns {key, cls, text} or null when it can't be graded yet
+      // (no winner, or no Vegas line on record for that season).
+      function headToHead(pick, vegasPick, winner) {
+        if (!winner || !vegasPick) return null;
+        const prRight = pick === winner;
+        const vegasRight = vegasPick === winner;
+        if (prRight && vegasRight)
+          return { key: "bothRight", cls: "both-right", text: "Both Right" };
+        if (prRight && !vegasRight)
+          return {
+            key: "pagerankWins",
+            cls: "pagerank-wins",
+            text: "PageRank wins",
+          };
+        if (!prRight && vegasRight)
+          return { key: "vegasWins", cls: "vegas-wins", text: "Vegas wins" };
+        return { key: "bothWrong", cls: "both-wrong", text: "Both Wrong" };
+      }
+
       function updateHistory() {
         const tbody = document.getElementById("history-body");
         tbody.innerHTML = "";
         const seasons = getSeasons();
+        const breakdown = {
+          bothRight: [],
+          pagerankWins: [],
+          vegasWins: [],
+          bothWrong: [],
+        };
 
         Object.entries(data.superBowls)
           .sort((a, b) => b[0] - a[0])
@@ -766,7 +910,16 @@
             if (!t1 || !t2) return;
 
             const pick = t1.score > t2.score ? team1 : team2;
-            const isCorrect = winner ? pick === winner : null;
+            const vegasPick = VEGAS_PICKS[season];
+            const h2h = headToHead(pick, vegasPick, winner);
+            if (h2h) {
+              const loser = winner === team1 ? team2 : team1;
+              breakdown[h2h.key].push({ season, winner, loser });
+            }
+
+            const resultHTML = h2h
+              ? `<span class="h2h-badge ${h2h.cls}">${h2h.text}</span>`
+              : '<span style="color:#b45309;font-weight:600">Pending</span>';
 
             const tr = document.createElement("tr");
             tr.innerHTML = `
@@ -777,14 +930,9 @@
                           <div class="matchup-row">${teamBadge(team2)}<span class="matchup-rank">#${t2.rank}</span></div>
                         </div></td>
                         <td>${teamBadge(pick)}</td>
+                        <td>${vegasPick ? teamBadge(vegasPick) : '<span style="color:#9ca3af">&mdash;</span>'}</td>
                         <td>${winner ? teamBadge(winner) : "TBD"}</td>
-                        <td>${
-                          isCorrect === null
-                            ? '<span style="color:#b45309;font-weight:600">Pending</span>'
-                            : isCorrect
-                              ? '<span style="color:#15803d;font-weight:600">Correct</span>'
-                              : '<span style="color:#b91c1c;font-weight:600">Wrong</span>'
-                        }</td>
+                        <td>${resultHTML}</td>
                     `;
             tr.style.cursor = "pointer";
             tr.addEventListener("click", () => {
@@ -797,6 +945,43 @@
             });
             tbody.appendChild(tr);
           });
+
+        updateVsTally(breakdown);
+      }
+
+      function updateVsTally(breakdown) {
+        const cats = [
+          { key: "bothRight", cls: "both-right", text: "Both Right" },
+          { key: "pagerankWins", cls: "pagerank-wins", text: "PageRank wins" },
+          { key: "vegasWins", cls: "vegas-wins", text: "Vegas wins" },
+          { key: "bothWrong", cls: "both-wrong", text: "Both Wrong" },
+        ];
+        document.getElementById("vs-tally").innerHTML = cats
+          .map((c) => {
+            const games = breakdown[c.key];
+            const list = games.length
+              ? games
+                  .map(
+                    (g) => `
+                  <div class="h2h-row">
+                    <span class="yr">${g.season}</span>
+                    ${teamBadge(g.winner)}
+                    <span class="def">def.</span>
+                    ${teamBadge(g.loser)}
+                  </div>`,
+                  )
+                  .join("")
+              : '<div class="h2h-empty">None</div>';
+            return `
+              <div class="tally-cat">
+                <div class="tally-cat-head">
+                  <span class="h2h-badge ${c.cls}">${c.text}</span>
+                  <span class="tally-count">${games.length}</span>
+                </div>
+                <div class="h2h-list">${list}</div>
+              </div>`;
+          })
+          .join("");
       }
 
       function updateSeason(season) {
