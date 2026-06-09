@@ -155,7 +155,7 @@
 <style>
   .packages {
     padding: 100px 0;
-    background: #162029;
+    background: #f8f9fa;
   }
 
   .tiers-grid {
@@ -166,53 +166,53 @@
   }
 
   .service-tier {
-    background: #1a2831;
+    background: white;
     border-radius: 15px;
     padding: 0;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease,
       outline-color 0.3s ease;
     text-align: center;
     overflow: hidden;
-    outline: 1px solid rgba(219, 166, 73, 0.15);
+    outline: 1px solid rgba(35, 170, 87, 0.15);
   }
 
   .service-tier:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    outline: 2px solid #DBA649;
+    box-shadow: 0 20px 40px rgba(35, 170, 87, 0.2);
+    outline: 2px solid #23aa57;
   }
 
   .service-tier--free {
-    background: linear-gradient(180deg, #20353F 0%, #1a2831 100%);
+    background: white;
   }
 
   .tier-top {
     padding: 2rem 1.5rem 1.25rem;
-    border-bottom: 1px solid rgba(246, 242, 231, 0.08);
+    border-bottom: 1px solid #eee;
   }
 
   .service-tier h3 {
     font-size: 1.4rem;
-    color: #f6f2e7;
+    color: #333;
     margin: 0 0 0.75rem 0;
   }
 
   .pricing {
     font-size: 2rem;
     font-weight: 700;
-    color: #DBA649;
+    color: #23aa57;
     margin: 0;
     line-height: 1.2;
   }
 
   .timing {
     font-size: 0.85rem;
-    color: #b0b0b0;
+    color: #888;
     margin: 0.25rem 0 0;
   }
 
@@ -231,7 +231,7 @@
   .service-tier li {
     margin-bottom: 0.6rem;
     font-size: 0.9rem;
-    color: #d6d2c7;
+    color: #666;
     line-height: 1.6;
     position: relative;
     padding-left: 1.5rem;
@@ -241,28 +241,28 @@
     content: "✓";
     position: absolute;
     left: 0;
-    color: #DBA649;
+    color: #23aa57;
     font-weight: 700;
   }
 
   .best-for {
     font-size: 0.85rem;
-    color: #b0b0b0;
+    color: #555;
     margin: 0;
     padding-top: 1rem;
-    border-top: 1px solid rgba(246, 242, 231, 0.08);
+    border-top: 1px solid #eee;
   }
 
   .best-for strong {
-    color: #f6f2e7;
+    color: #333;
   }
 
   .tier-cta {
     display: block;
     margin: auto 1.5rem 1.5rem;
     padding: 12px 20px;
-    background: #DBA649;
-    color: #0f1a22;
+    background: linear-gradient(135deg, #23aa57 0%, #16a05a 100%);
+    color: white;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
@@ -273,8 +273,8 @@
 
   .tier-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(219, 166, 73, 0.35);
-    background: #e6b25a;
+    box-shadow: 0 10px 25px rgba(29, 191, 115, 0.3);
+    background: linear-gradient(135deg, #28bd62 0%, #18b065 100%);
   }
 
   /* How It Works — horizontal left-to-right flow */
@@ -283,13 +283,13 @@
   }
 
   .how-it-works h3 {
-    color: #f6f2e7;
+    color: #333;
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
   }
 
   .how-it-works > p {
-    color: #b0b0b0;
+    color: #666;
     margin-bottom: 2.5rem;
   }
 
@@ -307,10 +307,11 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: #1a2831;
+    background: white;
     border-radius: 12px;
     padding: 1.5rem 1rem;
-    outline: 1px solid rgba(219, 166, 73, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    outline: 1px solid rgba(35, 170, 87, 0.15);
   }
 
   .step-number {
@@ -320,29 +321,29 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #DBA649;
-    color: #0f1a22;
+    background: #23aa57;
+    color: white;
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 0.75rem;
   }
 
   .step strong {
-    color: #f6f2e7;
+    color: #333;
     font-size: 1.05rem;
     margin-bottom: 0.4rem;
   }
 
   .step-desc {
     font-size: 0.85rem;
-    color: #b0b0b0;
+    color: #666;
     line-height: 1.5;
   }
 
   .step-arrow {
     display: flex;
     align-items: center;
-    color: #DBA649;
+    color: #23aa57;
     font-size: 1.75rem;
     font-weight: 700;
     flex-shrink: 0;
