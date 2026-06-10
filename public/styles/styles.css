@@ -505,52 +505,10 @@ p {
   margin-bottom:2rem;
 }
 
-.steps-flow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  max-width: 160px;
-}
-
-.step-number {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #23aa57 0%, #16a05a 100%);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
-}
-
-.step strong {
-  font-size: 1rem;
-  color: #333;
-}
-
-.step-desc {
-  font-size: 0.85rem;
-  color: #666;
-}
-
-.step-arrow {
-  font-size: 1.5rem;
-  color: #23aa57;
-  margin-top: 0.5rem;
-  font-weight: 700;
-}
+/* NOTE: .steps-flow / .step / .step-number / .step-desc / .step-arrow styles
+   live in src/components/Packages.astro (scoped). The old global copies here
+   were overriding the component on mobile (max-width:160px + flex-start),
+   so they were removed. */
 
 .package-features {
   list-style: none;
@@ -1080,16 +1038,6 @@ p {
 
   .partners-grid {
     grid-template-columns: 1fr;
-  }
-
-  .steps-flow {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .step-arrow {
-    transform: rotate(90deg);
-    margin: 0;
   }
 
   .contact-content {
