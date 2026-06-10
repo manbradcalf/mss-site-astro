@@ -5,9 +5,9 @@
     </div>
     <div class="testimonials-carousel">
       <button class="carousel-arrow carousel-arrow-left" aria-label="Previous testimonials">&#8249;</button>
-      <div class="testimonials-track">
-        <div class="testimonials-slide active">
-          <div class="testimonials-grid">
+      <div class="testimonials-viewport">
+        <div class="testimonials-track">
+          <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <p><em>"Ben integrated the ChatGPT API into our platform to extract data from unstructured settlement statement PDFs. I was impressed with Ben's ability to build a PoC quickly, iterate on feedback, and then integrate a usable solution into our production software stack."</em></p>
@@ -19,6 +19,8 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <p><em>"If I had to choose one word to describe Ben, it would be innovate. Not the buzzword version that gets tossed around in startup marketing decks, but innovation in its truest sense: deep, practical, and lived every day."</em></p>
@@ -31,9 +33,7 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="testimonials-slide">
-          <div class="testimonials-grid">
+          <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <p><em>"Ben was an excellent engineer for us and was always actively learning and improving his craft...If I had an opportunity to work again with Ben the answer would be an unequivocal 'yes'!"</em></p>
@@ -45,6 +45,8 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="testimonial-slide">
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <p><em>"Ben was collaborative, proactive and genuinely cared about doing things the right way."</em></p>
@@ -65,22 +67,38 @@
 </section>
 
 <script>
-  const slides = document.querySelectorAll('.testimonials-slide');
+  const track = document.querySelector<HTMLElement>('.testimonials-track');
+  const slides = document.querySelectorAll('.testimonial-slide');
   const leftArrow = document.querySelector('.carousel-arrow-left');
   const rightArrow = document.querySelector('.carousel-arrow-right');
-  let currentSlide = 0;
+  let page = 0;
 
-  function goToSlide(index: number) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = index;
-    slides[currentSlide].classList.add('active');
+  // One testimonial per page on mobile, two per page on wider screens.
+  const slidesPerPage = () =>
+    window.matchMedia('(max-width: 768px)').matches ? 1 : 2;
+
+  const pageCount = () => Math.ceil(slides.length / slidesPerPage());
+
+  function render() {
+    if (!track) return;
+    const pages = pageCount();
+    // Keep the page index in range (also handles wrap-around from the arrows).
+    page = ((page % pages) + pages) % pages;
+    track.style.transform = `translateX(-${page * 100}%)`;
   }
 
   leftArrow?.addEventListener('click', () => {
-    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+    page -= 1;
+    render();
   });
 
   rightArrow?.addEventListener('click', () => {
-    goToSlide((currentSlide + 1) % slides.length);
+    page += 1;
+    render();
   });
+
+  // Re-clamp the page when crossing the mobile/desktop breakpoint.
+  window.addEventListener('resize', render);
+
+  render();
 </script>
