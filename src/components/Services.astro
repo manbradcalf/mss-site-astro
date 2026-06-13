@@ -2,40 +2,22 @@
 // src/components/Services.astro
 export const services = [
   {
-    icon: "fas fa-comments",
-    title: "Ask anything, in plain English",
-    description: "The questions you actually care about — typed the way you'd say them out loud. No query language, no dashboard backlog, no waiting on the data team to get back to you.",
-    link: null
+    icon: "fas fa-brain",
+    title: "Agents that remember the right thing",
+    description: "An AI agent is only as good as what it remembers. We give yours memory that surfaces the context that actually matters, follows how your data connects, and can show why it acted — so it answers from the right information, not whatever sounded close.",
+    link: "/landing/agent-memory"
   },
   {
-    icon: "fas fa-circle-check",
-    title: "Answers you can act on",
-    description: "The most dangerous report is the one that looks right and isn't. We pressure-test every answer against the questions you sign off on — so the number you make a decision on is the right number.",
-    link: null
-  },
-  {
-    icon: "fas fa-diagram-project",
-    title: "Connect the dots across your whole business",
-    description: "\"Who's tied to this flagged account?\" \"If this supplier goes down, what gets hit?\" \"Show me everything touching this customer.\" The questions that span everything — answered in one shot, not five spreadsheets.",
-    link: "/services/graph-database-services"
+    icon: "fas fa-people-group",
+    title: "A team of agents that survives production",
+    description: "Most agent demos fall apart the moment real work spans more than one step. We design teams that hand off cleanly, stay inside a budget, and keep a human in the loop where it counts — built to run after the pitch is over, not just impress during it.",
+    link: "/landing/agentic-team"
   },
   {
     icon: "fas fa-file-lines",
-    title: "Unlock what's buried in your documents",
-    description: "Contracts, PDFs, reports, policies — the answers locked inside them, pulled out and made as easy to ask about as anything else you own.",
+    title: "Answers pulled out of your documents",
+    description: "Contracts, PDFs, reports, policies — the answers are in there, just locked behind hundreds of pages no one has time to read. We pull them out and make them as easy to ask about as anything else you own.",
     link: "/services/document-processing-pipeline"
-  },
-  {
-    icon: "fas fa-robot",
-    title: "Hand off the busywork",
-    description: "AI workers that run the repetitive jobs for you — outreach, data entry, reporting, inbox triage — so your team spends its hours on the work that actually needs a human.",
-    link: "/services/custom-ai-agents"
-  },
-  {
-    icon: "fas fa-shield-halved",
-    title: "Built to be trusted, not just demoed",
-    description: "A decade spent breaking software is what qualifies us to build the kind that holds up. We'll also tell you straight when you don't need us — honesty is the whole point.",
-    link: null
   }
 ];
 ---
@@ -43,8 +25,8 @@ export const services = [
 <section id="services" class="services">
   <div class="container">
     <div class="section-header">
-      <h2>What You Get</h2>
-      <p>Straight answers to the questions you've been told are "too complicated to pull."</p><br/><p>Ask in plain English. Trust what comes back.</p>
+      <h2>Where we come in</h2>
+      <p>Three places AI actually earns its keep — set up to work on your real data, and to keep working after the demo.</p>
     </div>
     <div class="services-grid">
       {
