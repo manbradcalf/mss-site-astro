@@ -9,7 +9,9 @@
   --bg-alt: #162029;     /* alternating section background */
   --surface: #1a2831;    /* cards / raised surfaces */
   --border: #3a4a55;     /* subtle borders */
-  --text-muted: #b0b0b0; /* secondary text */
+  --text-muted: #b0b0b0; /* secondary text (on dark surfaces) */
+  --ink: #1b2a31;        /* primary text on light surfaces */
+  --ink-muted: #475560;  /* secondary text on light surfaces */
 }
 
 /* Reset and Base Styles */
@@ -358,7 +360,7 @@ p {
 }
 
 .about-hero h2 {
-  color: #333;
+  color: var(--cream);
   margin-bottom: 0.75rem;
 }
 
@@ -373,7 +375,7 @@ p {
 
 .about-subtitle {
   font-size: 1.1rem;
-  color: #555;
+  color: var(--text-muted);
   max-width: 560px;
   margin: 0 auto 1rem;
 }
@@ -386,7 +388,7 @@ p {
 }
 
 .about-title-row h4 {
-  color: #555;
+  color: var(--text-muted);
   font-weight: 500;
   margin: 0;
 }
@@ -410,12 +412,12 @@ p {
 .about-body p {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: #444;
+  color: var(--text-muted);
   margin-bottom: 1.25rem;
 }
 
 .about-body h3 {
-  color: #333;
+  color: var(--cream);
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-size: 1.4rem;
@@ -737,13 +739,23 @@ p {
 }
 
 .author-info h4 {
-  color: var(--cream);
+  color: var(--ink);
   margin: 0;
   font-size: 1rem;
 }
 
+.author-info h4 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.author-info h4 a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
 .author-info span {
-  color: var(--text-muted);
+  color: var(--ink-muted);
   font-size: 0.9rem;
 }
 
@@ -754,7 +766,7 @@ p {
 }
 
 .partners-subheading {
-  color: #333;
+  color: var(--ink);
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
   margin-top: 2.5rem;
@@ -790,13 +802,13 @@ p {
 }
 
 .partner-card h4 {
-  color: #333;
+  color: var(--ink);
   font-size: 1.2rem;
   margin: 0 0 0.75rem;
 }
 
 .partner-card p {
-  color: #555;
+  color: var(--ink-muted);
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0 0 1rem;
@@ -941,7 +953,7 @@ textarea:focus-visible {
 }
 
 .footer-section p {
-  color: #ccc;
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
@@ -954,7 +966,7 @@ textarea:focus-visible {
 }
 
 .footer-section ul li a {
-  color: #ccc;
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -990,7 +1002,7 @@ textarea:focus-visible {
   text-align: center;
   padding-top: 2rem;
   border-top: 1px solid var(--surface);
-  color: #ccc;
+  color: var(--text-muted);
 }
 
 /* Animations */
@@ -1399,5 +1411,21 @@ textarea:focus-visible {
     display: block;
     margin: 0.5rem auto;
     text-align: center;
+  }
+}
+
+/* Respect reduced-motion preference (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
