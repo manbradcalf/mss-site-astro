@@ -83,7 +83,7 @@ p {
 
 .btn-primary {
   background: var(--gold);
-  color: white;
+  color: var(--bg);
 }
 
 .btn-primary:hover {
@@ -99,7 +99,7 @@ p {
 
 .btn-secondary:hover {
   background: var(--gold);
-  color: white;
+  color: var(--bg);
   transform: translateY(-2px);
 }
 
@@ -439,7 +439,7 @@ p {
 }
 
 .packages-grid {
-  display: inline-flex;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1200px;
@@ -501,7 +501,7 @@ p {
 }
 
 .package-price .period {
-  color: #666;
+  color: var(--text-muted);
   font-size: 0.95rem;
 }
 
@@ -710,7 +710,7 @@ p {
 
 .testimonial-content p {
   font-style: italic;
-  color: #c0c0c0;
+  color: var(--bg);
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -905,6 +905,19 @@ p {
 .form-group textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+/* Keyboard focus indicators (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible,
+.carousel-arrow:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
 /* Footer */
