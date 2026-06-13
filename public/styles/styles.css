@@ -74,7 +74,7 @@ p {
 .btn {
   display: inline-block;
   padding: 12px 30px;
-  border-radius: 8px;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
