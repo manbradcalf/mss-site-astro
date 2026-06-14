@@ -1,3 +1,22 @@
+/* =========================================================================
+   global.css — the single global stylesheet. Imported once in Layout.astro
+   so Astro bundles, hashes, and minifies it (do NOT move CSS back to public/).
+
+   What belongs HERE (global):
+     - Design tokens (:root), CSS reset, base element + typography styles
+     - Cross-cutting primitives reused across pages: .btn*, .container,
+       .section-header, focus rings, reduced-motion, shared @keyframes
+     - Styles for classes used by MORE THAN ONE component/page
+       (.hero, .blog-grid, .tag, .how-it-works, ...)
+
+   What belongs in a COMPONENT (scoped <style> in the .astro file):
+     - Anything specific to a single component's markup. Astro scopes it
+       with a hash, so it can safely override a global class for that one
+       component (e.g. BlogSection's .blog-grid / .section-header tweaks).
+
+   Reference tokens via var(--token) — never hardcode a hex that equals one.
+   ========================================================================= */
+
 /* Gundalo brand palette */
 :root {
   --cream: #f6f2e7;      /* primary text / light surfaces */
