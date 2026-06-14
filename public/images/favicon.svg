@@ -2,10 +2,10 @@
     <defs>
         <style>
             .logo-path { fill: #000; }
-            .accent-path { fill: #1dbf73; }
+            .accent-path { fill: #DBA649; }
             @media (prefers-color-scheme: dark) {
                 .logo-path { fill: #FFF; }
-                .accent-path { fill: #1dbf73; }
+                .accent-path { fill: #DBA649; }
             }
         </style>
     </defs>

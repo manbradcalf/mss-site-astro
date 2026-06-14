@@ -29,15 +29,15 @@ const { tags, className = "" } = Astro.props;
     display: inline-block;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    background-color: #f0f0f0;
-    color: #666;
+    background-color: var(--teal);
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 0.85rem;
     transition: all 0.2s ease;
   }
 
   .tag:hover {
-    background-color: var(--color-primary, #1dbf73);
+    background-color: var(--gold);
     color: white;
     transform: translateY(-1px);
   }

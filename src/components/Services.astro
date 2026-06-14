@@ -2,40 +2,22 @@
 // src/components/Services.astro
 export const services = [
   {
-    icon: "fas fa-project-diagram",
-    title: "Graph Database Implementation",
-    description: "Neo4j-certified expertise in building knowledge graphs and graph databases that reveal powerful insights from your connected data.",
-    link: "/services/graph-database-services"
-  },
-  {
     icon: "fas fa-brain",
-    title: "AI Document Processing",
-    description: "Intelligent extraction and categorization systems using multi-stage prompting, structured outputs, and human-in-the-loop design patterns.",
+    title: "Agents that remember the right thing",
+    description: "An AI agent is only as good as what it remembers. We give yours memory that surfaces the context that actually matters, follows how your data connects, and can show why it acted — so it answers from the right information, not whatever sounded close.",
+    link: "/landing/agent-memory"
+  },
+  {
+    icon: "fas fa-people-group",
+    title: "A team of agents that survives production",
+    description: "Most agent demos fall apart the moment real work spans more than one step. We design teams that hand off cleanly, stay inside a budget, and keep a human in the loop where it counts — built to run after the pitch is over, not just impress during it.",
+    link: "/landing/agentic-team"
+  },
+  {
+    icon: "fas fa-file-lines",
+    title: "Answers pulled out of your documents",
+    description: "Contracts, PDFs, reports, policies — the answers are in there, just locked behind hundreds of pages no one has time to read. We pull them out and make them as easy to ask about as anything else you own.",
     link: "/services/document-processing-pipeline"
-  },
-  {
-    icon: "fas fa-robot",
-    title: "Custom AI Agents",
-    description: "Purpose-built AI agents that handle your repetitive workflows — sales outreach, data entry, report generation, inbox triage — so your team can focus on the work that requires a human.",
-    link: "/services/custom-ai-agents"
-  },
-  {
-    icon: "fas fa-network-wired",
-    title: "GraphRAG Solutions",
-    description: "Combine the precision of graph databases with the power of LLMs to build context-aware, retrieval-augmented generation systems.",
-    link: null
-  },
-  {
-    icon: "fab fa-react",
-    title: "Full-Stack Development",
-    description: "Modern web and mobile applications built with React and React Native, backed by 10 years of engineering excellence.",
-    link: null
-  },
-  {
-    icon: "fas fa-check",
-    title: "Automated Testing and CI/CD",
-    description: "Let us automate any and all layers of your test pyramid or release process. Increase your velocity. Ship fewer bugs. Sleep a full 8 hours.",
-    link: null
   }
 ];
 ---
@@ -43,8 +25,8 @@ export const services = [
 <section id="services" class="services">
   <div class="container">
     <div class="section-header">
-      <h2>Our Services</h2>
-      <p>Graphs. Automated AI Workflows. Full-Stack Applications.</p><br/><p> What's not to love? </p>
+      <h2>Where we come in</h2>
+      <p>Three places AI actually earns its keep — set up to work on your real data, and to keep working after the demo.</p>
     </div>
     <div class="services-grid">
       {
