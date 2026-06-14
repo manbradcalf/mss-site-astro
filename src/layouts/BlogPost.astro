@@ -31,7 +31,7 @@ const articleSchema = {
     name: "Medcalf Software Solutions",
     logo: {
       "@type": "ImageObject",
-      url: new URL("/images/M Logo.svg", Astro.site).toString(),
+      url: new URL("/images/gundalogo_gold.svg", Astro.site).toString(),
     },
   },
   mainEntityOfPage: {
@@ -53,9 +53,6 @@ const articleSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
-  <!-- Carousel support for blog posts -->
-  <link rel="stylesheet" href="/styles/carousel.css" />
-  <script src="/js/carousel.js" defer></script>
 
   <Navigation />
 
@@ -272,6 +269,10 @@ const articleSchema = {
     color: #888;
     font-style: italic;
     margin-top: 0.5rem;
+  }
+
+  .post-content :global(a) {
+    color:var(--gold)
   }
 
   .share-section {
