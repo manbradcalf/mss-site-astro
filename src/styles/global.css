@@ -345,11 +345,6 @@ p {
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.services-cta {
-  text-align: center;
-  margin-top: 3rem;
-}
-
 .about {
   padding: 100px 0;
 }
@@ -434,88 +429,6 @@ p {
   color: #1a8a45;
 }
 
-/* Packages Section */
-.packages {
-  padding: 100px 0;
-  background: var(--bg-alt);
-}
-
-.packages-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.package-card {
-  background: var(--surface);
-  border-radius: 15px;
-  padding: 2.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-  position: relative;
-  text-align: center;
-}
-
-.package-card:hover {
-  transform: translateY(-5px);
-}
-
-.package-card.featured {
-  border: 3px solid var(--gold);
-  transform: scale(1.05);
-}
-
-.package-badge {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--gold);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.package-header h3 {
-  color: var(--cream);
-  margin-bottom: 1rem;
-}
-
-.package-price {
-  margin-bottom: 2rem;
-}
-
-.package-price .currency {
-  font-size: 1.5rem;
-  color: var(--gold);
-  vertical-align: top;
-}
-
-.package-price .amount {
-  display: block;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--cream);
-}
-
-.package-price .period {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-.package-best-for {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
-  
-}
-
 /* How It Works */
 .how-it-works {
   text-align: center;
@@ -532,29 +445,6 @@ p {
 
 .how-it-works p {
   margin-bottom:2rem;
-}
-
-/* NOTE: .steps-flow / .step / .step-number / .step-desc / .step-arrow styles
-   live in src/components/Packages.astro (scoped). The old global copies here
-   were overriding the component on mobile (max-width:160px + flex-start),
-   so they were removed. */
-
-.package-features {
-  list-style: none;
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
-.package-features li {
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.package-features i {
-  color: var(--gold);
-  font-size: 0.9rem;
 }
 
 /* Tags (shared: TagList, blog cards, tag index/detail pages) */
@@ -654,21 +544,6 @@ p {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.author-avatar {
-  width: 50px;
-  height: 50px;
-  background: var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.author-avatar i {
-  color: white;
-  font-size: 1.2rem;
 }
 
 .author-info h4 {
@@ -946,14 +821,6 @@ textarea:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .packages-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .package-card.featured {
-    transform: none;
-  }
-
   .testimonial-slide {
     flex: 0 0 100%;
   }
@@ -986,13 +853,8 @@ textarea:focus-visible {
     padding: 0 15px;
   }
 
-  /* Blog responsive styles */
   .blog-grid {
     grid-template-columns: 1fr;
-  }
-
-  .blog-container {
-    padding: 0 1rem;
   }
 }
 
@@ -1006,7 +868,6 @@ textarea:focus-visible {
   }
 
   .service-card,
-  .package-card,
   .testimonial-card {
     padding: 1.5rem;
   }
@@ -1015,118 +876,14 @@ textarea:focus-visible {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
-
-  /* Blog mobile styles */
-  .blog-card .blog-content {
-    padding: 1rem;
-  }
-
-  .blog-hero {
-    padding: 100px 0 60px;
-  }
 }
 
-/* Blog Styles */
-.blog-hero {
-  background: var(--teal);
-  color: white;
-  padding: 120px 0 80px;
-  text-align: center;
-}
-
-.blog-hero p {
-  color: white;
-}
-
-.blog-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
+/* Blog grid — shared by blog index + tag pages (BlogSection overrides locally) */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin: 4rem 0;
-}
-
-.blog-card {
-  background: var(--surface);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.blog-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(219, 166, 73, 0.25);
-}
-
-.blog-image {
-  height: 200px;
-  background: var(--teal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 2rem;
-}
-
-.blog-content {
-  padding: 1.5rem;
-}
-
-.blog-meta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.blog-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--cream);
-}
-
-.blog-excerpt {
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.blog-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.blog-tag {
-  background: var(--teal);
-  color: var(--cream);
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-}
-
-.read-more {
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-.read-more:hover {
-  color: var(--gold);
 }
 
 .nav-link.active {
