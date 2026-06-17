@@ -20,6 +20,8 @@ tags: ["AI", "Agents", "Agentic AI", "Claude", "Automation", "Case Study"]
 Open mid-absurdity: I filed a bug report against my own agents for inventing a
 fake *me*.
 
+![GitHub issue #69 opened by manbradcalf: "Recently I'm seeing Ben in the roundtables, and messages from Ben (CEO) in peoples inbox. This is not me, the real human Ben. I think this is an artifact of the fact I now have my own suite. I am being included in roundtable loops and other things. Can I have my own suite and not be treated like another LLM executive? Thanks"](/images/blog/agentic-advisory-board/rogue-ceo-issue-69.png)
+
 - Source: Issue #69 — *"Rogue CEO persona making calls on Ben's behalf."*
 - Verbatim: *"Recently I'm seeing **Ben** in the roundtables, and messages from
   Ben (CEO) in peoples inbox. This is not me, the real human Ben. … Can I have
