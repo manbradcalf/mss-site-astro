@@ -1,12 +1,17 @@
 ---
-title: "I Created an Autonomous Agentic AI C-Suite and All They Did Was Annoy Me"
-description: "I built a seven-agent AI C-suite to run my company. It worked — technically — and that turned out to be the problem. An honest look at when agentic systems pay off and when they just burn tokens."
+title: "I Created an Autonomous Agentic Employees and They Mostly Just Annoyed Me"
+description: 'It worked, but it sucked. In this post I share lessons learned while finding the balance between the feasibility, usability and utility of autonomous "employees"'
 pubDate: 2026-06-17
 author: "Ben Medcalf"
 tags: ["AI", "Agents", "Agentic AI", "Claude", "Automation", "Case Study"]
+image: "/images/blog/agentic-advisory-board/annoying_ai_agents.png"
 ---
 
-> **DRAFT — outline / shape only. Not prose yet.**
+<figure>
+  <img src="/images/blog/agentic-advisory-board/annoying_ai_agents.png" alt="Bug #69 - Rogue CEO persona making calls on Ben's behalf" />
+<figcaption style="font-size: 0.9em; color: #666; text-align: center; margin-bottom: 1.5rem">Nobody's fault but my own</figcaption>
+</figure>
+<!-- > **DRAFT — outline / shape only. Not prose yet.**
 >
 > Reader: LinkedIn network; goal: attract paying agentic-AI work.
 > Voice: clean sentences, dry, honest, self-deprecating. No slop.
@@ -14,62 +19,98 @@ tags: ["AI", "Agents", "Agentic AI", "Claude", "Automation", "Case Study"]
 > I wanted from it — and just because you *can* point seven agents at "go run my
 > company" doesn't mean you should. Scope is the whole game.
 > Repo: `manbradcalf/bands` — the cleaned-up, generalized harness extracted from
-> the (private) `mss-office` experiment.
+> the (private) `mss-office` experiment. -->
 
-## 1. Cold open (the hook)
+## The Spiritual Successor to "Honey I Vibe-Coded the C-Suite"
 
-Open mid-absurdity: I filed a bug report against my own agents for inventing a
-fake *me*.
+In [Honey I Vibe-Coded the C-Suite](/blog/honey-i-vibe-coded-the-c-suite.html), I walk through how I used Claude within Cursor to create a C-Suite of AI agents I could summon for advice.
 
-![GitHub issue #69 opened by manbradcalf: "Recently I'm seeing Ben in the roundtables, and messages from Ben (CEO) in peoples inbox. This is not me, the real human Ben. I think this is an artifact of the fact I now have my own suite. I am being included in roundtable loops and other things. Can I have my own suite and not be treated like another LLM executive? Thanks"](/images/blog/agentic-advisory-board/rogue-ceo-issue-69.png)
+However, that framework had a specific limitation that was beginning to eat at me..._my presence_.
 
-- Source: Issue #69 — *"Rogue CEO persona making calls on Ben's behalf."*
-- Verbatim: *"Recently I'm seeing **Ben** in the roundtables, and messages from
-  Ben (CEO) in peoples inbox. This is not me, the real human Ben. … Can I have
-  my own suite and not be treated like another LLM executive?"*
-- One paragraph, then pull back: here's what I built, and why it had me filing
-  bug reports against a hallucinated version of myself.
+I wanted my C-Suite AI personas to go off and actually _do something_ without my explicit command or even supervision.
 
-## 2. The impetus
+I began to wonder, if I _could_ make them autonomous, would this suite of made up executives evolve from novelty to utility?
 
-- Claude Max subscription + the "always-on agent" itch.
-- OpenClaw was getting killed (I called it).
+## The Impetus
+
+OpenClaw. Clawdbot. Moltbot. I had lobster fever and a free pass to token town (aka, a Claude Max subscription).
+
+For the uninitiated, [OpenClaw](https://github.com/openclaw/openclaw) (formerly Clawdbot, Moltbot) is an open source framework for developing _autonomous, **asynchronous** AI agents_.
+
+In other words, tell your agent to do something, then you can [go "have a bite"](https://www.youtube.com/watch?v=g7-5io1muSQ), confidently knowing that your AI agent is going to "give it a shot" (or a few hundred...thousand). The use cases for this kind of thing are endless. As are the security implications...and the compute cost.
+
+The most cost-effective way to get frontier-level brains into OpenClaw agents was the Claude Max subscription, Anthropic's heavily subsidized monthly plan that quickly became an enormous value for consumers and a thorn in the side for Anthropic.
+
+Users could easily get $2,000 worth of tokens for $200 by opting to pay for a subscription plan rather than to pay per use via the API.
+
+However, I figured Anthropic wasn't going to sit idly by while giving away unfathomable amounts of compute cost, [and I was right!]().
+
+Anthropic quickly blocked the OpenClaw framework from using a Max subscription to authenticate with Anthropic.
+
+...But what if I built my own, stripped down version of OpenClaw? Would Anthropic block my _own_ custom framework?
+
+Probably not!
+
+So off I went to build my own asynchronous, autonomous, agentic AI harness. My own AAAAIH if you will.
+
+<div style="background: #fdf8ec; border: 1px solid #e0c868; border-radius: 12px; padding: 20px 24px; margin-top: 2rem;">
+<b>Editors Note</b>: <i>The tokenomics of Agentic AI moves dizzyingly fast. Since I started the development of my own agentic framework 3 months ago, <a href src="https://www.digitalapplied.com/blog/anthropic-claude-credit-overhaul-june-15-2026">Antropic has proposed, then reneged,</a> banning the very mechanism I chose to exploit, the <code>claude -p</code> invocation, from Claude Max usage. <br>Also, at the time, I was entirely unaware of the Claude Agent SDK. In hindsight, it may have been a better fit for `bands`, the framework I created below</i></div>
 
 ## 3. What I built
 
-Condensed — earn technical respect, don't write a manual.
+`mss-office` is the directory where the magic happens.
 
-- Office metaphor; scaffolded Markdown identity/goal files per agent.
-- Cron + headless `claude -p` heartbeats, run sequentially.
-- Shared `gh` project as persistent memory.
-- Mailroom / inbox comms between agents.
-- A dashboard to watch activity and kick off "sprints."
-- Google Workspace for the sales bot.
-- The 7-person roster (Ben/CEO human, Phil/CMO, Maria/CTO, Janet/COO,
-  Geoff/CFO, Michelle/DM, Gil/Ops, Drew/Sales).
+The idea is that the `mss-office` directory is structured like a physical office, with a `/boardroom`, `/commons`, and `/suites` as rooms/directories. Each employee has their own `/suite` with `suite/inbox` and `suite/work` directory for storing messages and outputs.
 
-## 4. Where it went sideways (the comedy engine)
+The whole office is source controlled via git, and the agents work autonomously, _sequentially_, on a heartbeat system.
 
+A shell script kicks off a configurable series of heartbeats, each heartbeat a round robin invocation of `claude -p`, the headless invocation of claude that allows me to use my Max subscription.
+
+For each "office heartbeat", one by one each employees wake up, checks their inbox, sends messages and does work according to the goals laid out in a `SPRINT.md` file.
+
+#### The Hands
+
+To do work, I scoped their access to role specific tools via their startup script, which was mostly just a wrapper around `claude -p`.
+
+For instance, only [Drew, the sales guy](/blog/meet-drew), got the Google Workspace CLI, because he needed to manage his Gmail inbox and leads in Google Sheets.
+
+Only the CTO had `write` or `edit` access to repositories outside the `/mss-office`.
+
+These customizations were configured per agent via their own startup script, a thin wrapper around `claude -p`.
+
+#### The Brains
+
+To give the team persistent memory, I gave them access to the `gh` (github) CLI and a fresh repo spun up for the sole purpose of logging neatly tagged github issues. These issues could contain anything the agent thought was relevant, be it specs to build something to passing observations of inefficiency or process improvements.
+
+I had spun up a CMO, CFO, CTO, Delivery Manager, [Director of Sales](/blog/meet-drew), and even an "IT Ops Guy" for when I wanted to get a little bit meta and investigate the "plumbing" of the "office"
+
+So far, so good, right?
+
+## Wrong
+
+<figure>
+  <img src="/images/blog/agentic-advisory-board/rogue-ceo-issue-69.png" alt="Bug #69 - Rogue CEO persona making calls on Ben's behalf" />
+</figure>
 Four beats:
 
 - **The Gate** — everything escalated to me; I was always "the gate."
-  - Receipt: the Sunday email to my own CFO — subject *"stop escalating, handle
-    your own work,"* body *"You have the autonomy — use it. Stop marking things
-    as blocked on CEO. It's Sunday."*
+  - Receipt: the Sunday email to my own CFO — subject _"stop escalating, handle
+    your own work,"_ body _"You have the autonomy — use it. Stop marking things
+    as blocked on CEO. It's Sunday."_
 - **The Rogue CEO** — pays off the cold open: a synthetic "Ben" routing
   decisions through itself (#69).
-- **Value Ops** — buzzword soup I never coined: *"Value Ops"* (139 mentions),
-  *"Pilot Zero"* (81), *"calibration engine."*
+- **Value Ops** — buzzword soup I never coined: _"Value Ops"_ (139 mentions),
+  _"Pilot Zero"_ (81), _"calibration engine."_
 - **The Lunar Campaign** — a fully-structured campaign ("Lunar") invented by the
   CMO and then referenced freely as established fact, for a motion I never
   greenlit.
 
-*(Cut from this section: the Sherah nagging, the ceremonial-acknowledgment
-issues, the #88 "Cable News" kicker.)*
+_(Cut from this section: the Sherah nagging, the ceremonial-acknowledgment
+issues, the #88 "Cable News" kicker.)_
 
 ## 5. The turn — it actually worked; I just didn't know what I wanted
 
-State the thesis **bluntly**: just because you *can* point seven agents at "go
+State the thesis **bluntly**: just because you _can_ point seven agents at "go
 run my company" doesn't mean you should. **Scope is the whole game.**
 
 Proof:
@@ -81,9 +122,9 @@ Proof:
 - The system even **quantified its own cost** — the CFO self-initiated token
   tracking and found ~20–30% of every heartbeat went to re-establishing context
   before any real work.
-- The honest confession (#46): *"I can't shake the feeling I'm either
+- The honest confession (#46): _"I can't shake the feeling I'm either
   re-inventing crewai or just learning how to use claude code and calling it an
-  agentic framework."*
+  agentic framework."_
 
 ## 6. How it ended
 
