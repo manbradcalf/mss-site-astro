@@ -13,7 +13,8 @@ tags: ["AI", "Agents", "Agentic AI", "Claude", "Automation", "Case Study"]
 > Thesis (stated bluntly): the system worked technically, but I didn't know what
 > I wanted from it — and just because you *can* point seven agents at "go run my
 > company" doesn't mean you should. Scope is the whole game.
-> Repo: `manbradcalf/mss-office`.
+> Repo: `manbradcalf/bands` — the cleaned-up, generalized harness extracted from
+> the (private) `mss-office` experiment.
 
 ## 1. Cold open (the hook)
 
