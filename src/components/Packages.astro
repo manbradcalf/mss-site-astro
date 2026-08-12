@@ -1,13 +1,23 @@
 ---
 // src/components/Packages.astro
+// Single source of truth for the "Work With Us" tiers — rendered on the
+// homepage and on /services. Edit prices here only.
+interface Props {
+  showHeader?: boolean;
+}
+const { showHeader = true } = Astro.props;
 ---
 
 <section id="packages" class="packages">
   <div class="container">
-    <div class="section-header">
-      <h2>Work With Us</h2>
-      <p>Scoped engagements with clear deliverables</p>
-    </div>
+    {
+      showHeader && (
+        <div class="section-header">
+          <h2>Work With Us</h2>
+          <p>Scoped engagements with clear deliverables</p>
+        </div>
+      )
+    }
 
     <div class="tiers-grid">
       <div class="service-tier service-tier--free">
@@ -39,7 +49,7 @@
       <div class="service-tier">
         <div class="tier-top">
           <h3>Discovery Sprint</h3>
-          <p class="pricing">$3k</p>
+          <p class="pricing">$3k&ndash;$6k</p>
           <p class="timing">fixed · 1&ndash;2 weeks</p>
         </div>
         <div class="tier-body">
@@ -64,7 +74,7 @@
       <div class="service-tier">
         <div class="tier-top">
           <h3>Build Sprint</h3>
-          <p class="pricing">$6k&ndash;$15k</p>
+          <p class="pricing">$6k&ndash;$18k</p>
           <p class="timing">fixed · 2&ndash;6 weeks</p>
         </div>
         <div class="tier-body">
