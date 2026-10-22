@@ -89,7 +89,7 @@ If you're reading this and thinking "I need a Drew, but for [my thing]" — that
 
 Medcalf Software Solutions builds custom AI automation systems for small businesses. Not chatbots. Not off-the-shelf SaaS. Purpose-built agents that plug into your existing tools (Google Workspace, CRMs, spreadsheets, whatever you're already using) and handle specific workflows with human oversight built in.
 
-The starting point is a [Discovery Sprint](https://medcalfsoftwaresolutions.com/#pricing) — one week, fixed price, where we map your workflow and figure out what an AI agent can realistically take off your plate.
+The starting point is a [Discovery Sprint](https://medcalfsoftwaresolutions.com/#packages) — one week, fixed price, where we map your workflow and figure out what an AI agent can realistically take off your plate.
 
 Or, if you got here because Drew emailed you, just reply to him. I'll see it.
 

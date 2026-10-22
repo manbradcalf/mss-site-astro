@@ -1,7 +1,7 @@
 ---
 // src/components/Packages.astro
 // Single source of truth for the "Work With Us" tiers — rendered on the
-// homepage and on /services. Edit prices here only.
+// homepage and on /services. Edit tiers here only.
 interface Props {
   showHeader?: boolean;
 }
@@ -23,7 +23,6 @@ const { showHeader = true } = Astro.props;
       <div class="service-tier service-tier--free">
         <div class="tier-top">
           <h3>Free Consult</h3>
-          <p class="pricing">Free</p>
           <p class="timing">1 hour</p>
         </div>
         <div class="tier-body">
@@ -49,7 +48,6 @@ const { showHeader = true } = Astro.props;
       <div class="service-tier">
         <div class="tier-top">
           <h3>Discovery Sprint</h3>
-          <p class="pricing">$3k&ndash;$6k</p>
           <p class="timing">fixed · 1&ndash;2 weeks</p>
         </div>
         <div class="tier-body">
@@ -74,7 +72,6 @@ const { showHeader = true } = Astro.props;
       <div class="service-tier">
         <div class="tier-top">
           <h3>Build Sprint</h3>
-          <p class="pricing">$6k&ndash;$18k</p>
           <p class="timing">fixed · 2&ndash;6 weeks</p>
         </div>
         <div class="tier-body">
@@ -99,7 +96,6 @@ const { showHeader = true } = Astro.props;
       <div class="service-tier">
         <div class="tier-top">
           <h3>Retainer</h3>
-          <p class="pricing">$2k+</p>
           <p class="timing">monthly · ongoing</p>
         </div>
         <div class="tier-body">
@@ -210,14 +206,6 @@ const { showHeader = true } = Astro.props;
     font-size: 1.4rem;
     color: #333;
     margin: 0 0 0.75rem 0;
-  }
-
-  .pricing {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #23aa57;
-    margin: 0;
-    line-height: 1.2;
   }
 
   .timing {
